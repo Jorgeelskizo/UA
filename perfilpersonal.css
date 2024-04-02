@@ -1,0 +1,327 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #ebebeb;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height:5em;
+    margin-right: 10px;
+  }
+  
+  .search-bar {
+    position: relative;
+  }
+  
+  .search-bar input {
+    height: 1.5em;
+    width: 50em;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .search-bar button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .search-bar button i {
+    color: #333; /* Color of the search icon */
+    font-size: 20px; /* Size of the icon */
+  }
+  
+  .profile img {
+    height: 4em; /* Adjust as needed */
+    border-radius: 20px;
+  }
+  
+  input[type="text"] {
+    padding: 0.5em;
+  }
+  
+  .user-icons img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+  }
+  
+  .profile-noheader {
+    position: relative;
+    text-align: center;
+    margin: 1em 0;
+  }
+  
+  .follow-button {
+    position: absolute;
+    top: 0; /* Ajusta esto según sea necesario para que quede justo debajo de la cabecera */
+    right: 0; /* Alineado a la derecha */
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 1em; /* Añade un margen superior si es necesario para que no toque la cabecera */
+    margin-right: 1em; /* Añade un margen derecho si es necesario para alinear correctamente */
+  }
+
+  .profile-image {
+    width: 200px; /* Ajusta según tus necesidades */
+    height: 200px;
+    border-radius: 50%; /* Hace la imagen circular */
+    margin-bottom: 1em;
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+  .stats div {
+    margin-left: 55px;
+    text-align: center;
+  }
+  
+  button {
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  nav {
+    display: flex; /* Utiliza flexbox para alinear los elementos */
+    justify-content: space-between; /* Distribuye el espacio uniformemente */
+    background-color: #eee;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch; /* Hace que los elementos `li` se estiren para llenar el `nav` */
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+  nav li {
+    flex-grow: 1; /* Hace que cada `li` crezca de manera uniforme */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra el contenido de `li` vertical y horizontalmente */
+    padding: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    border-radius: 10px; /* Esquinas redondeadas para cada `li` */
+  }
+  
+  nav li:hover {
+    background-color: #ccc;
+  }
+  
+  .gallery-container {
+    background-color: #f5f5f5; /* Fondo gris claro para la caja contenedora */
+    border: 1px solid #dbdbdb; /* Borde gris un poco más oscuro */
+    padding: 20px; /* Espaciado alrededor de los artículos */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para la caja contenedora */
+    border-radius: 10px; /* Bordes redondeados para la caja contenedora */
+    margin: auto; /* Centra la caja contenedora */
+    max-width: auto; /* Ancho máximo de la caja contenedora, ajusta según necesites */
+  }
+  
+  .project-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los artículos se ajusten en filas */
+    gap: 16px; /* Espacio entre los artículos */
+  }
+  
+  .project-gallery article {
+    text-align: center;
+  }
+  
+  .project-gallery img {
+    width: 100px; /* Ajusta esto al tamaño que necesitas */
+    height: 100px; /* Ajusta esto al tamaño que necesitas */
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+  }
+  
+  section > div {
+    text-align: center;
+    padding: 1em;
+  }
+  
+  button {
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Estilos existentes, mantenlos como están y añade los nuevos debajo de ellos. */
+
+  .project-gallery article {
+    text-align: center;
+    border: 1px solid #ccc;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    position: relative;
+    margin: 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrado horizontal */
+    height: 300px; /* Altura fija del artículo */
+    width: 200px; /* Ancho fijo del artículo */
+  }
+  
+  .project-gallery img {
+    width: 200px; /* Ancho automático para mantener la proporción */
+    height: 200px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Las imágenes cubren el espacio asignado */
+    border-radius: 6px;
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+  }
+  
+  .project-gallery article footer {
+    position: absolute; /* Posicionamiento absoluto dentro del article */
+    bottom: 16px; /* Posicionado en la parte inferior del article */
+    left: 0; /* Alineado a la izquierda del article */
+    right: 0; /* Alineado a la derecha del article */
+    display: flex;
+    justify-content: space-between; /* Separa los elementos hijo a ambos extremos */
+    padding: 0 16px; /* Padding izquierdo y derecho para no pegar el texto a los bordes */
+  }
+  
+  .project-gallery article footer p {
+    margin: 0; /* Anula cualquier margen por defecto */
+    /* No necesitas width: calc(100% - 32px) aquí ya que el footer llena el ancho del article */
+  }
+  
+
+  @media(max-width: 950px){
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 3em;
+      margin-right: 10px;
+    }
+    
+    .search-bar input {
+      height: 1.5em;
+      width: 30em;
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .search-bar button {
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    
+    .profile img {
+      height: 3em; /* Adjust as needed */
+      border-radius: 20px;
+    }
+
+    .profile-image {
+    width: 200px; /* Ajusta según tus necesidades */
+    height: 200px;
+    border-radius: 50%; /* Hace la imagen circular */
+    margin-bottom: 1em;
+  }
+
+  }
+
+  @media(max-width: 600px){
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 1.5em;
+      margin-right: 10px;
+    }
+    
+    .search-bar input {
+      height: 1.5em;
+      width: 10em;
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .search-bar button {
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    
+    .profile img {
+      height: 1.5em; /* Adjust as needed */
+      border-radius: 20px;
+    }
+
+    .stats div {
+      margin-left: 35px;
+      text-align: center;
+    }
+
+  }
