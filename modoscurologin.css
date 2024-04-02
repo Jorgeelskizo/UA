@@ -1,0 +1,138 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Color de fondo oscuro */
+    color: #ffffff; /* Texto en color claro para contraste */
+}
+
+.login-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212; /* Fondo oscuro para el contenedor de inicio de sesión */
+}
+
+.login-box {
+    width: 400px;
+    padding: 20px;
+    background: #1e1e1e; /* Fondo más oscuro para la caja de inicio de sesión */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1); /* Sombra más clara para destacar */
+}
+
+.university-logo {
+    display: block;
+    margin: 0 auto 30px auto;
+    height: 80px;
+    /* Asegúrate de que tu logo sea visible en el fondo oscuro, podrías necesitar ajustar la imagen. */
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff; /* Texto en color claro */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333; /* Borde más oscuro para los controles del formulario */
+    border-radius: 3px;
+    box-sizing: border-box;
+    background: #262626; /* Fondo para los inputs */
+    color: #ffffff; /* Color del texto para los inputs */
+}
+
+.session-utilities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox {
+    margin: 0;
+    /* Asegúrate de que el checkbox es visible en el fondo oscuro. */
+}
+
+.link {
+    color: #1a8cd8; /* Color claro pero que se destaque en el fondo oscuro */
+    text-decoration: none;
+}
+
+.form-action {
+    margin-top: 20px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-color: #0d6efd; /* Botón con color más claro para que se destaque */
+    cursor: pointer;
+}
+
+.social-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-icon img {
+    width: 40px;
+    margin: 0 5px;
+    vertical-align: middle;
+    /* Puede que necesites aplicar un filtro o invertir los colores para que se vean bien en modo oscuro. */
+}
+
+.social-icon:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 520px) {
+    .login-box {
+        width: auto;
+        margin: 0 20px;
+        box-shadow: none;
+    }
+
+    .university-logo {
+        height: 60px;
+    }
+
+    .login-title {
+        font-size: 20px;
+    }
+
+    .form-control {
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 12px;
+    }
+
+    .social-icon img {
+        width: 35px;
+    }
+
+    .session-utilities {
+        display: block;
+    }
+
+    .checkbox {
+        margin-bottom: 10px;
+    }
+
+    .link {
+        align-self: flex-end;
+    }
+}
