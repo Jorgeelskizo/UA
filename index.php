@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Universitat d'Alacant</title>
 <link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="nav.css">
 </head>
 <body>
 
@@ -14,17 +15,10 @@
 
 <div class="header-image"></div>
 
-<nav>
-		<label for="checkmenu">&equiv;</label>
-		<input type="checkbox" id="checkmenu">
-		<ul>
-			<li><a href="index.html" class='icon-home'><span>Populares</span></a></li>
-			<li><a href="buscar.html" class='icon-search'><span>Proyectos</a></li>
-			<li><a href="login.html" class="icon-user-add"><span>Prácticas</span></a></li>
-			<li><a href="index.html" class="icon-logout"><span>TFG</span></a></li>
-			<li><a href="registro.html" class="icon-bookmark"><span>TFM</span></a></li>
-		</ul>
-</nav>
+    <?php
+        include 'Imports/barranav.php';
+    ?>
+
 
 <section class="gallery-container">
     <section class="project-gallery">

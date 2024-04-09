@@ -116,42 +116,6 @@ body {
     cursor: pointer;
   }
   
-  nav {
-    display: flex; /* Utiliza flexbox para alinear los elementos */
-    justify-content: space-between; /* Distribuye el espacio uniformemente */
-    background-color: #eee;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    margin-bottom: 15px;
-  }
-  
-  nav ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: stretch; /* Hace que los elementos `li` se estiren para llenar el `nav` */
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    width: 100%;
-    height: 100%;
-  }
-  
-  nav li {
-    flex-grow: 1; /* Hace que cada `li` crezca de manera uniforme */
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centra el contenido de `li` vertical y horizontalmente */
-    padding: 0.5em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
-    border-radius: 10px; /* Esquinas redondeadas para cada `li` */
-  }
-  
-  nav li:hover {
-    background-color: #ccc;
-  }
-  
   .gallery-container {
     background-color: #f5f5f5; /* Fondo gris claro para la caja contenedora */
     border: 1px solid #dbdbdb; /* Borde gris un poco más oscuro */

@@ -5,23 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perfil de Usuario - Universitat d'Alacant</title>
 <link rel="stylesheet" href="perfilajeno.css">
+<link rel="stylesheet" href="nav.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="logo">
-        <img src="Imagenes/hung_360.png" alt="Universitat d'Alacant Logo">
-    </div>
-    <div class="search-bar">
-        <input type="text">
-        <button type="submit" class="search-button">
-            <i class="fas fa-search"></i>
-          </button>
-    </div>
-    <div class="profile">
-        <img src="Imagenes/hung_360.png" alt="Profile Picture">
-    </div>
-</header>
+<?php
+    include 'Imports/cabecera.php';
+?>
 
 <main>
   <section class="profile-noheader">
@@ -36,15 +26,10 @@
     </div>
   </section>
 
-  <nav>
-    <ul>
-      <li>Populares</li>
-      <li>Proyectos</li>
-      <li>Prácticas</li>
-      <li>TFG</li>
-      <li>TFM</li>
-    </ul>
-  </nav>
+  <?php
+    include 'Imports/barranav.php';
+  ?>
+
 
   <section class="gallery-container">
     <section class="project-gallery">

@@ -65,63 +65,6 @@ body {
     height: 30px;
     margin-left: 10px;
   }
-  
-  
-  nav li:hover {
-    background-color: #ccc;
-  }
-
-  #checkmenu {
-		display: none;
-	}
-
-	/* + --> para indicar que es el hermano inmediato, la siguiente linea a la derecha, bueno abajo */
-	#checkmenu:checked + ul{
-		/* display:block; */
-		max-height: 12em;
-
-
-	}
-
-  body > nav {
-    background-color: #B4E0FA;
-    background-color: #eee;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    margin-bottom: 15px;
-    
-    /*mantener el nav pegado arriba*/
-    position: sticky;
-    top: 0;
-    
-  }
-  body > nav > ul{
-    list-style-type: none;
-    margin:0;
-    padding: 0;
-    align-items: stretch; /* Hace que los elementos `li` se estiren para llenar el `nav` */
-    width: 100%;
-    height: 100%;
-  
-    /* display:none; */
-  
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 1s ease-in-out;
-  
-  }
-
-  body > nav > ul > li{
-    justify-content: center;
-    align-items: center; /* Centra el contenido de `li` vertical y horizontalmente */
-    padding: 0.5em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
-    border-radius: 10px; /* Esquinas redondeadas para cada `li` */
-  
-  }
-  
 
   .header-image {
     width: 100%; /* El div se extiende a lo ancho de su contenedor */
@@ -211,46 +154,7 @@ body {
     margin: 0; /* Anula cualquier margen por defecto */
     /* No necesitas width: calc(100% - 32px) aquí ya que el footer llena el ancho del article */
   }
-  
-
-  /* Media queries */
-	@media (min-width:400px){
-    body > nav > ul > li > a{
-        /* hace que se resalte todo cuando pasas con el raton por encima */
-        padding: .4em;
-    }
-
-    body > nav > label[for]{
-        /* Quitamos las 3 rallitas cuando hay espacio */
-        display: none;
-    }
-
-    body > nav > ul > li > a > span{
-        /* mostrar unicamente iconos cuando no haya hueco */
-        display: none;
-    }
-
-    body > nav > ul{
-        
-        display: flex;
-        /* ya no te aparecen todos en linea */
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-
-        
-        max-height: 2em;
-    }
-
-    body > nav > ul > li{
-        /* todos los articulos crecen lo mismo para evitar que haya espacios vacios sueltos entre ellos */
-        
-        flex-grow: 1;
-        text-align: center;
-    }
-
-}
-  
-  
+   
   /* Continúa con los estilos de footer y button como se proporcionaron previamente */
 
   @media(max-width: 950px){
@@ -344,25 +248,4 @@ body {
     }
 
   }
-
-  @media (min-width:748px){
-    body > nav > ul{
-        display: flex;
-        /* ya no te aparecen todos en linea */
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
-
-    body > nav > ul > li{
-        /* todos los articulos crecen lo mismo para evitar que haya espacios vacios sueltos entre ellos */
-        flex-grow: 1;
-        text-align: center;
-    }
-
-    body > nav > ul > li > a > span{
-        /* mostrar nombres y iconos cuando haya espacio */
-        display: inline-block;
-    }
-
-}
   

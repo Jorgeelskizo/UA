@@ -8,7 +8,23 @@
                 <i class="fas fa-search"></i>
               </button>
         </div>
-        <div class="profile">
-            <img src="Imagenes/hung_360.png" alt="Profile Picture">
-        </div>
+        <?php 
+            if (basename($_SERVER['SCRIPT_NAME']) != 'perfilpersonal.php') {
+                // Código para mostrar el div de perfil        
+        ?>
+                <div class="profile">
+                    <img src="Imagenes/hung_360.png" alt="Profile Picture">
+                </div>
+        <?php 
+            }else{
+        ?>
+                <div class="profile">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+        <?php                     
+              } 
+        ?>
+             
+         
+        
     </header>
