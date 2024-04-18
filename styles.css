@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 3em;
+    margin-right: 10px;
+  }
+  
+  .search-bar {
+    position: relative;
+  }
+  
+  
+  .search-bar input {
+    height: 2em;
+    width: 35em;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+  }
+  
+  .search-bar button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .search-bar button i {
+    color: #333; /* Color of the search icon */
+    font-size: 20px; /* Size of the icon */
+  }
+  
+  .profile img {
+    height: 40px; /* Adjust as needed */
+    border-radius: 20px;
+  }
