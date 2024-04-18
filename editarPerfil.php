@@ -10,22 +10,7 @@
 </head>
 <body>
 
-<header class="site-header">
-    <div class="logo">
-        <img src="img/logoUA.png" alt="Logo" class="logo-big">
-    <!-- Imagen para pantallas más pequeñas -->
-    <img src="img/ua-cuadrado.png" alt="Logo" class="logo-small">
-    </div>
-    <div class="search-bar">
-        <input type="text">
-        <button type="submit" class="search-button">
-            <i class="fas fa-search"></i>
-          </button>
-    </div>
-    <div class="profile">
-        <img src="img/user.jpg" alt="Profile Picture">
-    </div>
-</header>
+<?php include 'imports/header.php'; ?>
 
 <section class="resumenPerfil">
     

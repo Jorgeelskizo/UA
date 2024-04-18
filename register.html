@@ -15,38 +15,43 @@
                 <!-- Incluir la imagen del logo aquí -->
             </div>
             <h2 class="registro-title">Registro</h2>
-            <form class="registro-form">
+            <form class="registro-form" action="scripts/registro.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nombre">
-                    <input type="text" class="form-control" placeholder="Apellidos">
+                    <input type="text" class="form-control" placeholder="Nombre Completo" name="nombre_completo">
                 </div>
                 <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nick" name="nick">
+                </div>
+                <!-- <div class="form-group">
                     <input type="text" class="form-control" placeholder="DNI">
-                </div>
+                </div> -->
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Contraseña">
-                    <input type="password" class="form-control" placeholder="Repetir contraseña">
-                </div>
-                <div class="form-group">
-                    <input type="date" class="form-control">
-                    <select class="form-control">
+                    <input type="date" class="form-control" name="fecha">
+                    <select class="form-control" name="carrera">
                         <option>Carrera 1</option>
                         <option>carrera 2</option>
                         <option>Carrera 3</option>
                         <option>Carrera 4</option>
                         <option>Carrera 5</option>
                     </select>
-                    <select class="form-control">
+                    <select class="form-control" name="anyo">
                         <option>Año</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
-                        <option>5</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" name="correo_electronico">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Contraseña" name="contrasena">
+                    <input type="password" class="form-control" placeholder="Repetir contraseña">
+                </div>
+                <div class="form-group">
+                    <!-- <label for="foto">Foto de Perfil:</label> -->
+                    <input type="file" class="form-control" id="foto" name="foto">
                 </div>
                 <div class="form-actions">
                     <button type="button" class="btn cancelar">Cancelar</button>

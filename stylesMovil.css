@@ -131,9 +131,15 @@ body {
 .profile-username,
 .profile-university,
 .profile-degree {
-  font-size: 0.9em;
+  font-size: 2em;
   color: #666;
   margin: 0;
+}
+
+.user-name {
+  font-size: 1em;
+  color: #333;
+  margin-right: 10px; /* Adjust the margin as needed */
 }
 
 
@@ -282,6 +288,63 @@ body {
   width: 100%;
   object-fit: cover;
   scroll-snap-align: center;
+}
+
+
+
+/*FOOTER*/
+.site-footer {
+  background-color: #f4f4f4;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  border-top: 3px solid #dcdcdc;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section h3 {
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section ul li {
+  color: #666;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #0d47a1;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
 }
 
 
