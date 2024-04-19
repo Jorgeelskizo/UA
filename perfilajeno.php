@@ -10,7 +10,7 @@
 <body>
 
 <?php
-    include 'Imports/cabecera.php';
+    include 'Imports/header.php';
 ?>
 
 <?php

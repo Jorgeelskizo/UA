@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (isset($_SESSION['nombre_usuario'])) {
+  header("Location: index.php"); // Redirige a la página principal si ya está logueado
+  exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,20 +23,20 @@
   <div class="login-box">
     <img src="path-to-your-logo.png" alt="Universidad de Alicante" class="university-logo">
     <div class="login-title">Iniciar Sesión</div>
-    <form>
+    <form method="post" action="scripts/login.php" enctype="multipart/form-data">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nombre de usuario">
+        <input type="text" class="form-control" placeholder="Nombre de usuario" name="nombre_completo">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Contraseña">
+        <input type="password" class="form-control" placeholder="Contraseña" name="contrasena">
       </div>
       <div class="session-utilities">
         <div class="checkbox">
           <label>
-            Recordar sesión <input type="checkbox"> 
+            Recordar sesión <input type="checkbox" name="recordar"> 
           </label>
         </div>
-        <a href="#" class="link">Recuperar contraseña</a>
+        <a href="register.html" class="link">Recuperar contraseña</a>
       </div>
       <div class="form-action">
         <button type="submit" class="btn">Iniciar Sesión</button>

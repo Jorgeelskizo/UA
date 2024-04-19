@@ -1,251 +1,280 @@
 body {
-    font-family: Arial, sans-serif;
-  }
+  font-family: Arial, sans-serif;
+}
 
-  .site-header {
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  background-color: #ebebeb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+
+.logo-small {
+  max-height: 3em;
+  /* Asegura que ambas imágenes no sean más altas de 3em */
+  margin-right: 10px;
+}
+
+.logo-big {
+  max-height: 3em;
+  /* Asegura que ambas imágenes no sean más altas de 3em */
+  margin-right: 10px;
+}
+
+.logo-small {
+  display: none;
+}
+
+
+
+.search-bar {
+  position: relative;
+  flex-grow: 1;
+  margin: 0 1em;
+  max-width: 100%;
+  flex: 3;
+}
+
+.search-bar input {
+  height: 1.5em;
+  width: calc(100% - 60px);
+  padding: 5px 10px;
+  padding-right: 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  /* Set the height to match the parent */
+  width: 40px;
+  /* Set a fixed width for the button */
+  display: flex;
+  /* Use flexbox for centering */
+  align-items: center;
+  /* Center the icon vertically */
+  justify-content: center;
+  cursor: pointer;
+}
+
+.search-bar button i {
+  color: #333;
+  /* Color of the search icon */
+  font-size: 20px;
+  /* Size of the icon */
+}
+
+.profile {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.profile img {
+  height: 3em;
+  /* Adjust as needed */
+  border-radius: 20px;
+}
+
+.header-image {
+  width: 100%;
+  /* El div se extiende a lo ancho de su contenedor */
+  height: 150px;
+  /* Altura fija para hacerla rectangular, ajusta según necesites */
+  background-image: url('Imagenes/Ej_diagrama.jpeg');
+  /* Imagen de fondo */
+  background-size: cover;
+  /* La imagen cubre completamente el div */
+  background-position: center;
+  /* La imagen se centra dentro del div */
+  margin-top: 20px;
+  /* Espacio entre la cabecera y la imagen */
+}
+
+
+.gallery-container {
+  background-color: #f5f5f5;
+  /* Fondo gris claro para la caja contenedora */
+  border: 1px solid #dbdbdb;
+  /* Borde gris un poco más oscuro */
+  padding: 20px;
+  /* Espaciado alrededor de los artículos */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra para la caja contenedora */
+  border-radius: 10px;
+  /* Bordes redondeados para la caja contenedora */
+  margin: auto;
+  /* Centra la caja contenedora */
+  max-width: auto;
+  /* Ancho máximo de la caja contenedora, ajusta según necesites */
+}
+
+.project-gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* Permite que los artículos se ajusten en filas */
+  gap: 16px;
+  /* Espacio entre los artículos */
+}
+
+.project-gallery article {
+  text-align: center;
+}
+
+.project-gallery img {
+  width: 100px;
+  /* Ajusta esto al tamaño que necesitas */
+  height: 100px;
+  /* Ajusta esto al tamaño que necesitas */
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+}
+
+section>div {
+  text-align: center;
+  padding: 1em;
+}
+
+button {
+  padding: 0.5em 1em;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.project-gallery article {
+  text-align: center;
+  border: 1px solid #ccc;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  position: relative;
+  margin: 16px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centrado horizontal */
+  height: 300px;
+  /* Altura fija del artículo */
+  width: 200px;
+  /* Ancho fijo del artículo */
+}
+
+.project-gallery img {
+  width: 200px;
+  /* Ancho automático para mantener la proporción */
+  height: 200px;
+  /* Altura fija para todas las imágenes */
+  object-fit: cover;
+  /* Las imágenes cubren el espacio asignado */
+  border-radius: 6px;
+  margin-bottom: 10px;
+  /* Espacio entre la imagen y el texto */
+}
+
+.project-gallery article footer {
+  position: absolute;
+  /* Posicionamiento absoluto dentro del article */
+  bottom: 16px;
+  /* Posicionado en la parte inferior del article */
+  left: 0;
+  /* Alineado a la izquierda del article */
+  right: 0;
+  /* Alineado a la derecha del article */
+  display: flex;
+  justify-content: space-between;
+  /* Separa los elementos hijo a ambos extremos */
+  padding: 0 16px;
+  /* Padding izquierdo y derecho para no pegar el texto a los bordes */
+}
+
+.project-gallery article footer p {
+  margin: 0;
+  /* Anula cualquier margen por defecto */
+  /* No necesitas width: calc(100% - 32px) aquí ya que el footer llena el ancho del article */
+}
+
+/* Continúa con los estilos de footer y button como se proporcionaron previamente */
+
+@media(max-width: 950px) {}
+
+@media screen and (min-width: 768px) { /* Ajusta el 768px según tus necesidades */
+  .project-container {
     display: flex;
-    align-items: center;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #ebebeb;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .left-column, .right-column{
+    width: 49%;
+  }
+  .left-column{
+    padding-right: 1em;
+    border-right: 1px solid #666;
+  }
+  .right-column{
+    padding-left: 1em;
+  }
+
+  /* Asegúrate de que las imágenes dentro de .project-container y .resources-section no se desborden de sus contenedores */
+  .project-image img, .slider-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
   }
   
-  .logo {
+  /* Ajusta el diseño del slider para que no ocupe toda la altura de la pantalla en pantallas grandes */
+  .slider-container {
+    height: auto;
+    overflow-x: auto; /* Cambia a auto para evitar altura innecesaria */
+  }
+  
+  /* Contenedor para la barra de búsqueda y la imagen del perfil */
+  .search-and-profile {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 100%; /* Ocupa toda la anchura disponible */
+    margin-bottom: 1em; /* Agrega margen debajo si es necesario */
   }
-  
-  .logo img {
-    height:5em;
-    margin-right: 10px;
-  }
-  
+
   .search-bar {
-    position: relative;
+    flex-grow: 1; /* Permite que la barra de búsqueda crezca para llenar el espacio */
+    margin-right: 1em; /* Añade margen a la derecha */
   }
-  
-  .search-bar input {
-    height: 1.5em;
-    width: 50em;
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .search-bar button {
-    border: none;
-    background: transparent;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
-  
-  .search-bar button i {
-    color: #333; /* Color of the search icon */
-    font-size: 20px; /* Size of the icon */
-  }
-  
-  .profile img {
-    height: 4em; /* Adjust as needed */
-    border-radius: 20px;
-  }
-  
-  input[type="text"] {
-    padding: 0.5em;
-  }
-  
-  .user-icons img {
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-  }
+}
 
-  .header-image {
-    width: 100%; /* El div se extiende a lo ancho de su contenedor */
-    height: 150px; /* Altura fija para hacerla rectangular, ajusta según necesites */
-    background-image: url('Imagenes/Ej_diagrama.jpeg'); /* Imagen de fondo */
-    background-size: cover; /* La imagen cubre completamente el div */
-    background-position: center; /* La imagen se centra dentro del div */
-    margin-top: 20px; /* Espacio entre la cabecera y la imagen */
-  }
-  
-  
-  .gallery-container {
-    background-color: #f5f5f5; /* Fondo gris claro para la caja contenedora */
-    border: 1px solid #dbdbdb; /* Borde gris un poco más oscuro */
-    padding: 20px; /* Espaciado alrededor de los artículos */
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para la caja contenedora */
-    border-radius: 10px; /* Bordes redondeados para la caja contenedora */
-    margin: auto; /* Centra la caja contenedora */
-    max-width: auto; /* Ancho máximo de la caja contenedora, ajusta según necesites */
-  }
-  
-  .project-gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Permite que los artículos se ajusten en filas */
-    gap: 16px; /* Espacio entre los artículos */
-  }
-  
-  .project-gallery article {
-    text-align: center;
-  }
-  
-  .project-gallery img {
-    width: 100px; /* Ajusta esto al tamaño que necesitas */
-    height: 100px; /* Ajusta esto al tamaño que necesitas */
-    border-radius: 10px;
-    margin-bottom: 0.5em;
-  }
-  
-  section > div {
-    text-align: center;
-    padding: 1em;
-  }
-  
-  button {
-    padding: 0.5em 1em;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
 
-  .project-gallery article {
-    text-align: center;
-    border: 1px solid #ccc;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    position: relative;
-    margin: 16px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrado horizontal */
-    height: 300px; /* Altura fija del artículo */
-    width: 200px; /* Ancho fijo del artículo */
+@media(max-width: 600px) {
+  .logo-big {
+    display: none;
   }
   
-  .project-gallery img {
-    width: 200px; /* Ancho automático para mantener la proporción */
-    height: 200px; /* Altura fija para todas las imágenes */
-    object-fit: cover; /* Las imágenes cubren el espacio asignado */
-    border-radius: 6px;
-    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+  .logo-small {
+    display: block; /* Mostrar la imagen pequeña */
   }
-  
-  .project-gallery article footer {
-    position: absolute; /* Posicionamiento absoluto dentro del article */
-    bottom: 16px; /* Posicionado en la parte inferior del article */
-    left: 0; /* Alineado a la izquierda del article */
-    right: 0; /* Alineado a la derecha del article */
-    display: flex;
-    justify-content: space-between; /* Separa los elementos hijo a ambos extremos */
-    padding: 0 16px; /* Padding izquierdo y derecho para no pegar el texto a los bordes */
-  }
-  
-  .project-gallery article footer p {
-    margin: 0; /* Anula cualquier margen por defecto */
-    /* No necesitas width: calc(100% - 32px) aquí ya que el footer llena el ancho del article */
-  }
-   
-  /* Continúa con los estilos de footer y button como se proporcionaron previamente */
-
-  @media(max-width: 950px){
-    
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo img {
-      height: 3em;
-      margin-right: 10px;
-    }
-    
-    .search-bar input {
-      height: 1.5em;
-      width: 30em;
-      padding: 5px 10px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .search-bar button {
-      border: none;
-      background: transparent;
-      padding: 0;
-      margin: 0;
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
-    
-    .profile img {
-      height: 3em; /* Adjust as needed */
-      border-radius: 20px;
-    }
-
-    .profile-image {
-    width: 200px; /* Ajusta según tus necesidades */
-    height: 200px;
-    border-radius: 50%; /* Hace la imagen circular */
-    margin-bottom: 1em;
-  }
-
-  }
-
-  @media(max-width: 600px){
-    
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo img {
-      height: 1.5em;
-      margin-right: 10px;
-    }
-    
-    .search-bar input {
-      height: 1.5em;
-      width: 10em;
-      padding: 5px 10px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .search-bar button {
-      border: none;
-      background: transparent;
-      padding: 0;
-      margin: 0;
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
-    
-    .profile img {
-      height: 1.5em; /* Adjust as needed */
-      border-radius: 20px;
-    }
-
-    .stats div {
-      margin-left: 35px;
-      text-align: center;
-    }
-
-  }
-  
+}

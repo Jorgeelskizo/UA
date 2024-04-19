@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'ua';
 $username = 'root';
-$password = ''; // Asegúrate de configurar tu contraseña real de la base de datos aquí
+$password = 'root1'; // Asegúrate de configurar tu contraseña real de la base de datos aquí
 
 // Intentar la conexión con la base de datos
 try {
@@ -41,6 +41,9 @@ try {
         $sql = "INSERT INTO usuarios (nombre_completo, nick, carrera, anyo, foto, contrasena, correo_electronico, fecha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$nombre_completo, $nick, $carrera, $anyo, $foto_path, $hashed_password, $email, $fecha_formateada]);
+
+        session_start();
+        $_SESSION['nombre_usuario'] = $nombre_completo;
 
         echo "Usuario registrado correctamente!";
     }

@@ -1,3 +1,8 @@
+<?php
+require 'scripts/auth.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,7 +17,7 @@
 <body>
 
     <?php
-    include 'Imports/cabecera.php';
+    include 'Imports/header.php';
     ?>
 
     <div class="header-image"></div>
@@ -35,10 +40,12 @@
     }
 
     // Consulta para obtener los datos de los trabajos y sus imágenes
-    $sql = "SELECT t.titulo, t.fecha_publicacion, a.nombre_archivo, a.texto_alternativo 
+    $sql = "SELECT u.nombre_completo as nombre_autor, t.fecha_publicacion, a.nombre_archivo, a.texto_alternativo 
         FROM trabajos t
         JOIN archivos a ON t.id_trabajo = a.id_trabajo
+        JOIN usuarios u ON t.id_usuario = u.id_usuario
         WHERE t.id_trabajo = a.id_trabajo";
+
 
     $resultado = $conexion->query($sql);
 
@@ -54,7 +61,7 @@
             echo '<img src=' . $row['nombre_archivo'] . ' alt=' . $row['texto_alternativo'] . '>';
 
             echo '<footer>';
-            echo '<p>' . $row['titulo'] . '</p>';
+            echo '<p>' . $row['nombre_autor'] . '</p>';
             echo '<p>' . date('d-m-Y', strtotime($row['fecha_publicacion'])) . '</p>';  // Formateando la fecha
             echo '</footer>';
             echo '</article>';
