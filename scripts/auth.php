@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include 'scripts/controlSesion.php';
+
 // Comprobar si la variable de sesión 'usuario_id' está establecida
 if (!isset($_SESSION['nombre_usuario'])) {
     // Si no está establecida, redirigir a la página de login

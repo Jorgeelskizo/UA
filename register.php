@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include 'scripts/controlSesion.php';
+
 if (isset($_SESSION['nombre_usuario'])) {
   header("Location: index.php"); // Redirige a la página principal si ya está logueado
   exit();

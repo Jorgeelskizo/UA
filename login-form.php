@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+include 'scripts/controlSesion.php';
+
+
 if (isset($_SESSION['nombre_usuario'])) {
   header("Location: index.php"); // Redirige a la página principal si ya está logueado
   exit();
@@ -36,7 +39,7 @@ if (isset($_SESSION['nombre_usuario'])) {
             Recordar sesión <input type="checkbox" name="recordar"> 
           </label>
         </div>
-        <a href="register.html" class="link">Recuperar contraseña</a>
+        <a href="register.php" class="link">Recuperar contraseña</a>
       </div>
       <div class="form-action">
         <button type="submit" class="btn">Iniciar Sesión</button>
