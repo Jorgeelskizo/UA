@@ -42,11 +42,9 @@ include 'scripts/controlSesion.php';
     }
 
     // Consulta para obtener los datos de los trabajos y sus imágenes
-    $sql = "SELECT u.nombre_completo as nombre_autor, t.fecha_publicacion, a.nombre_archivo, a.texto_alternativo 
+    $sql = "SELECT u.nombre_completo as nombre_autor, t.fecha_publicacion, t.portada as nombre_archivo
         FROM trabajos t
-        JOIN archivos a ON t.id_trabajo = a.id_trabajo
-        JOIN usuarios u ON t.id_usuario = u.id_usuario
-        WHERE t.id_trabajo = a.id_trabajo";
+        JOIN usuarios u ON t.id_usuario = u.id_usuario";
 
 
     $resultado = $conexion->query($sql);
@@ -60,7 +58,7 @@ include 'scripts/controlSesion.php';
         while ($row = $resultado->fetch_assoc()) {
             echo '<article>';
             // Asegúrate de cerrar las comillas correctamente después de src=
-            echo '<img src=' . $row['nombre_archivo'] . ' alt=' . $row['texto_alternativo'] . '>';
+            echo '<img src=' . $row['nombre_archivo'] . ' alt= " ">';
 
             echo '<footer>';
             echo '<p>' . $row['nombre_autor'] . '</p>';
