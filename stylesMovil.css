@@ -1,411 +1,431 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  min-width: 352px;
-}
-
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5em;
-  background-color: #ebebeb;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  justify-content: center;
-  margin: 0 10px;
-}
-
-
-.logo-small {
-  max-height: 3em; /* Asegura que ambas imágenes no sean más altas de 3em */
-  margin-right: 10px;
-}
-
-.logo-big{
-  max-height: 3em; /* Asegura que ambas imágenes no sean más altas de 3em */
-  margin-right: 10px;
-}
-
-.logo-small {
-  display: none;
-}
-
-
-
-.search-bar {
-  position: relative;
-  flex-grow: 1; 
-  margin: 0 1em;
-  max-width: 100%;
-  flex:3;
-}
-
-.search-bar input {
-  height: 1.5em;
-  width: calc(100% - 60px);
-  padding: 5px 10px;
-  padding-right: 40px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.search-bar button {
-  border: none;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 100%; /* Set the height to match the parent */
-  width: 40px; /* Set a fixed width for the button */
-  display: flex; /* Use flexbox for centering */
-  align-items: center; /* Center the icon vertically */
-  justify-content: center;
-  cursor: pointer;
-}
-
-.search-bar button i {
-  color: #333; /* Color of the search icon */
-  font-size: 20px; /* Size of the icon */
-}
-
-.profile {
-  flex:1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px;
-}
-
-.profile img {
-  height: 3em; /* Adjust as needed */
-  border-radius: 20px;
-}
-
-.profile-card-global {
-  background-color: #ebebeb;
-  padding: 0.5em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-  margin: 0.5em;
-
-}
-.profile-card {
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  margin: 0.5em;
-}
-
-.profile-photo {
-  flex: 1; /* takes up 1 part of the flex container */
-  margin-right: 15px;
-  max-width: 120px;
-}
-
-.profile-photo img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  display: block;
-}
-
-.profile-info {
-  flex: 2; /* takes up 2 parts of the flex container */
-}
-
-.profile-name {
-  font-size: 1.2em;
-  color: #333;
-  margin: 0 0 5px 0;
-}
-
-.profile-username,
-.profile-university,
-.profile-degree {
-  font-size: 2em;
-  color: #666;
-  margin: 0;
-}
-
-.user-name {
-  font-size: 1em;
-  color: #333;
-  margin-right: 10px; /* Adjust the margin as needed */
-}
-
-
-/* ---------------------------------------------------------------------------------------------*/
-
-.project-container {
-    background: #fff;
-    margin-top: 0.1em;;
-    
-    padding: 20px;
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-width: 352px;
   }
 
-.project-image img {
+
+  .profile-card-global {
+    background-color: #ebebeb;
+    padding: 0.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    margin: 0.5em;
+
+  }
+  .profile-card {
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin: 0.5em;
+  }
+
+  .profile-photo {
+    flex: 1; /* takes up 1 part of the flex container */
+    margin-right: 15px;
+    max-width: 120px;
+  }
+
+  .profile-photo img {
     width: 100%;
     height: auto;
-    border-radius: 20px;
+    border-radius: 50%;
+    display: block;
   }
 
+  .profile-info {
+    flex: 2; /* takes up 2 parts of the flex container */
+  }
 
-  .comment-section {
-    background-color: #fff;
-    /* padding: 20px; */
-    border-radius: 10px;
-    /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
-    margin: auto;
+  .profile-name {
+    font-size: 1.2em;
+    color: #333;
+    margin: 0 0 5px 0;
   }
-  .comment {
-    margin-bottom: 20px;
+
+  .profile-username,
+  .profile-university,
+  .profile-degree {
+    font-size: 2em;
+    color: #666;
+    margin: 0;
   }
-  .comment img {
-    width: 100px;
-    height: auto;
-    border-radius: 5px;
-  }
-  .comment-title {
+
+  .user-name {
     font-size: 1em;
     color: #333;
-    margin: 5px 0;
+    margin-right: 10px; /* Adjust the margin as needed */
   }
-  .comment-caption {
-    font-size: 0.9em;
+
+
+  /* ---------------------------------------------------------------------------------------------*/
+
+  .project-container {
+      background: #fff;
+      margin-top: 0.1em;;
+      
+      padding: 20px;
+    }
+
+  .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+    }
+
+
+    .comment-section {
+      background-color: #fff;
+      /* padding: 20px; */
+      border-radius: 10px;
+      /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+      margin: auto;
+    }
+    .comment {
+      margin-bottom: 20px;
+    }
+    .comment img {
+      width: 100px;
+      height: auto;
+      border-radius: 5px;
+    }
+    .comment-title {
+      font-size: 1em;
+      color: #333;
+      margin: 5px 0;
+    }
+    .comment-caption {
+      font-size: 0.9em;
+      color: #666;
+    }
+    .comment-box {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      
+    }
+    .comment-box input[type="text"] {
+      width: calc(100% - 110px);
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .comment-box input[type="submit"] {
+      width: 100px;
+      border: none;
+      padding: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    /* MULTIMEDIA */
+
+  .resources-section {
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-top: 1em;
+  }
+  .resources-section h2 {
+    font-size: 1.25rem;
+    color: #333;
+  }
+  .documents{
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+    /* padding: 1em; */
+    margin: 0;
+  }
+
+  .documents h3 {
+    margin-top:0.1em;
+  }
+
+  .document-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+    padding: 0.2em;
+    border-radius: 4px;
+  }
+
+  .document-icon img{
+    margin-right: 0.5em;
+    height: 4em;
+  }
+  .document-info {
+    flex-grow: 1;
+  }
+  .document-title {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+  }
+  .document-description {
+    font-size: 0.875rem;
     color: #666;
   }
-  .comment-box {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    
-  }
-  .comment-box input[type="text"] {
-    width: calc(100% - 110px);
-    padding: 8px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .comment-box input[type="submit"] {
-    width: 100px;
-    border: none;
-    padding: 8px;
-    background-color: #007bff;
+  .download-button {
+    background: #007bff;
     color: white;
+    border: none;
+    padding: 0.5em 0.9em;
+    border-radius: 4px;
+    font-size: 0.875rem;
     cursor: pointer;
-    border-radius: 10px;
   }
-
-  /* MULTIMEDIA */
-
-.resources-section {
-  background: #fff;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  margin-top: 1em;
-}
-.resources-section h2 {
-  font-size: 1.25rem;
-  color: #333;
-}
-.documents{
-  /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
-  /* padding: 1em; */
-  margin: 0;
-}
-
-.documents h3 {
-  margin-top:0.1em;
-}
-
-.document-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
-  padding: 0.2em;
-  border-radius: 4px;
-}
-
-.document-icon img{
-  margin-right: 0.5em;
-  height: 4em;
-}
-.document-info {
-  flex-grow: 1;
-}
-.document-title {
-  font-size: 1rem;
-  color: #333;
-  margin: 0;
-}
-.document-description {
-  font-size: 0.875rem;
-  color: #666;
-}
-.download-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 0.5em 0.9em;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  cursor: pointer;
-}
-.image-gallery {
-  margin-top: 20px;
-}
-.gallery-image {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-.slider-container {
-  display: flex;
-  width: 90%;
-  height: 100vh;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-}
-
-.slider-container img {
-  flex: 0 0 100%;
-  width: 100%;
-  object-fit: cover;
-  scroll-snap-align: center;
-}
-
-
-
-/*FOOTER*/
-.site-footer {
-  background-color: #f4f4f4;
-  padding: 20px 0;
-  font-family: Arial, sans-serif;
-  color: #333;
-  border-top: 3px solid #dcdcdc;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.footer-section h3 {
-  color: #000;
-  margin-bottom: 10px;
-}
-
-.footer-section p,
-.footer-section ul,
-.footer-section ul li {
-  color: #666;
-  line-height: 1.6;
-}
-
-.footer-section ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.footer-section ul li a {
-  color: #666;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-section ul li a:hover {
-  color: #0d47a1;
-}
-
-.social-icons a {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.social-icons img {
-  width: 24px;
-  height: 24px;
-}
-
-
-@media (max-width: 600px) {
-  .logo-big {
-    display: none;
+  .image-gallery {
+    margin-top: 20px;
   }
-  
-  .logo-small {
-    display: block; /* Mostrar la imagen pequeña */
-  }
-}
-
-
-/* Estilos para pantallas más grandes */
-@media screen and (min-width: 768px) { /* Ajusta el 768px según tus necesidades */
-  .project-container {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-
-  .left-column, .right-column{
-    width: 49%;
-  }
-  .left-column{
-    padding-right: 1em;
-    border-right: 1px solid #666;
-  }
-  .right-column{
-    padding-left: 1em;
-  }
-
-  /* Asegúrate de que las imágenes dentro de .project-container y .resources-section no se desborden de sus contenedores */
-  .project-image img, .slider-container img {
+  .gallery-image {
     width: 100%;
     height: auto;
     border-radius: 4px;
   }
-  
-  /* Ajusta el diseño del slider para que no ocupe toda la altura de la pantalla en pantallas grandes */
+
   .slider-container {
-    height: auto;
-    overflow-x: auto; /* Cambia a auto para evitar altura innecesaria */
+    display: flex;
+    width: 90%;
+    height: 100vh;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
   }
-  
-  /* Contenedor para la barra de búsqueda y la imagen del perfil */
-  .search-and-profile {
+
+  .slider-container img {
+    flex: 0 0 100%;
+    width: 100%;
+    object-fit: cover;
+    scroll-snap-align: center;
+  }
+
+
+
+  /*FOOTER*/
+  .site-footer {
+    background-color: #f4f4f4;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    border-top: 3px solid #dcdcdc;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer-section h3 {
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  .footer-section p,
+  .footer-section ul,
+  .footer-section ul li {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .footer-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .footer-section ul li a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-section ul li a:hover {
+    color: #0d47a1;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+  }
+
+
+  @media (max-width: 600px) {
+    .logo-big {
+      display: none;
+    }
+    
+    .logo-small {
+      display: block; /* Mostrar la imagen pequeña */
+    }
+  }
+
+
+  /* Estilos para pantallas más grandes */
+  @media screen and (min-width: 768px) { /* Ajusta el 768px según tus necesidades */
+    .project-container {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    .left-column, .right-column{
+      width: 49%;
+    }
+    .left-column{
+      padding-right: 1em;
+      border-right: 1px solid #666;
+    }
+    .right-column{
+      padding-left: 1em;
+    }
+
+    /* Asegúrate de que las imágenes dentro de .project-container y .resources-section no se desborden de sus contenedores */
+    .project-image img, .slider-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    
+    /* Ajusta el diseño del slider para que no ocupe toda la altura de la pantalla en pantallas grandes */
+    .slider-container {
+      height: auto;
+      overflow-x: auto; /* Cambia a auto para evitar altura innecesaria */
+    }
+    
+    /* Contenedor para la barra de búsqueda y la imagen del perfil */
+    .search-and-profile {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; /* Ocupa toda la anchura disponible */
+      margin-bottom: 1em; /* Agrega margen debajo si es necesario */
+    }
+
+    .search-bar {
+      flex-grow: 1; /* Permite que la barra de búsqueda crezca para llenar el espacio */
+      margin-right: 1em; /* Añade margen a la derecha */
+    }
+
+    .profile {
+      /* Si la imagen de perfil necesita ajustes de tamaño, agrégalos aquí */
+    }
+  }
+
+
+
+
+  /* Estilo del fondo del modal */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Estilo del contenido del modal */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+
+  /* El botón cerrar (x) */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+
+  .project-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Ocupa toda la anchura disponible */
-    margin-bottom: 1em; /* Agrega margen debajo si es necesario */
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .rate-project,
+  .share-project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    padding: 1.5em 2.5em;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    gap: 0.5em;
   }
 
-  .search-bar {
-    flex-grow: 1; /* Permite que la barra de búsqueda crezca para llenar el espacio */
-    margin-right: 1em; /* Añade margen a la derecha */
+  .valorar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .profile {
-    /* Si la imagen de perfil necesita ajustes de tamaño, agrégalos aquí */
+  #estrellas {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    border-radius: 6px;
+    border: 0.5px solid #d8d8d8;
+
   }
-}
+  
+  .rate-button {
+    background: none;
+    border: none;
+    color: #333; /* Gold color for stars */
+    font-size: 2em;
+    cursor: pointer;
+  }
+  
+  .rate-count {
+    margin-left: 5px;
+  }
+  
+  .social-icons {
+    display: flex;
+  }
+  
+  .social-icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+    color: #333; /* Dark color for social media icons */
+    text-decoration: none;
+  }
+  
+  .social-icon:hover {
+    color: #007bff; /* Light blue on hover for social media icons */
+  }
