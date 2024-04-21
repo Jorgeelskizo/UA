@@ -1,5 +1,7 @@
 <?php
     include 'scripts/auth.php';
+
+    $nombre = $_SESSION['nombre_usuario'];
 ?>
 
 
@@ -29,42 +31,58 @@
   ?>
 
 
-  <section class="gallery-container">
-    <section class="project-gallery">
-        <article>
-            <img src="Imagenes/bardosbattle.PNG" alt="Proyecto 1">
-            <footer>
-                <p>Daniela</p>
-                <p>Fecha</p>
-            </footer>
-        </article>
-        <article>
-            <img src="Imagenes/hung_360.png" alt="Proyecto 2">
-            <footer>
-                <p>Daniela</p>
-                <p>Fecha</p>
-            </footer>
-        </article>
-        <article>
-            <img src="Imagenes/biblio.jpg" alt="Proyecto 3">
-            <footer>
-                <p>Daniela</p>
-                <p>Fecha</p>
-            </footer>
-        </article>
-        <article>
-            <img src="Imagenes/libro2.jpg" alt="Proyecto 4">
-            <footer>
-                <p>Daniela</p>
-                <p>Fecha</p>
-            </footer>         
-        </article>
-    </section>
+<?php
+    // Conexión a la base de datos
+    $host = '127.0.0.1';
+    $dbname = 'ua';
+    $user = 'wordpress';
+    $password = 'wordpress';
+    $conexion = new mysqli($host, $user, $password, $dbname);
 
-    <div>
-        <button>Ver más</button>
-    </div>
-</section>
+    if ($conexion->connect_error) {
+        die("Conexión fallida: " . $conexion->connect_error);
+    }
+
+    // Consulta para obtener los datos de los trabajos y sus imágenes
+    $sql = "SELECT u.nombre_completo as nombre_autor, t.fecha_publicacion, t.portada as nombre_archivo
+        FROM trabajos t
+        JOIN usuarios u ON t.id_usuario = u.id_usuario
+        WHERE u.nombre_completo = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $nombre);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Comprobando si la consulta devolvió filas
+    if ($result->num_rows > 0) {
+        echo '<section class="gallery-container">';
+        echo '<section class="project-gallery">';
+
+        // Procesando cada fila del resultado
+        while ($row = $result->fetch_assoc()) {
+            echo '<article>';
+            // Asegúrate de cerrar las comillas correctamente después de src=
+            echo '<img src=' . $row['nombre_archivo'] . ' alt=" ">';
+
+            echo '<footer>';
+            echo '<p>' . $row['nombre_autor'] . '</p>';
+            echo '<p>' . date('d-m-Y', strtotime($row['fecha_publicacion'])) . '</p>';  // Formateando la fecha
+            echo '</footer>';
+            echo '</article>';
+        }
+
+
+        echo '</section>';
+        echo '<div><button>Ver más</button></div>';
+        echo '</section>';
+    } else {
+        echo "0 resultados";
+    }
+
+    // Cerrar la conexión
+    $conexion->close();
+    ?>
 </main>
 
 </body>

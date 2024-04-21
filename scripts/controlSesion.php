@@ -31,6 +31,7 @@ if(isset($_COOKIE['recordarme']) && !isset($_SESSION['nombre_usuario']) ){
     $stmt->execute();
     $result = $stmt->get_result();
 
+
     if ($user = $result->fetch_assoc()) {
         // Verificar si la contraseña coincide
         if (password_verify($password, $user['contrasena'])) {
