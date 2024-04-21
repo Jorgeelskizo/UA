@@ -1,3 +1,9 @@
+<?php
+    include 'scripts/auth.php';
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,6 +12,7 @@
 <title>Perfil de Usuario - Universitat d'Alacant</title>
 <link rel="stylesheet" href="perfilajeno.css">
 <link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="styleheader.css">
 </head>
 <body>
 

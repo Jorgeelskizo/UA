@@ -44,6 +44,7 @@ try {
 
         session_start();
         $_SESSION['nombre_usuario'] = $nombre_completo;
+        $_SESSION['foto'] = $foto_path;
 
         echo "Usuario registrado correctamente!";
     }

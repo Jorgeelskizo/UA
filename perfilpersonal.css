@@ -199,43 +199,6 @@ body {
   
 
   @media(max-width: 950px){
-    
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo img {
-      height: 3em;
-      margin-right: 10px;
-    }
-    
-    .search-bar input {
-      height: 1.5em;
-      width: 30em;
-      padding: 5px 10px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .search-bar button {
-      border: none;
-      background: transparent;
-      padding: 0;
-      margin: 0;
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
-    
-    .profile img {
-      height: 3em; /* Adjust as needed */
-      border-radius: 20px;
-    }
-
     .profile-image {
     width: 200px; /* Ajusta según tus necesidades */
     height: 200px;
@@ -246,43 +209,6 @@ body {
   }
 
   @media(max-width: 600px){
-    
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo img {
-      height: 1.5em;
-      margin-right: 10px;
-    }
-    
-    .search-bar input {
-      height: 1.5em;
-      width: 10em;
-      padding: 5px 10px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .search-bar button {
-      border: none;
-      background: transparent;
-      padding: 0;
-      margin: 0;
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
-    
-    .profile img {
-      height: 1.5em; /* Adjust as needed */
-      border-radius: 20px;
-    }
-
     .stats div {
       margin-left: 35px;
       text-align: center;

@@ -1,7 +1,6 @@
-<?php
-require 'scripts/auth.php';
+<?php 
+session_start();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -12,6 +11,7 @@ require 'scripts/auth.php';
     <title>Universitat d'Alacant</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="styleheader.css">
 </head>
 
 <body>

@@ -1,0 +1,121 @@
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+    background-color: #ebebeb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    margin: 0 10px;
+  }
+  
+  
+  .logo-small {
+    max-height: 3em;
+    /* Asegura que ambas imágenes no sean más altas de 3em */
+    margin-right: 10px;
+  }
+  
+  .logo-big {
+    max-height: 3em;
+    /* Asegura que ambas imágenes no sean más altas de 3em */
+    margin-right: 10px;
+  }
+  
+  .logo-small {
+    display: none;
+  }
+  
+  
+  
+  .search-bar {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 1em;
+    max-width: 100%;
+    flex: 3;
+  }
+  
+  .search-bar input {
+    height: 1.5em;
+    width: calc(100% - 60px);
+    padding: 5px 10px;
+    padding-right: 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-bar button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    /* Set the height to match the parent */
+    width: 40px;
+    /* Set a fixed width for the button */
+    display: flex;
+    /* Use flexbox for centering */
+    align-items: center;
+    /* Center the icon vertically */
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .search-bar button i {
+    color: #333;
+    /* Color of the search icon */
+    font-size: 20px;
+    /* Size of the icon */
+  }
+  
+  .profile {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+  }
+  
+  .profile img {
+    height: 3em;
+    /* Adjust as needed */
+    border-radius: 20px;
+  }
+
+  .profile button {
+    margin-right: 5px;
+  }
+
+  .user-name{
+    margin-right: 5px;
+  }
+
+  @media screen and (min-width: 768px) { /* Ajusta el 768px según tus necesidades */
+    .search-bar {
+      flex-grow: 1; /* Permite que la barra de búsqueda crezca para llenar el espacio */
+      margin-right: 1em; /* Añade margen a la derecha */
+    }
+  }
+  
+  
+  @media(max-width: 600px) {
+    .logo-big {
+      display: none;
+    }
+    
+    .logo-small {
+      display: block; /* Mostrar la imagen pequeña */
+    }
+  }
