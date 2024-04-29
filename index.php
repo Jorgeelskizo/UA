@@ -33,8 +33,8 @@ include 'scripts/controlSesion.php';
     // Conexión a la base de datos
     $host = '127.0.0.1';
     $dbname = 'ua';
-    $user = 'wordpress';
-    $password = 'wordpress';
+    $user = 'UA';
+    $password = 'UA';
     $conexion = new mysqli($host, $user, $password, $dbname);
 
     if ($conexion->connect_error) {

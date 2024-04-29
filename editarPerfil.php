@@ -44,55 +44,61 @@
     </div>
 </div>
 
-<div class="form-container">
-    <form>
-      <div class="form-group">
-        <label for="user-name">Nombre de Usuario</label>
-        <input type="text" id="user-name" >
-      </div>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" >
-      </div>
-      <div class="form-group">
-        <label for="university">Universidad</label>
-        <input type="text" id="university" >
-      </div>
-      <div class="form-group">
-        <label for="degree">Carrera</label>
-        <input type="text" id="degree" >
-      </div>
-      <button type="submit" class="form-button">Actualizar</button>
-    </form>
-  </div>
+<div class="content-container">
+  <div class="left-container">
+  <div class="form-container">
+      <form>
+        <div class="form-group">
+          <label for="user-name">Nombre de Usuario</label>
+          <input type="text" id="user-name" >
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" >
+        </div>
+        <div class="form-group">
+          <label for="university">Universidad</label>
+          <input type="text" id="university" >
+        </div>
+        <div class="form-group">
+          <label for="degree">Carrera</label>
+          <input type="text" id="degree" >
+        </div>
+        <button type="submit" class="form-button">Actualizar</button>
+      </form>
+    </div>
+    </div>
 
-  <div class="form-container">
-    <!-- Profile Image Update Section -->
-    <h2 class="section-header">Foto de perfil</h2>
-    <p class="upload-instructions">
-      La imagen no debe exceder los 20 MB para garantizar una carga eficiente. Además, al subir tu foto, aceptas los términos y condiciones relacionados con los derechos de autor y cualquier otro requisito que pueda surgir.
-    </p>
-    <form>
-      <div class="form-group">
-        <input type="file" id="profile-photo">
-      </div>
-      <button type="submit" class="form-button">Actualizar</button>
-    </form>
-  </div>
-  
-  <div class="form-container">
-    <!-- Password Change Section -->
-    <h2 class="section-header">Cambiar contraseña</h2>
-    <form>
-      <div class="form-group">
-        <input type="password" id="new-password" placeholder="Nueva Contraseña">
-      </div>
-      <div class="form-group">
-        <input type="password" id="confirm-password" placeholder="Confirmar Nueva Contraseña">
-      </div>
-      <button type="submit" class="form-button">Actualizar</button>
-    </form>
-  </div>
+    <div class="right-container">
+    <div class="form-container">
+      <!-- Profile Image Update Section -->
+      <h2 class="section-header">Foto de perfil</h2>
+      <p class="upload-instructions">
+        La imagen no debe exceder los 20 MB para garantizar una carga eficiente. Además, al subir tu foto, aceptas los términos y condiciones relacionados con los derechos de autor y cualquier otro requisito que pueda surgir.
+      </p>
+      <form>
+        <div class="form-group">
+          <input type="file" id="profile-photo">
+        </div>
+        <button type="submit" class="form-button">Actualizar</button>
+      </form>
+    </div>
+    
+    <div class="form-container">
+      <!-- Password Change Section -->
+      <h2 class="section-header">Cambiar contraseña</h2>
+      <form>
+        <div class="form-group">
+          <input type="password" id="new-password" placeholder="Nueva Contraseña">
+        </div>
+        <div class="form-group">
+          <input type="password" id="confirm-password" placeholder="Confirmar Nueva Contraseña">
+        </div>
+        <button type="submit" class="form-button">Actualizar</button>
+      </form>
+    </div>
+</div>
+</div>
   
 
 </body>

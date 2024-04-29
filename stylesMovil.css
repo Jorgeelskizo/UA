@@ -494,7 +494,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #ffffff;
+    background-color: #ffffff75;
     border: none;
     padding: 10px;
     cursor: pointer;

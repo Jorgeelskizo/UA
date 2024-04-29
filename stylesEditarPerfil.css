@@ -232,6 +232,40 @@ body {
 }
 
 
+.content-container {
+  display: block;
+}
+
+.left-container,
+.right-container {
+  width: 100%;
+}
+
+/* Estilos para pantallas más grandes */
+@media screen and (min-width: 768px) { /* O el punto de ruptura que elijas */
+  .content-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    margin:0.7em;
+  }
+
+  .left-container,
+  .right-container {
+    width: 49%; /* Ajusta el porcentaje según tus necesidades */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Asegúrate de que los formularios no se estiren demasiado */
+  .form-container {
+    /* width: 100%; */
+    margin: 0 0 1em 0;
+  }
+}
+
+
 
 @media (max-width: 600px) {
   .logo-big {
