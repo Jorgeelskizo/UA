@@ -1,13 +1,8 @@
 <?php
-// Configuración de la conexión a la base de datos
-$host = 'localhost';
-$dbname = 'ua';
-$username = 'root';
-$password = 'root1'; // Asegúrate de configurar tu contraseña real de la base de datos aquí
+include 'scripts/conexion.php';
 
 // Intentar la conexión con la base de datos
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Verificar si el método de solicitud es POST

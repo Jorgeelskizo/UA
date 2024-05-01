@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include 'scripts/controlSesion.php';
 
 
@@ -17,8 +15,8 @@ if (isset($_SESSION['nombre_usuario'])) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inicio de Sesión - Universidad de Alicante</title>
-<link rel="stylesheet" href="loginstyles.css">
-<link rel="alternate stylesheet" type="text/css" href="modoscurologin.css" title="DarkMode">
+<link rel="stylesheet" href="estilos/loginstyles.css">
+<link rel="alternate stylesheet" type="text/css" href="estilos/modoscurologin.css" title="DarkMode">
 </head>
 <body>
 

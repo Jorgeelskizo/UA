@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include 'scripts/controlSesion.php';
 
 if (isset($_SESSION['nombre_usuario'])) {
@@ -15,8 +13,8 @@ if (isset($_SESSION['nombre_usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Universidad de Alicante</title>
-    <link rel="stylesheet" href="registerstylo.css">
-    <link rel="alternate stylesheet" href="modooscuroregister.css" title="DarkMode">
+    <link rel="stylesheet" href="estilos/registerstylo.css">
+    <link rel="alternate stylesheet" href="estilos/modooscuroregister.css" title="DarkMode">
     <!-- Añade más enlaces a hojas de estilo si es necesario -->
 </head>
 <body>

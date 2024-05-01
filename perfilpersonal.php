@@ -12,9 +12,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perfil de Usuario - Universitat d'Alacant</title>
-<link rel="stylesheet" href="perfilajeno.css">
-<link rel="stylesheet" href="nav.css">
-<link rel="stylesheet" href="styleheader.css">
+<link rel="stylesheet" href="estilos/perfilajeno.css">
+<link rel="stylesheet" href="estilos/nav.css">
+<link rel="stylesheet" href="estilos/styleheader.css">
 </head>
 <body>
 
@@ -32,16 +32,7 @@
 
 
 <?php
-    // Conexión a la base de datos
-    $host = '127.0.0.1';
-    $dbname = 'ua';
-    $user = 'wordpress';
-    $password = 'wordpress';
-    $conexion = new mysqli($host, $user, $password, $dbname);
-
-    if ($conexion->connect_error) {
-        die("Conexión fallida: " . $conexion->connect_error);
-    }
+    include 'scripts/conexion.php';
 
     // Consulta para obtener los datos de los trabajos y sus imágenes
     $sql = "SELECT u.nombre_completo as nombre_autor, t.fecha_publicacion, t.portada as nombre_archivo
@@ -81,7 +72,7 @@
     }
 
     // Cerrar la conexión
-    $conexion->close();
+    $conn->close();
     ?>
 </main>
 

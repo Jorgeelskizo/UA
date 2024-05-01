@@ -1,6 +1,5 @@
 <?php 
-session_start();
-
+include 'scripts/conexion.php';
 include 'scripts/controlSesion.php';
 ?>
 
@@ -11,9 +10,9 @@ include 'scripts/controlSesion.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universitat d'Alacant</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="nav.css">
-    <link rel="stylesheet" href="styleheader.css">
+    <link rel="stylesheet" href="estilos/index.css">
+    <link rel="stylesheet" href="estilos/nav.css">
+    <link rel="stylesheet" href="estilos/styleheader.css">
 </head>
 
 <body>
@@ -30,24 +29,13 @@ include 'scripts/controlSesion.php';
 
 
     <?php
-    // Conexión a la base de datos
-    $host = '127.0.0.1';
-    $dbname = 'ua';
-    $user = 'UA';
-    $password = 'UA';
-    $conexion = new mysqli($host, $user, $password, $dbname);
-
-    if ($conexion->connect_error) {
-        die("Conexión fallida: " . $conexion->connect_error);
-    }
-
     // Consulta para obtener los datos de los trabajos y sus imágenes
-    $sql = "SELECT u.nombre_completo as nombre_autor, t.fecha_publicacion, t.portada as nombre_archivo
+    $sql = "SELECT u.nombre_completo as nombre_autor, t.fecha_publicacion, t.portada as nombre_archivo , t.titulo as titulo
         FROM trabajos t
         JOIN usuarios u ON t.id_usuario = u.id_usuario";
 
 
-    $resultado = $conexion->query($sql);
+    $resultado = $conn->query($sql);
 
     // Comprobando si la consulta devolvió filas
     if ($resultado->num_rows > 0) {
@@ -57,15 +45,20 @@ include 'scripts/controlSesion.php';
         // Procesando cada fila del resultado
         while ($row = $resultado->fetch_assoc()) {
             echo '<article>';
+        
+            // Enlace alrededor de la imagen que dirige a una URL específica
+            echo '<a href="proyecto.php">';
             // Asegúrate de cerrar las comillas correctamente después de src=
-            echo '<img src=' . $row['nombre_archivo'] . ' alt= " ">';
-
+            echo '<img src="' . $row['nombre_archivo'] . '" alt="Descripción de la imagen">';
+            echo '</a>';
+            echo '<p>' . ($row['titulo']) . '</p>';
             echo '<footer>';
             echo '<p>' . $row['nombre_autor'] . '</p>';
             echo '<p>' . date('d-m-Y', strtotime($row['fecha_publicacion'])) . '</p>';  // Formateando la fecha
             echo '</footer>';
             echo '</article>';
         }
+        
 
 
         echo '</section>';
@@ -76,7 +69,7 @@ include 'scripts/controlSesion.php';
     }
 
     // Cerrar la conexión
-    $conexion->close();
+    $conn->close();
     ?>
 
 </body>

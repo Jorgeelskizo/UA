@@ -1,7 +1,4 @@
 <?php
-
-session_start();
-
 include 'scripts/controlSesion.php';
 ?>
 
@@ -11,9 +8,9 @@ include 'scripts/controlSesion.php';
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perfil de Usuario - Universitat d'Alacant</title>
-<link rel="stylesheet" href="perfilajeno.css">
-<link rel="stylesheet" href="nav.css">
-<link rel="stylesheet" href="styleheader.css">
+<link rel="stylesheet" href="estilos/perfilajeno.css">
+<link rel="stylesheet" href="estilos/nav.css">
+<link rel="stylesheet" href="estilos/styleheader.css">
 </head>
 <body>
 
