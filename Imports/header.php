@@ -40,6 +40,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
             echo "<span class='user-name'>" . htmlspecialchars($nombre) . "</span>";
             echo "<img src=" . $foto . " alt='Profile Picture'>";
             echo "</a>";
+            echo "<button type='button' onclick='location.href=\"publicar_proyecto.php\"'>Publicar proyecto</button>";
         }
 
         ?>
