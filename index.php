@@ -30,7 +30,7 @@ include 'scripts/controlSesion.php';
 
     <?php
     // Consulta para obtener los datos de los trabajos y sus imágenes
-    $sql = "SELECT u.nombre_completo as nombre_autor, t.fecha_publicacion, t.portada as nombre_archivo , t.titulo as titulo
+    $sql = "SELECT u.nombre_completo as nombre_autor, t.id_trabajo, t.fecha_publicacion, t.portada as nombre_archivo , t.titulo as titulo
         FROM trabajos t
         JOIN usuarios u ON t.id_usuario = u.id_usuario";
 
@@ -47,7 +47,7 @@ include 'scripts/controlSesion.php';
             echo '<article>';
         
             // Enlace alrededor de la imagen que dirige a una URL específica
-            echo '<a href="proyecto.php">';
+            echo '<a href="proyecto.php?id=' . $row['id_trabajo'] . '">';
             // Asegúrate de cerrar las comillas correctamente después de src=
             echo '<img src="' . $row['nombre_archivo'] . '" alt="Descripción de la imagen">';
             echo '</a>';

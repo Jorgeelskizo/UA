@@ -1,4 +1,5 @@
 <?php
+include 'scripts/conexion.php';
 include 'scripts/controlSesion.php';
 ?>
 

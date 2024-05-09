@@ -14,7 +14,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
 <main>
   <section class="profile-noheader">
     <div class="profile-container">
-      <img src="Imagenes/hung_360.png" alt="Foto de perfil" class="profile-image">
+      <img src="<?php echo $foto ?>" alt="Foto de perfil" class="profile-image">
       <?php 
             if (basename($_SERVER['SCRIPT_NAME']) != 'perfilpersonal.php') {    
               echo  "<h1>Nombre</h1>";
