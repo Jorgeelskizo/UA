@@ -2,10 +2,10 @@
 include 'scripts/conexion.php';
 
 // Recuperar variables del formulario
-$nombre_proyecto = isset($_POST['nombre_proyecto']) ? $_POST['nombre_proyecto'] : '';
-$fecha = isset($_POST['fecha']) ? $_POST['fecha'] : '';
+$nombre_proyecto = isset($_POST['titulo']) ? $_POST['titulo'] : '';
+$fecha = isset($_POST['fecha_publicacion']) ? $_POST['fecha_publicacion'] : '';
 $tipo = isset($_POST['tipo']) ? $_POST['tipo'] : '';
-$ano_carrera = isset($_POST['ano_carrera']) ? $_POST['ano_carrera'] : '';
+$ano_carrera = isset($_POST['anyo']) ? $_POST['anyo'] : '';
 $valoracion = isset($_POST['valoracion']) ? $_POST['valoracion'] : '';
 
 // Empezar a construir la consulta
