@@ -1,7 +1,22 @@
 <?php
-if (!isset($_SESSION['nombre_usuario'])) {
+if (!isset($_SESSION['nombre_usuario']) || $_SESSION['id'] != $_GET['id']) {
   // Si no está establecida, redirigir a la página de login
-  $nombre = '';
+
+  // Preparar la consulta para obtener solo el nombre de usuario y la contraseña hasheada
+  $query = "SELECT nombre_completo, contrasena, id_usuario, foto FROM usuarios WHERE id_usuario = ?";
+  $stmt = $conn->prepare($query);
+  $stmt->bind_param("s", $id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+
+  if ($user = $result->fetch_assoc()) {
+      // Verificar si la contraseña coincide
+          // Si las credenciales son correctas, establece las variables de sesión
+          $nombre = $user['nombre_completo'];
+          $foto = $user['foto'];
+    }
+
   $bool = false;
 } else {
   $nombre = $_SESSION['nombre_usuario'];
@@ -16,11 +31,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
     <div class="profile-container">
       <img src="<?php echo $foto ?>" alt="Foto de perfil" class="profile-image">
       <?php 
-            if (basename($_SERVER['SCRIPT_NAME']) != 'perfilpersonal.php') {    
-              echo  "<h1>Nombre</h1>";
-            }else{
-              echo  "<h1>$nombre</h1>";
-            }
+          echo  "<h1>$nombre</h1>";
         ?> 
       <div class="stats">
         <div><span>Likes dados</span><br>123</div>

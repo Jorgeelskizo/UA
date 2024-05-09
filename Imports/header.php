@@ -7,6 +7,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
 } else {
     $nombre = $_SESSION['nombre_usuario'];
     $foto = $_SESSION['foto'];
+    $id = $_SESSION['id'];
     $bool = true;
 }
 
@@ -36,7 +37,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
             echo "<button type='button' onclick='location.href=\"register.php\"'>Registrarse</button>";
         } else {
             // Mostrar nombre de usuario y foto
-            echo "<a href='perfilpersonal.php' class='profile' style='text-decoration: none; color: inherit;'>";
+            echo "<a href='perfilpersonal.php?id=$id' class='profile' style='text-decoration: none; color: inherit;'>";
             echo "<span class='user-name'>" . htmlspecialchars($nombre) . "</span>";
             echo "<img src=" . $foto . " alt='Profile Picture'>";
             echo "</a>";

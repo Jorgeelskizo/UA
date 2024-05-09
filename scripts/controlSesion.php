@@ -7,7 +7,6 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 
 if(isset($_COOKIE['recordarme']) && !isset($_SESSION['nombre_usuario']) ){
     
-    
     //Recuperar datos de la cookie
     $credentials = base64_decode($_COOKIE['recordarme']);
     list($username, $password, $fecha_fin) = explode('|', $credentials);
