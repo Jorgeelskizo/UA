@@ -1,6 +1,12 @@
 <?php
 include 'scripts/conexion.php';
 include 'scripts/controlSesion.php';
+
+$idActual  = $_SESSION['id'];
+
+if($idActual == $_GET['id'] ){
+    header("Location: perfilpersonal.php");
+}
 ?>
 
 <!DOCTYPE html>

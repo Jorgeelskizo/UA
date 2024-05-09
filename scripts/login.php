@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $estilo_usuario = '';
 
     // Preparar la consulta para obtener solo el nombre de usuario y la contraseña hasheada
-    $query = "SELECT nombre_completo, contrasena, foto FROM usuarios WHERE nombre_completo = ?";
+    $query = "SELECT nombre_completo, contrasena,id_usuario, foto FROM usuarios WHERE nombre_completo = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $usuario);
     $stmt->execute();
@@ -26,6 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Si las credenciales son correctas, establece las variables de sesión
             $_SESSION['nombre_usuario'] = $user['nombre_completo'];
             $_SESSION['foto'] = $user['foto'];
+            $_SESSION['id'] = $user['id_usuario'];
+
 
             if (isset($_POST['recordar'])) {
 

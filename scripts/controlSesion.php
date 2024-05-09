@@ -16,7 +16,7 @@ if(isset($_COOKIE['recordarme']) && !isset($_SESSION['nombre_usuario']) ){
     $estilo_usuario = '';
 
     // Preparar la consulta para obtener solo el nombre de usuario y la contraseña hasheada
-    $query = "SELECT nombre_completo, contrasena, foto FROM usuarios WHERE nombre_completo = ?";
+    $query = "SELECT nombre_completo, contrasena, id_usuario, foto FROM usuarios WHERE nombre_completo = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -29,7 +29,8 @@ if(isset($_COOKIE['recordarme']) && !isset($_SESSION['nombre_usuario']) ){
             // Si las credenciales son correctas, establece las variables de sesión
             $_SESSION['nombre_usuario'] = $user['nombre_completo'];
             $_SESSION['foto'] = $user['foto'];
-
+            $_SESSION['id'] = $user['id_usuario'];
+ 
             $mensaje = "Entrado";
 
             // Emitir un script JavaScript para que se ejecute en el navegador

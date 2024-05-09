@@ -30,7 +30,7 @@ include 'scripts/controlSesion.php';
 
     <?php
     // Consulta para obtener los datos de los trabajos y sus imágenes
-    $sql = "SELECT u.nombre_completo as nombre_autor, t.id_trabajo, t.fecha_publicacion, t.portada as nombre_archivo , t.titulo as titulo
+    $sql = "SELECT u.nombre_completo as nombre_autor, t.id_usuario as id_usu, t.id_trabajo, t.fecha_publicacion, t.portada as nombre_archivo , t.titulo as titulo
         FROM trabajos t
         JOIN usuarios u ON t.id_usuario = u.id_usuario";
 
@@ -53,7 +53,9 @@ include 'scripts/controlSesion.php';
             echo '</a>';
             echo '<p>' . ($row['titulo']) . '</p>';
             echo '<footer>';
+            echo '<a href="perfilajeno.php?id=' . $row['id_usu'] . '">';
             echo '<p>' . $row['nombre_autor'] . '</p>';
+            echo '</a>';
             echo '<p>' . date('d-m-Y', strtotime($row['fecha_publicacion'])) . '</p>';  // Formateando la fecha
             echo '</footer>';
             echo '</article>';

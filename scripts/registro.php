@@ -1,10 +1,8 @@
 <?php
-include 'scripts/conexion.php';
+include 'conexion.php';
 
 // Intentar la conexión con la base de datos
 try {
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     // Verificar si el método de solicitud es POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Recopilar los datos del formulario
@@ -42,6 +40,8 @@ try {
         $_SESSION['foto'] = $foto_path;
 
         echo "Usuario registrado correctamente!";
+
+        header("Location: ../index.php");
     }
 } catch (PDOException $e) {
     // Capturar y mostrar el error en caso de fallo en la conexión o en la consulta
