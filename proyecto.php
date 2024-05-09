@@ -1,3 +1,8 @@
+<?php 
+include 'scripts/conexion.php';
+include 'scripts/controlSesion.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,22 +19,38 @@
   <?php include "imports/header.php"?>
 
 <div class="project-container">
+
+  <?php 
+  $sql = "SELECT  titulo, descripcion, horas, valoracion, fecha_publicacion, nombre_completo, 
+                  t.id_usuario as id_usu, a.nombre_archivo as ruta
+          FROM trabajos t
+          JOIN usuarios u ON t.id_usuario = u.id_usuario
+          join archivos a ON t.id_trabajo = a.id_trabajo
+          WHERE t.id_trabajo = 1  ";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    
+  ?>
+
   
   <div class="left-column">
     <div class="project-image">
-        <img src="img/pasoPeatones.jpg" alt="Project Thumbnail">
+        <img src="<?php echo $row["ruta"] ?>" alt="Project Thumbnail">
     </div>
     <div class="project-info">
-        <h2>Proyecto Fin de Grado Ingeniera Multimedia</h2>
+        <!-- <h2>Proyecto Fin de Grado Ingeniera Multimedia</h2> -->
+        <?php echo "<h2>" . $row["titulo"]. "</h2>"; ?>
 
         <div class="project-meta">
-            <p class="author">Hecho por <span class="author-name">Nombre del Autor</span></p>
-            <p class="time-ago">1 hour 13 minutes</p>
-            <p class="rating">Rated 5.0/5.0</p>
+            <p class="author">Hecho por <span class="author-name"><a href="perfilajeno.php?id=<?php echo $row['id_usu']; ?>"><?php echo $row["nombre_completo"]; ?></a></span></p>
+            <p class="time-ago"><?php echo $row["horas"] ." horas"?></p>
+            <p class="rating">Valoración <?php echo $row["valoracion"] ?> /5.0</p>
         </div>
 
         <h3>Descripción del proyecto</h3>
-        <p>Descripción del proyecto Descripción del proyecto Descripción del proyecto Descripción del proyecto Descripción del proyecto Descripción del proyecto Descripción del proyectoDescripción del proyecto</p>
+        <?php echo "<p>" . $row["descripcion"]. "</p>"; ?>
+        <!-- <p>Descripción del proyecto Descripción del proyecto Descripción del proyecto Descripción del proyecto Descripción del proyecto Descripción del proyecto Descripción del proyectoDescripción del proyecto</p> -->
         
         <h3>Últimos comentarios</h3>
         <hr>
@@ -200,3 +221,10 @@
 
 </body>
 </html>
+
+<?php
+} else {
+    echo "0 results";
+  }
+  $conn->close();
+?>
