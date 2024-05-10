@@ -5,8 +5,6 @@ include 'scripts/controlSesion.php';
 $idActual  = $_SESSION['id'];
 $id = $_GET['id'];
 
-echo "El id es $id";
-
 if ($idActual == $_GET['id']) {
     $id = $_GET['id'];
     header("Location: perfilpersonal.php?id=$id");
