@@ -15,34 +15,34 @@ if (isset($_SESSION['nombre_usuario'])) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inicio de Sesión - Universidad de Alicante</title>
-<link rel="stylesheet" href="estilos/loginstyles.css">
+<link rel="stylesheet" href="estilos/unificado.css">
 <link rel="alternate stylesheet" type="text/css" href="estilos/modoscurologin.css" title="DarkMode">
 </head>
 <body>
 
-<div class="login-container">
-  <div class="login-box">
-    <img src="path-to-your-logo.png" alt="Universidad de Alicante" class="university-logo">
-    <div class="login-title">Iniciar Sesión</div>
+<div class="login-container-login">
+  <div class="login-box-login">
+    <img src="path-to-your-logo.png" alt="Universidad de Alicante" class="university-logo-login">
+    <div class="login-title-login">Iniciar Sesión</div>
     <form method="post" action="scripts/login.php" enctype="multipart/form-data">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nombre de usuario" name="nombre_completo">
+      <div class="form-group-login">
+        <input type="text" class="form-control-login" placeholder="Nombre de usuario" name="nombre_completo">
       </div>
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="Contraseña" name="contrasena">
+      <div class="form-group-login">
+        <input type="password" class="form-control-login" placeholder="Contraseña" name="contrasena">
       </div>
-      <div class="session-utilities">
-        <div class="checkbox">
+      <div class="session-utilities-login">
+        <div class="checkbox-login">
           <label>
             Recordar sesión <input type="checkbox" name="recordar"> 
           </label>
         </div>
-        <a href="register.php" class="link">Recuperar contraseña</a>
+        <a href="register.php" class="link-login">Recuperar contraseña</a>
       </div>
       <div class="form-action">
-        <button type="submit" class="btn">Iniciar Sesión</button>
+        <button type="submit" class="btn-login">Iniciar Sesión</button>
       </div>
-      <div class="social-login">
+      <div class="social-login-login">
         <a href="#" class="social-icon"><img src="path-to-google-icon.png" alt="Google"></a>
         <a href="#" class="social-icon"><img src="path-to-facebook-icon.png" alt="Facebook"></a>
       </div>

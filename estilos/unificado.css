@@ -1,0 +1,1275 @@
+/* -------------------------------------------------------Index------------------------------------------------------------ */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 3em;
+    margin-right: 10px;
+  }
+  
+  .search-bar {
+    position: relative;
+  }
+  
+  
+  .search-bar input {
+    height: 2em;
+    width: 35em;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+  }
+  
+  .search-bar button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .search-bar button i {
+    color: #333; /* Color of the search icon */
+    font-size: 20px; /* Size of the icon */
+  }
+  
+  .profile img {
+    height: 40px; /* Adjust as needed */
+    border-radius: 20px;
+  }
+
+/* ----------------------------------------------------Página proyectos--------------------------------------------------------------- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-width: 352px;
+  }
+
+
+  .profile-card-global {
+    background-color: #ebebeb;
+    padding: 0.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    margin: 0.5em;
+
+  }
+  .profile-card {
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin: 0.5em;
+  }
+
+  .profile-photo {
+    flex: 1; /* takes up 1 part of the flex container */
+    margin-right: 15px;
+    max-width: 120px;
+  }
+
+  .profile-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .profile-info {
+    flex: 2; /* takes up 2 parts of the flex container */
+  }
+
+  .profile-name {
+    font-size: 1.2em;
+    color: #333;
+    margin: 0 0 5px 0;
+  }
+
+  .profile-username,
+  .profile-university,
+  .profile-degree {
+    font-size: 2em;
+    color: #666;
+    margin: 0;
+  }
+
+  .user-name {
+    font-size: 1em;
+    color: #333;
+    margin-right: 10px; /* Adjust the margin as needed */
+  }
+
+
+  /* ---------------------------------------------------------------------------------------------*/
+
+  .project-container {
+      background: #fff;
+      margin-top: 0.1em;;
+      
+      padding: 20px;
+    }
+
+  .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+    }
+
+
+    .comment-section {
+      background-color: #fff;
+      /* padding: 20px; */
+      border-radius: 10px;
+      /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+      margin: auto;
+    }
+    .comment {
+      margin-bottom: 20px;
+    }
+    .comment img {
+      width: 100px;
+      height: auto;
+      border-radius: 5px;
+    }
+    .comment-title {
+      font-size: 1em;
+      color: #333;
+      margin: 5px 0;
+    }
+    .comment-caption {
+      font-size: 0.9em;
+      color: #666;
+    }
+    .comment-box {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      
+    }
+    .comment-box input[type="text"] {
+      width: calc(100% - 110px);
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .comment-box input[type="submit"] {
+      width: 100px;
+      border: none;
+      padding: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    /* MULTIMEDIA */
+
+  .resources-section {
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-top: 1em;
+  }
+  .resources-section h2 {
+    font-size: 1.25rem;
+    color: #333;
+  }
+  .documents{
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+    /* padding: 1em; */
+    margin: 0;
+  }
+
+  .documents h3 {
+    margin-top:0.1em;
+  }
+
+  .document-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+    padding: 0.2em;
+    border-radius: 4px;
+  }
+
+  .document-icon img{
+    margin-right: 0.5em;
+    height: 4em;
+  }
+  .document-info {
+    flex-grow: 1;
+  }
+  .document-title {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+  }
+  .document-description {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  .download-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5em 0.9em;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+  .image-gallery {
+    margin-top: 20px;
+  }
+  .gallery-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .slider-container {
+    display: flex;
+    width: 90%;
+    height: 100vh;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+
+  .slider-container img {
+    flex: 0 0 100%;
+    width: 100%;
+    object-fit: cover;
+    scroll-snap-align: center;
+  }
+
+
+
+  /*FOOTER*/
+  .site-footer {
+    background-color: #f4f4f4;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    border-top: 3px solid #dcdcdc;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer-section h3 {
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  .footer-section p,
+  .footer-section ul,
+  .footer-section ul li {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .footer-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .footer-section ul li a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-section ul li a:hover {
+    color: #0d47a1;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+  }
+
+
+  .project-actions {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+    gap: 1em;;
+  }
+  
+  .rate-project,
+  .share-project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    width: 12em;
+    height: 6.5em;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    gap: 0.5em;
+  }
+
+  .valorar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #estrellas {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    border-radius: 6px;
+    border: 0.5px solid #d8d8d8;
+
+  }
+  
+  .rate-button {
+    background: none;
+    border: none;
+    color: #333; /* Gold color for stars */
+    font-size: 2em;
+    cursor: pointer;
+  }
+  
+  .rate-count {
+    margin-left: 5px;
+  }
+  
+  .social-icons {
+    display: flex;
+  }
+  
+  .social-icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+    color: #333; /* Dark color for social media icons */
+    text-decoration: none;
+  }
+  
+  .social-icon:hover {
+    color: #007bff; /* Light blue on hover for social media icons */
+  }
+
+  @media (min-width: 520px) {
+    .project-actions{
+      flex-direction: row;
+      
+    }
+  }
+
+
+  @media (max-width: 600px) {
+    .logo-big {
+      display: none;
+    }
+    
+    .logo-small {
+      display: block; /* Mostrar la imagen pequeña */
+    }
+  }
+
+
+  /* Estilos para pantallas más grandes */
+  @media screen and (min-width: 768px) { /* Ajusta el 768px según tus necesidades */
+    .project-container {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    .left-column, .right-column{
+      width: 49%;
+    }
+    .left-column{
+      padding-right: 1em;
+      border-right: 1px solid #666;
+    }
+    .right-column{
+      padding-left: 1em;
+    }
+
+    /* Asegúrate de que las imágenes dentro de .project-container y .resources-section no se desborden de sus contenedores */
+    .project-image img, .slider-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    
+    /* Ajusta el diseño del slider para que no ocupe toda la altura de la pantalla en pantallas grandes */
+    .slider-container {
+      height: auto;
+      overflow-x: auto; /* Cambia a auto para evitar altura innecesaria */
+    }
+    
+    /* Contenedor para la barra de búsqueda y la imagen del perfil */
+    .search-and-profile {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; /* Ocupa toda la anchura disponible */
+      margin-bottom: 1em; /* Agrega margen debajo si es necesario */
+    }
+
+    .search-bar {
+      flex-grow: 1; /* Permite que la barra de búsqueda crezca para llenar el espacio */
+      margin-right: 1em; /* Añade margen a la derecha */
+    }
+
+    .profile {
+      /* Si la imagen de perfil necesita ajustes de tamaño, agrégalos aquí */
+    }
+
+    .project-actions{
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+      
+    }
+
+
+  }
+
+  @media (min-width: 975px) {
+    .project-actions{
+      display: flex;
+      flex-direction: row;
+      
+    }
+
+    
+  }
+
+  /* Estilo del fondo del modal */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Estilo del contenido del modal */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+
+  /* El botón cerrar (x) */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .carousel-container {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: 100%; /* O el ancho que prefieras, pero que coincida con el ancho de las imágenes */
+  max-height: 35em;
+}
+
+.carousel-slide {
+  display: flex;
+  width: calc(100% ); /* Cambiar cantidadDeImagenes por el número real de imágenes en el carrusel */
+}
+
+.carousel-image {
+  max-width: 100%;
+  width: calc(100%); /* Se establece que cada imagen ocupe todo el ancho del contenedor */
+  flex: 0 0 auto; /* Esto evita que las imágenes se estiren o se encojan */
+  transition: transform 0.5s ease;
+}
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ffffff75;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+
+
+  /* -------------------------------------------Index---------------------------------------------------------------------- */
+
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .header-image-index {
+    width: 100%;
+    /* El div se extiende a lo ancho de su contenedor */
+    height: 150px;
+    /* Altura fija para hacerla rectangular, ajusta según necesites */
+    background-image: url('Imagenes/Ej_diagrama.jpeg');
+    /* Imagen de fondo */
+    background-size: cover;
+    /* La imagen cubre completamente el div */
+    background-position: center;
+    /* La imagen se centra dentro del div */
+    margin-top: 20px;
+    /* Espacio entre la cabecera y la imagen */
+  }
+  
+  
+  .gallery-container-index {
+    background-color: #f5f5f5;
+    /* Fondo gris claro para la caja contenedora */
+    border: 1px solid #dbdbdb;
+    /* Borde gris un poco más oscuro */
+    padding: 20px;
+    /* Espaciado alrededor de los artículos */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra para la caja contenedora */
+    border-radius: 10px;
+    /* Bordes redondeados para la caja contenedora */
+    margin: auto;
+    /* Centra la caja contenedora */
+    max-width: auto;
+    /* Ancho máximo de la caja contenedora, ajusta según necesites */
+  }
+  
+  .project-gallery-index {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Permite que los artículos se ajusten en filas */
+    gap: 16px;
+    /* Espacio entre los artículos */
+  }
+  
+  .project-gallery-index article {
+    text-align: center;
+  }
+  
+  .project-gallery-index img {
+    width: 100px;
+    /* Ajusta esto al tamaño que necesitas */
+    height: 100px;
+    /* Ajusta esto al tamaño que necesitas */
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+  }
+  
+  section>div {
+    text-align: center;
+    padding: 1em;
+  }
+  
+  button {
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .project-gallery-index article {
+    text-align: center;
+    border: 1px solid #ccc;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    position: relative;
+    margin: 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centrado horizontal */
+    height: 300px;
+    /* Altura fija del artículo */
+    width: 200px;
+    /* Ancho fijo del artículo */
+  }
+  
+  .project-gallery-index img {
+    width: 200px;
+    /* Ancho automático para mantener la proporción */
+    height: 200px;
+    /* Altura fija para todas las imágenes */
+    object-fit: cover;
+    /* Las imágenes cubren el espacio asignado */
+    border-radius: 6px;
+    margin-bottom: 10px;
+    /* Espacio entre la imagen y el texto */
+  }
+  
+  .project-gallery-index article footer {
+    position: absolute;
+    /* Posicionamiento absoluto dentro del article */
+    bottom: 16px;
+    /* Posicionado en la parte inferior del article */
+    left: 0;
+    /* Alineado a la izquierda del article */
+    right: 0;
+    /* Alineado a la derecha del article */
+    display: flex;
+    justify-content: space-between;
+    /* Separa los elementos hijo a ambos extremos */
+    padding: 0 16px;
+    /* Padding izquierdo y derecho para no pegar el texto a los bordes */
+  }
+  
+  .project-gallery-index article footer p {
+    margin: 0;
+    /* Anula cualquier margen por defecto */
+    /* No necesitas width: calc(100% - 32px) aquí ya que el footer llena el ancho del article */
+  }
+  
+  /* Continúa con los estilos de footer y button como se proporcionaron previamente */
+
+
+
+  /* -----------------------------------------Header---------------------------------------------- */
+  .site-header-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+    background-color: #ebebeb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo-header {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    margin: 0 10px;
+  }
+  
+  
+  .logo-small-header {
+    max-height: 3em;
+    /* Asegura que ambas imágenes no sean más altas de 3em */
+    margin-right: 10px;
+  }
+  
+  .logo-big-header {
+    max-height: 3em;
+    /* Asegura que ambas imágenes no sean más altas de 3em */
+    margin-right: 10px;
+  }
+  
+  .logo-small-header {
+    display: none;
+  }
+  
+  
+  
+  .search-bar-header {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 1em;
+    max-width: 100%;
+    flex: 3;
+  }
+  
+  .search-bar-header input {
+    height: 1.5em;
+    width: calc(100% - 60px);
+    padding: 5px 10px;
+    padding-right: 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-bar-header button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    /* Set the height to match the parent */
+    width: 40px;
+    /* Set a fixed width for the button */
+    display: flex;
+    /* Use flexbox for centering */
+    align-items: center;
+    /* Center the icon vertically */
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .search-bar-header button i {
+    color: #333;
+    /* Color of the search icon */
+    font-size: 20px;
+    /* Size of the icon */
+  }
+  
+  .profile-header {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+  }
+  
+  .profile-header img {
+    height: 3em;
+    /* Adjust as needed */
+    border-radius: 20px;
+  }
+
+  .profile-header button {
+    margin-right: 5px;
+  }
+
+  .user-name-header{
+    margin-right: 5px;
+  }
+
+  @media screen and (min-width: 768px) { /* Ajusta el 768px según tus necesidades */
+    .search-bar-header {
+      flex-grow: 1; /* Permite que la barra de búsqueda crezca para llenar el espacio */
+      margin-right: 1em; /* Añade margen a la derecha */
+    }
+  }
+  
+  
+  @media(max-width: 600px) {
+    .logo-big-header {
+      display: none;
+    }
+    
+    .logo-small-header {
+      display: block; /* Mostrar la imagen pequeña */
+    }
+  }
+
+
+
+
+
+/* ---------------------------------------Nav------------------------------------ */
+.barranav-nav li:hover {
+    background-color: #ccc;
+  }
+
+  #checkmenu-nav {
+		display: none;
+	}
+
+	/* + --> para indicar que es el hermano inmediato, la siguiente linea a la derecha, bueno abajo */
+	#checkmenu-nav:checked + ul{
+		/* display:block; */
+		max-height: 12em;
+
+
+	}
+
+  .barranav-nav {
+    background-color: #B4E0FA;
+    background-color: #eee;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    
+    top: 0;
+    
+  }
+  .ulbarranav-nav{
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    align-items: stretch; /* Hace que los elementos `li` se estiren para llenar el `nav` */
+    width: 100%;
+    height: 100%;
+  
+    /* display:none; */
+  
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
+  
+  }
+
+  .libarranav-nav{
+    justify-content: center;
+    align-items: center; /* Centra el contenido de `li` vertical y horizontalmente */
+    padding: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    border-radius: 10px; /* Esquinas redondeadas para cada `li` */
+  
+  }
+
+  @media (min-width:400px){
+    .libarranav-nav > a{
+        /* hace que se resalte todo cuando pasas con el raton por encima */
+        padding: .4em;
+    }
+
+    .barranav-nav > label[for]{
+        /* Quitamos las 3 rallitas cuando hay espacio */
+        display: none;
+    }
+
+    .libarranav-nav > a > span{
+        /* mostrar unicamente iconos cuando no haya hueco */
+        display: none;
+    }
+
+    .ulbarranav-nav{
+        
+        display: flex;
+        /* ya no te aparecen todos en linea */
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+        
+        max-height: 2em;
+    }
+
+    .libarranav-nav{
+        /* todos los articulos crecen lo mismo para evitar que haya espacios vacios sueltos entre ellos */
+        
+        flex-grow: 1;
+        text-align: center;
+    }
+
+}
+
+@media (min-width:748px){
+    .ulbarranav-nav{
+        display: flex;
+        /* ya no te aparecen todos en linea */
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .libarranav-nav{
+        /* todos los articulos crecen lo mismo para evitar que haya espacios vacios sueltos entre ellos */
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .libarranav-nav > a > span{
+        /* mostrar nombres y iconos cuando haya espacio */
+        display: inline-block;
+    }
+}
+
+
+
+
+
+
+/* --------------------------------------Buscar---------------------------------------- */
+.search-container-buscar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    /*background-color: #f4f4f4;*/
+    border-radius: 5px;
+}
+
+.search-input-buscar, .search-select-buscar, .search-button-buscar {
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-input-buscar {
+    width: 200px; /* Ajusta según sea necesario */
+    flex-grow: 0; /* Evita que el campo se estire */
+}
+
+.search-select-buscar {
+    cursor: pointer;
+    appearance: none; /* Elimina los estilos predeterminados del navegador */
+}
+
+.search-button-buscar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button-buscar:hover {
+    background-color: #0056b3;
+}
+
+/* ----------------------------------------PerfilPersonal----------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  
+  .header-image-perfil {
+    width: 100%;
+    /* El div se extiende a lo ancho de su contenedor */
+    height: 150px;
+    /* Altura fija para hacerla rectangular, ajusta según necesites */
+    background-image: url('Imagenes/Ej_diagrama.jpeg');
+    /* Imagen de fondo */
+    background-size: cover;
+    /* La imagen cubre completamente el div */
+    background-position: center;
+    /* La imagen se centra dentro del div */
+    margin-top: 20px;
+    /* Espacio entre la cabecera y la imagen */
+  }
+  
+  .profile-noheader-perfil {
+    position: relative;
+    text-align: center;
+    margin: 1em 0;
+  }
+  
+  .follow-button-perfil {
+    position: absolute;
+    top: 0; /* Ajusta esto según sea necesario para que quede justo debajo de la cabecera */
+    right: 0; /* Alineado a la derecha */
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 1em; /* Añade un margen superior si es necesario para que no toque la cabecera */
+    margin-right: 1em; /* Añade un margen derecho si es necesario para alinear correctamente */
+  }
+
+  .profile-image-perfil {
+    width: 200px; /* Ajusta según tus necesidades */
+    height: 200px;
+    border-radius: 50%; /* Hace la imagen circular */
+    margin-bottom: 1em;
+  }
+  
+  .stats-perfil {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+  .stats-perfil div {
+    margin-left: 55px;
+    text-align: center;
+  }
+  
+  button {
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  
+
+  @media(max-width: 950px){
+    
+  }
+
+  
+
+  @media(max-width: 600px){
+    .stats-perfil div {
+      margin-left: 35px;
+      text-align: center;
+    }
+
+  }
+
+
+  /* -------------------------------------------Login------------------------------------------ */
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .login-container-login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+  
+  .login-box-login {
+    width: 400px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .university-logo-login {
+    display: block;
+    margin: 0 auto 30px auto;
+    height: 80px;
+  }
+  
+  .login-title-login {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .form-group-login {
+    margin-bottom: 15px;
+  }
+  
+  .form-control-login {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  .session-utilities-login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .checkbox-login {
+    margin: 0;
+  }
+  
+  .link-login {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .form-action-login {
+    margin-top: 20px;
+  }
+  
+  .btn-login {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-color: #007bff;
+    cursor: pointer;
+  }
+  
+  .social-login-login {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .social-icon img {
+    width: 40px;
+    margin: 0 5px;
+    vertical-align: middle;
+  }
+  
+  .social-icon:hover {
+    cursor: pointer;
+  }
+
+  
+  @media (max-width: 520px) {
+    .login-box-login {
+      width: auto; 
+      margin: 0 20px; 
+      box-shadow: none; 
+    }
+  
+    .university-logo-login {
+      height: 60px; 
+    }
+  
+    .login-title-login {
+      font-size: 20px; 
+    }
+  
+    .form-control-login {
+      padding: 8px; 
+    }
+  
+    .btn-login {
+      padding: 12px; 
+    }
+  
+    .social-icon img {
+      width: 35px; 
+    }
+  
+    .session-utilities-login {
+        display: block;
+    }
+  
+    .checkbox-login{
+      margin-bottom: 10px; 
+    }
+  
+    .link-login {
+      align-self: flex-end; 
+    }
+  }
+
+
+  /* --------------------------------------------------Register---------------------------------------------------------- */
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.registro-container-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+
+.registro-box-register {
+    width: 400px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.university-logo-register {
+    background-image: url('logo.png'); /* Asegúrate de tener la imagen del logo */
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+}
+
+.registro-title-register {
+    margin-bottom: 20px;
+}
+
+.form-group-register {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px; /* Espaciado entre campos */
+}
+
+.form-control-register {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.form-actions-register {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-register {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn.cancelar {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn.registrar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+@media (max-width: 420px) {
+    .registro-box-register {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .form-group-register {
+        flex-direction: column;
+    }
+}

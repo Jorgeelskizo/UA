@@ -6,7 +6,7 @@ body, html {
     color: #e0e0e0; /* Texto claro para contraste */
 }
 
-.registro-container {
+.registro-container-register {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +14,7 @@ body, html {
     background-color: #121212; /* Fondo oscuro para el contenedor de registro */
 }
 
-.registro-box {
+.registro-box-register {
     width: 400px;
     padding: 20px;
     background: #1e1e1e; /* Fondo oscuro para la caja de registro */
@@ -23,7 +23,7 @@ body, html {
     text-align: center;
 }
 
-.university-logo {
+.university-logo-register {
     /* Asegúrate de que el logo es visible en modo oscuro. Podría necesitar un filtro o una versión de logo claro. */
     background-image: url('logo-dark.png'); /* Logo adecuado para fondo oscuro */
     height: 80px;
@@ -32,17 +32,17 @@ body, html {
     margin-bottom: 30px;
 }
 
-.registro-title {
+.registro-title-register {
     margin-bottom: 20px;
 }
 
-.form-group {
+.form-group-register {
     margin-bottom: 15px;
     display: flex;
     gap: 10px; /* Espaciado entre campos */
 }
 
-.form-control {
+.form-control-register {
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #333; /* Borde adecuado para modo oscuro */
@@ -51,12 +51,12 @@ body, html {
     color: #e0e0e0; /* Texto claro para los inputs */
 }
 
-.form-actions {
+.form-actions-register {
     display: flex;
     justify-content: space-between;
 }
 
-.btn {
+.btn-register {
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
@@ -73,12 +73,12 @@ body, html {
 }
 
 @media (max-width: 420px) {
-    .registro-box {
+    .registro-box-register {
         width: 95%;
         margin: 10px;
     }
     
-    .form-group {
+    .form-group-register {
         flex-direction: column;
     }
 }

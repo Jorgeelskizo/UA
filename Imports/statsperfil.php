@@ -65,13 +65,13 @@ if (!isset($_SESSION['nombre_usuario']) || $_SESSION['id'] != $_GET['id']) {
 
 
 <main>
-  <section class="profile-noheader">
-    <div class="profile-container">
-      <img src="<?php echo $foto ?>" alt="Foto de perfil" class="profile-image">
+  <section class="profile-noheader-perfil">
+    <div class="profile-container-perfil">
+      <img src="<?php echo $foto ?>" alt="Foto de perfil" class="profile-image-perfil">
       <?php
       echo  "<h1>$nombre</h1>";
       ?>
-      <div class="stats">
+      <div class="stats-perfil">
         <div><span>Media de valoraciones</span><br><?php echo $media?></div>
         <div><span>Trabajos publicados</span><br><?php echo $cant ?></div>
       </div>
@@ -79,7 +79,7 @@ if (!isset($_SESSION['nombre_usuario']) || $_SESSION['id'] != $_GET['id']) {
     <?php
     if (basename($_SERVER['SCRIPT_NAME']) != 'perfilpersonal.php') {
     ?>
-      <button class="follow-button">Seguir</button>
+      <button class="follow-button-perfil">Seguir</button>
     <?php
     }
     ?>

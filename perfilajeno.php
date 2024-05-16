@@ -18,9 +18,7 @@ if ($idActual == $_GET['id']) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de Usuario - Universitat d'Alacant</title>
-    <link rel="stylesheet" href="estilos/perfilajeno.css">
-    <link rel="stylesheet" href="estilos/nav.css">
-    <link rel="stylesheet" href="estilos/styleheader.css">
+    <link rel="stylesheet" href="estilos/unificado.css">
 </head>
 
 <body>
@@ -59,8 +57,8 @@ if ($idActual == $_GET['id']) {
 
     // Comprueba si se devolvieron filas
     if ($resultado->num_rows > 0) {
-        echo '<section class="gallery-container">';
-        echo '<section class="project-gallery">';
+        echo '<section class="gallery-container-index">';
+        echo '<section class="project-gallery-index">';
 
         while ($row = $resultado->fetch_assoc()) {
             echo '<article>';
