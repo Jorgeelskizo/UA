@@ -4,19 +4,34 @@
     min-width: 352px;
   }
   .project-image {
-    display: flex; /* Alinea el contenido usando Flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    position: relative; /* Asegura que el contenedor label pueda posicionar absolutamente los hijos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 300px; /* Altura fija del área de subida */
-    margin: 20px; /* Espaciado alrededor del área */
-    border: 1px dashed #ccc; /* Estilo de borde para indicar el área de subida */
-    border-radius: 10px; /* Bordes redondeados */
-    background-color: #f8f8f8; /* Color de fondo */
+    margin: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    overflow: hidden; /* Esconde cualquier parte de la imagen que sobresalga */
 }
+
+
 
 .project-image:hover {
     border: 1px dashed #007bff; /* Cambia el color del borde al pasar el ratón */
 }
+
+.custom-file-upload {
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  z-index: 10; /* Asegura que el texto se muestre sobre la imagen */
+  background: rgba(255, 255, 255, 0.7); /* Ligeramente transparente para ver la imagen debajo */
+  border-radius: 5px;
+}
+
 
 #subir_proyecto {
   display: flex; /* Usa Flexbox para el diseño */

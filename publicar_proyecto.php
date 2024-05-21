@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="estilos/styleheader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <script src="scripts/publicarProyecto.js"></script>
+
 </head>
 
 <body>
@@ -22,9 +24,22 @@
             <div class="project-image">
                 <label for="file-upload" class="custom-file-upload">
                     <i class="fa fa-cloud-upload-alt"></i> Subir imagen
+                    <input id="file-upload" type="file" style="display:none;" onchange="previewImage();" />
+                    <div id="image-preview-container"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                        <img id="preview-img" src="" alt="Preview Image"
+                            style="width: 100%; height: 100%; display: none; object-fit: cover;" />
+                    </div>
                 </label>
-                <input id="file-upload" type="file" style="display:none;" />
+                <input id="file-upload" type="file" style="display:none;" onchange="previewImage();" />
+                <!-- Contenedor exclusivo para la imagen de vista previa -->
+                <div id="image-preview-container"
+                    style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <img id="preview-img" src="" alt="Preview Image"
+                        style="max-width: 100%; max-height: 100%; display: none;" />
+                </div>
             </div>
+
 
             <div class="project-info">
                 <h2 id="titulo">Titulo del proyecto</h2>
@@ -124,7 +139,7 @@
     <div id="subir_proyecto">
         <button class="upload-button">Subir Proyecto</button>
     </div>
-    
+
 
 
     <?php include 'imports/footer.php'; ?>
