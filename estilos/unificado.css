@@ -134,6 +134,14 @@ body {
       border-radius: 20px;
     }
 
+    .project-image img {
+      width: auto;
+      height: 100%;
+      /* max-width: 300px; Ajusta el valor según tus necesidades */
+      max-height: 400px; /* Ajusta el valor según tus necesidades */
+      object-fit: contain; /* Esto asegura que la imagen se recorte para llenar el área, conservando la proporción */
+  }
+
 
     .comment-section {
       background-color: #fff;
