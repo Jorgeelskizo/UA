@@ -6,7 +6,7 @@ body, html {
     color: #ffffff; /* Texto en color claro para contraste */
 }
 
-.login-container {
+.login-container-login {
     width: 100%;
     height: 100%;
     display: flex;
@@ -15,7 +15,7 @@ body, html {
     background-color: #121212; /* Fondo oscuro para el contenedor de inicio de sesión */
 }
 
-.login-box {
+.login-box-login {
     width: 400px;
     padding: 20px;
     background: #1e1e1e; /* Fondo más oscuro para la caja de inicio de sesión */
@@ -23,25 +23,25 @@ body, html {
     box-shadow: 0 0 10px rgba(255,255,255,0.1); /* Sombra más clara para destacar */
 }
 
-.university-logo {
+.university-logo-login {
     display: block;
     margin: 0 auto 30px auto;
     height: 80px;
     /* Asegúrate de que tu logo sea visible en el fondo oscuro, podrías necesitar ajustar la imagen. */
 }
 
-.login-title {
+.login-title-login {
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
     color: #ffffff; /* Texto en color claro */
 }
 
-.form-group {
+.form-group-login {
     margin-bottom: 15px;
 }
 
-.form-control {
+.form-control-login {
     width: 100%;
     padding: 10px;
     border: 1px solid #333; /* Borde más oscuro para los controles del formulario */
@@ -51,27 +51,27 @@ body, html {
     color: #ffffff; /* Color del texto para los inputs */
 }
 
-.session-utilities {
+.session-utilities-login {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.checkbox {
+.checkbox-login {
     margin: 0;
     /* Asegúrate de que el checkbox es visible en el fondo oscuro. */
 }
 
-.link {
+.link-login {
     color: #1a8cd8; /* Color claro pero que se destaque en el fondo oscuro */
     text-decoration: none;
 }
 
-.form-action {
+.form-action-login {
     margin-top: 20px;
 }
 
-.btn {
+.btn-login {
     width: 100%;
     padding: 10px;
     border: none;
@@ -81,7 +81,7 @@ body, html {
     cursor: pointer;
 }
 
-.social-login {
+.social-login-login {
     text-align: center;
     margin-top: 20px;
 }
@@ -98,25 +98,25 @@ body, html {
 }
 
 @media (max-width: 520px) {
-    .login-box {
+    .login-box-login {
         width: auto;
         margin: 0 20px;
         box-shadow: none;
     }
 
-    .university-logo {
+    .university-logo-login {
         height: 60px;
     }
 
-    .login-title {
+    .login-title-login {
         font-size: 20px;
     }
 
-    .form-control {
+    .form-control-login {
         padding: 8px;
     }
 
-    .btn {
+    .btn-login {
         padding: 12px;
     }
 
@@ -124,15 +124,15 @@ body, html {
         width: 35px;
     }
 
-    .session-utilities {
+    .session-utilities-login {
         display: block;
     }
 
-    .checkbox {
+    .checkbox-login {
         margin-bottom: 10px;
     }
 
-    .link {
+    .link-login {
         align-self: flex-end;
     }
 }

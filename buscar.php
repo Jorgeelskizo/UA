@@ -37,28 +37,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universitat d'Alacant</title>
-    <link rel="stylesheet" href="estilos/index.css">
-    <link rel="stylesheet" href="estilos/buscar.css">
-    <link rel="stylesheet" href="estilos/nav.css">
-    <link rel="stylesheet" href="estilos/styleheader.css">
+    <link rel="stylesheet" href="estilos/unificado.css">
 </head>
 
 <body>
     <?php include 'Imports/header.php'; ?>
-    <div class="header-image"></div>
+    <div class="header-image-index"></div>
     <?php include 'Imports/barranav.php'; ?>
 
-    <form id="searchForm" class="search-container" method="POST" enctype="multipart/form-data">
-        <input type="text" name="titulo" placeholder="Título" class="search-input">
-        <input type="date" name="fecha_publicacion" class="search-select">
-        <select name="tipo" class="search-select">
+    <form id="searchForm" class="search-container-buscar" method="POST" enctype="multipart/form-data">
+        <input type="text" name="titulo" placeholder="Título" class="search-input-buscar">
+        <input type="date" name="fecha_publicacion" class="search-select-buscar">
+        <select name="tipo" class="search-select-buscar">
             <option disabled selected>Tipo</option>
             <option value="tfg">TFG</option>
             <option value="tfm">TFM</option>
             <option value="practicas">Practicas</option>
             <option value="proyectos">Proyectos</option>
         </select>
-        <select name="anyo" class="search-select">
+        <select name="anyo" class="search-select-buscar">
             <option disabled selected>Año</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -66,15 +63,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        <input type="number" name="valoracion" placeholder="Valoración" class="search-select">
-        <button type="submit" class="search-button">Buscar</button>
+        <input type="number" name="valoracion" placeholder="Valoración" class="search-select-buscar">
+        <button type="submit" class="search-button-buscar">Buscar</button>
     </form>
 
     <div id="results">
         <?php
         if (isset($result) && $result->num_rows > 0) {
-            echo '<section class="gallery-container">';
-            echo '<section class="project-gallery">';
+            echo '<section class="gallery-container-index">';
+            echo '<section class="project-gallery-index">';
             while($row = $result->fetch_assoc()) {
                 echo '<article>';
                 echo '<a href="proyecto.php">';

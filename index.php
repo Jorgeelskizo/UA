@@ -10,9 +10,7 @@ include 'scripts/controlSesion.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universitat d'Alacant</title>
-    <link rel="stylesheet" href="estilos/index.css">
-    <link rel="stylesheet" href="estilos/nav.css">
-    <link rel="stylesheet" href="estilos/styleheader.css">
+    <link rel="stylesheet" href="estilos/unificado.css">
 </head>
 
 <body>
@@ -21,7 +19,7 @@ include 'scripts/controlSesion.php';
     include 'Imports/header.php';
     ?>
 
-    <div class="header-image"></div>
+    <div class="header-image-index"></div>
 
     <?php
     include 'Imports/barranav.php';
@@ -39,8 +37,8 @@ include 'scripts/controlSesion.php';
 
     // Comprobando si la consulta devolvió filas
     if ($resultado->num_rows > 0) {
-        echo '<section class="gallery-container">';
-        echo '<section class="project-gallery">';
+        echo '<section class="gallery-container-index">';
+        echo '<section class="project-gallery-index">';
 
         // Procesando cada fila del resultado
         while ($row = $resultado->fetch_assoc()) {

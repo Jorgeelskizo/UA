@@ -14,21 +14,21 @@ if (!isset($_SESSION['nombre_usuario'])) {
 ?>
 
 
-<header class="site-header">
-    <div class="logo">
-        <a class="logo" href="index.php">
-            <img src="img/logoUA.png" alt="Logo" class="logo-big">
-            <img src="img/ua-cuadrado.png" alt="Logo" class="logo-small">
+<header class="site-header-header">
+    <div class="logo-header">
+        <a class="logo-header" href="index.php">
+            <img src="img/logoUA.png" alt="Logo" class="logo-big-header">
+            <img src="img/ua-cuadrado.png" alt="Logo" class="logo-small-header">
         </a>
 
     </div>
-    <div class="search-bar">
+    <div class="search-bar-header">
         <input type="text">
-        <button type="submit" class="search-button">
+        <button type="submit" class="search-button-header">
             <i class="fas fa-search"></i>
         </button>
     </div>
-    <div class="profile">
+    <div class="profile-header">
         <?php
         // Comprobar si la variable de sesión 'usuario_id' está establecida
         if ($bool == false) {
@@ -37,8 +37,8 @@ if (!isset($_SESSION['nombre_usuario'])) {
             echo "<button type='button' onclick='location.href=\"register.php\"'>Registrarse</button>";
         } else {
             // Mostrar nombre de usuario y foto
-            echo "<a href='perfilpersonal.php?id=$idH' class='profile' style='text-decoration: none; color: inherit;'>";
-            echo "<span class='user-name'>" . htmlspecialchars($nombre) . "</span>";
+            echo "<a href='perfilpersonal.php?id=$idH' class='profile-header' style='text-decoration: none; color: inherit;'>";
+            echo "<span class='user-name-header'>" . htmlspecialchars($nombre) . "</span>";
             echo "<img src=" . $foto . " alt='Profile Picture'>";
             echo "</a>";
             echo "<button type='button' onclick='location.href=\"publicar_proyecto.php\"'>Publicar proyecto</button>";
