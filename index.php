@@ -1,6 +1,14 @@
 <?php 
 include 'scripts/conexion.php';
 include 'scripts/controlSesion.php';
+
+if( isset( $_SESSION['lang'])){
+    $idioma = $_SESSION['lang'];
+}else{
+    $idioma = 'in';
+}
+
+$palabras = parse_ini_file( "idiomas/$idioma.ini");
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +70,7 @@ include 'scripts/controlSesion.php';
 
 
         echo '</section>';
-        echo '<div><button>Ver más</button></div>';
+        echo '<div><button>' . $palabras['vermas'] . '</button></div>';
         echo '</section>';
     } else {
         echo "0 resultados";
