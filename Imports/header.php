@@ -11,6 +11,14 @@ if (!isset($_SESSION['nombre_usuario'])) {
         $bool = true;
 }
 
+if( isset( $_SESSION['lang'])){
+    $idioma = $_SESSION['lang'];
+}else{
+    $idioma = 'ch';
+}
+
+$palabras = parse_ini_file( "idiomas/$idioma.ini");
+
 ?>
 
 
@@ -33,15 +41,15 @@ if (!isset($_SESSION['nombre_usuario'])) {
         // Comprobar si la variable de sesión 'usuario_id' está establecida
         if ($bool == false) {
             // Mostrar botones de iniciar sesión y registrarse
-            echo "<button type='button' onclick='location.href=\"login-form.php\"'>Iniciar sesión</button>";
-            echo "<button type='button' onclick='location.href=\"register.php\"'>Registrarse</button>";
+            echo "<button type='button' onclick='location.href=\"login-form.php\"'>". $palabras['inicarS'] ."</button>";
+            echo "<button type='button' onclick='location.href=\"register.php\"'>". $palabras['regis'] ."</button>";
         } else {
             // Mostrar nombre de usuario y foto
             echo "<a href='perfilpersonal.php?id=$idH' class='profile-header' style='text-decoration: none; color: inherit;'>";
             echo "<span class='user-name-header'>" . htmlspecialchars($nombre) . "</span>";
             echo "<img src=" . $foto . " alt='Profile Picture'>";
             echo "</a>";
-            echo "<button type='button' onclick='location.href=\"publicar_proyecto.php\"'>Publicar proyecto</button>";
+            echo "<button type='button' onclick='location.href=\"publicar_proyecto.php\"'>". $palabras['publicar'] ."</button>";
         }
 
         ?>
