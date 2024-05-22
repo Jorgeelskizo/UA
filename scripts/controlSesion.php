@@ -31,6 +31,7 @@ if(isset($_COOKIE['recordarme']) && !isset($_SESSION['nombre_usuario']) ){
             $_SESSION['id'] = $user['id_usuario'];
             $_SESSION['carrera'] = $user['carrera'];
             $_SESSION['lang'] = 'es';
+            $_SESSION['modo'] = 'Oscuro';
  
             $mensaje = "Entrado";
             echo $_SESSION['id'];

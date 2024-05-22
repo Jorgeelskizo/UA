@@ -12,6 +12,7 @@ include 'scripts/seleccionarIdioma.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universitat d'Alacant</title>
     <link rel="stylesheet" href="estilos/unificado.css">
+    <?php include 'scripts/controlEstilo.php'; ?>
 </head>
 <body>
 

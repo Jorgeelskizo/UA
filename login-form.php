@@ -16,7 +16,8 @@ if (isset($_SESSION['nombre_usuario'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inicio de Sesión - Universidad de Alicante</title>
 <link rel="stylesheet" href="estilos/unificado.css">
-<link rel="alternate stylesheet" type="text/css" href="estilos/modoscurologin.css" title="DarkMode">
+<?php include 'scripts/controlEstilo.php'; ?>
+
 </head>
 <body>
 

@@ -14,7 +14,7 @@ if (isset($_SESSION['nombre_usuario'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Universidad de Alicante</title>
     <link rel="stylesheet" href="estilos/unificado.css">
-    <link rel="alternate stylesheet" href="estilos/modooscuroregister.css" title="DarkMode">
+    <?php include 'scripts/controlEstilo.php'; ?>
     <!-- Añade más enlaces a hojas de estilo si es necesario -->
 </head>
 <body>

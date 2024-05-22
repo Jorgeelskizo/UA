@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perfil de Usuario - Universitat d'Alacant</title>
 <link rel="stylesheet" href="estilos/unificado.css">
+    <?php include 'scripts/controlEstilo.php'; ?>
 </head>
 <body>
 
