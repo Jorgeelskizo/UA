@@ -9,7 +9,6 @@ include 'scripts/controlSesion.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universidad de Alicante - Subir Trabajo</title>
-    <link rel="stylesheet" href="estilos/publicar_proyecto.css">
     <link rel="stylesheet" href="estilos/styleheader.css">
     <link rel="stylesheet" href="estilos/unificado.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -37,37 +36,37 @@ include 'scripts/controlSesion.php';
             <div class="project-image">
                 <label for="file-upload" class="custom-file-upload">
                     <p><i class="fa fa-cloud-upload-alt"></i>Subir Imagen </p>
-                    <input id="file-upload" type="file" accept=".jpg, .jpeg, .png" style="display:none;"
+                    <input id="file-upload" class="file-upload" type="file" accept=".jpg, .jpeg, .png" style="display:none;"
                         onchange="previewImage();" />
-                    <div id="image-preview-container"
+                    <div id="image-preview-container" class="image-preview-container"
                         style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
-                        <img id="preview-img" src="" alt="Preview Image"
+                        <img id="preview-img" class="preview-img" src="" alt="Preview Image"
                             style="width: 100%; height: 100%; display: none; object-fit: cover;" />
                     </div>
                 </label>
-                <input id="file-upload" type="file" style="display:none;" onchange="previewImage();" />
+                <input id="file-upload" class="file-upload" type="file" style="display:none;" onchange="previewImage();" />
             </div>
 
 
             <div class="project-info">
                 <div class="input-group">
                     <h2>Título del trabajo</h2>
-                    <input id="input_titulo" type="text">
+                    <input id="input_titulo" class="input_titulo" type="text">
                 </div>
 
                 <div class="input-group">
                     <h2>Descripción del trabajo</h2>
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
+                    <textarea name="descripcion" id="descripcion" class="descripcion" cols="30" rows="10"></textarea>
                 </div>
 
                 <div class="input-group">
                     <h2>Horas de desarrollo</h2>
-                    <input id="input_horas" type="number" placeholder="E.g., 120" min="1" step="1"> horas
+                    <input id="input_horas" class="input_horas" type="number" placeholder="E.g., 120" min="1" step="1"> horas
                 </div>
 
                 <div class="input-group">
                     <h2>Tipo de trabajo</h2>
-                    <select name="tipo_proyecto" id="tipo_proyecto">
+                    <select name="tipo_proyecto" id="tipo_proyecto" class="tipo_proyecto">
                         <option value="TFG">TFG</option>
                         <option value="TFM">TFM</option>
                         <option value="Práctica">Práctica</option>
@@ -84,7 +83,7 @@ include 'scripts/controlSesion.php';
                 <hr>
                 <section class="documents">
                     <h3>Documentos</h3>
-                    <div id="documentList"> <!-- Contenedor para los documentos añadidos -->
+                    <div id="documentList" class="documentList"> <!-- Contenedor para los documentos añadidos -->
                         <!-- Aquí se añadirán los documentos dinámicamente -->
                     </div>
                     <a href="#" class="view-all">Ver todos</a>
@@ -125,36 +124,36 @@ include 'scripts/controlSesion.php';
                 <h2>Subir nuevo archivo</h2>
                 <label>
                     Tipo de archivo:
-                    <select id="uploadFileType" onchange="toggleUploadFields()">
+                    <select id="uploadFileType" class="uploadFileType" onchange="toggleUploadFields()">
                         <option value="pdf">PDF</option>
                         <option value="image">Imagen</option>
                     </select>
                 </label>
                 <br>
-                <label id="uploadTitleField" style="display: none;">
+                <label id="uploadTitleField" class="uploadFileType" style="display: none;">
                     Título:
-                    <input type="text" id="uploadFileTitle">
+                    <input type="text" id="uploadFileTitle" class="uploadFileType">
                 </label>
                 <br>
-                <label id="uploadDescField" style="display: none;">
+                <label id="uploadDescField" class="uploadDescField" style="display: none;">
                     Descripción:
-                    <textarea id="uploadFileDescription"></textarea>
+                    <textarea id="uploadFileDescription" class="uploadFileDescription"></textarea>
                 </label>
                 <br>
-                <label id="altTextField" style="display: none;">
+                <label id="altTextField" class="altTextField" style="display: none;">
                     Texto Alternativo:
-                    <input type="text" id="uploadAltText">
+                    <input type="text" id="uploadAltText" class="altTextField">
                 </label>
 
                 <br>
                 <label>
                     Archivo:
                     <label for="uploadFileInput" class="upload-file-label">Seleccionar archivo</label>
-                    <input type="file" id="uploadFileInput" onchange="previewUploadFile()" hidden />
-                    <div id="fileNameDisplay"></div>
+                    <input type="file" id="uploadFileInput" class="uploadFileInput" onchange="previewUploadFile()" hidden />
+                    <div id="fileNameDisplay"  class="fileNameDisplay"></div>
                 </label>
                 <br>
-                <img id="uploadImagePreview">
+                <img id="uploadImagePreview" class="uploadImagePreview">
                 <button onclick="addUploadFileToList()">Añadir</button>
             </div>
         </div>

@@ -1,71 +1,9 @@
-/* -------------------------------------------------------Index------------------------------------------------------------ */
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    height: 3em;
-    margin-right: 10px;
-  }
-  
-  .search-bar {
-    position: relative;
-  }
-  
-  
-  .search-bar input {
-    height: 2em;
-    width: 35em;
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-  }
-  
-  .search-bar button {
-    border: none;
-    background: transparent;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
-  
-  .search-bar button i {
-    color: #333; /* Color of the search icon */
-    font-size: 20px; /* Size of the icon */
-  }
-  
-  .profile img {
-    height: 40px; /* Adjust as needed */
-    border-radius: 20px;
-  }
-
 /* ----------------------------------------------------Página proyectos--------------------------------------------------------------- */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     min-width: 352px;
   }
-
 
   .profile-card-global {
     background-color: #ebebeb;
@@ -1911,4 +1849,732 @@ padding: 20px; /* Añade algo de padding alrededor */
   }
 
   
+}
+
+
+/* ---------------------------------------Publicar Proyectos------------------------------------ */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-width: 352px;
+}
+.project-image {
+  position: relative; /* Asegura que el contenedor label pueda posicionar absolutamente los hijos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px; /* Altura fija del área de subida */
+  margin: 20px;
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  overflow: hidden; /* Esconde cualquier parte de la imagen que sobresalga */
+}
+
+
+
+.project-image:hover {
+  border: 1px dashed #007bff; /* Cambia el color del borde al pasar el ratón */
+}
+
+.custom-file-upload {
+position: relative;
+cursor: pointer;
+font-size: 16px;
+padding: 10px 20px;
+z-index: 10; /* Asegura que el texto se muestre sobre la imagen */
+background: rgba(255, 255, 255, 0.7); /* Ligeramente transparente para ver la imagen debajo */
+border-radius: 5px;
+}
+
+
+.subir_proyecto {
+display: flex; /* Usa Flexbox para el diseño */
+justify-content: center; /* Centra horizontalmente */
+align-items: center; /* Centra verticalmente si deseas que también esté centrado verticalmente */
+padding: 20px; /* Añade algo de padding alrededor */
+}
+
+.input_titulo {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  background-color: #f8f8f8;
+}
+.descripcion {
+  width: 100%;
+  height: 200px;
+  padding: 5px 5px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+#titulo {
+  color: #333;
+  text-align: center;
+}
+
+.profile-card-global {
+  background-color: #ebebeb;
+  padding: 0.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  margin: 0.5em;
+
+}
+.profile-card {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  margin: 0.5em;
+}
+
+.profile-photo {
+  flex: 1; /* takes up 1 part of the flex container */
+  margin-right: 15px;
+  max-width: 120px;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+}
+
+.profile-info {
+  flex: 2; /* takes up 2 parts of the flex container */
+}
+
+.profile-name {
+  font-size: 1.2em;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.profile-username,
+.profile-university,
+.profile-degree {
+  font-size: 2em;
+  color: #666;
+  margin: 0;
+}
+
+.user-name {
+  font-size: 1em;
+  color: #333;
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+
+/* ---------------------------------------------------------------------------------------------*/
+
+.project-container {
+    background: #fff;
+    margin-top: 0.1em;;
+    
+    padding: 20px;
+  }
+
+
+  .comment-section {
+    background-color: #fff;
+    /* padding: 20px; */
+    border-radius: 10px;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+    margin: auto;
+  }
+  .comment {
+    margin-bottom: 20px;
+  }
+  .comment img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+  }
+  .comment-title {
+    font-size: 1em;
+    color: #333;
+    margin: 5px 0;
+  }
+  .comment-caption {
+    font-size: 0.9em;
+    color: #666;
+  }
+  .comment-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    
+  }
+  .comment-box input[type="text"] {
+    width: calc(100% - 110px);
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .comment-box input[type="submit"] {
+    width: 100px;
+    border: none;
+    padding: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  /* MULTIMEDIA */
+
+.resources-section {
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  margin-top: 1em;
+}
+.resources-section h2 {
+  font-size: 1.25rem;
+  color: #333;
+}
+.documents{
+  /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+  /* padding: 1em; */
+  margin: 0;
+}
+
+.documents h3 {
+  margin-top:0.1em;
+}
+
+.document-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+  padding: 0.2em;
+  border-radius: 4px;
+}
+
+.document-icon img{
+  margin-right: 0.5em;
+  height: 4em;
+}
+.document-info {
+  flex-grow: 1;
+}
+.document-title {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+.document-description {
+  font-size: 0.875rem;
+  color: #666;
+}
+.download-button {
+  background: #007bff;
+  margin-right: 5px;
+  color: white;
+  border: none;
+  padding: 0.5em 0.9em;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background: #0056b3;
+}
+
+.delete-button {
+  background: #adaeb0;
+  color: white;
+  border: none;
+  padding: 0.5em 0.9em;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #7a7b7d;
+}
+
+.upload-button {
+  background: #565656;
+  color: white;
+  border: none;
+  padding: 0.5em 0.9em;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.upload-button:hover {
+  background: #000000;
+}
+
+.image-gallery {
+  margin-top: 20px;
+}
+.gallery-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.slider-container {
+  display: flex;
+  width: 90%;
+  height: 100vh;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.slider-container img {
+  flex: 0 0 100%;
+  width: 100%;
+  object-fit: cover;
+  scroll-snap-align: center;
+}
+
+
+
+/*FOOTER*/
+.site-footer {
+  background-color: #f4f4f4;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  border-top: 3px solid #dcdcdc;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section h3 {
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section ul li {
+  color: #666;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #0d47a1;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+
+.project-actions {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 20px;
+  gap: 1em;;
+}
+
+.rate-project,
+.share-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  width: 12em;
+  height: 6.5em;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  gap: 0.5em;
+}
+
+.valorar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#estrellas {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  border-radius: 6px;
+  border: 0.5px solid #d8d8d8;
+
+}
+
+.rate-button {
+  background: none;
+  border: none;
+  color: #333; /* Gold color for stars */
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.rate-count {
+  margin-left: 5px;
+}
+
+.social-icons {
+  display: flex;
+}
+
+.social-icon {
+  font-size: 1.5em;
+  margin-right: 10px;
+  color: #333; /* Dark color for social media icons */
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #007bff; /* Light blue on hover for social media icons */
+}
+
+@media (min-width: 520px) {
+  .project-actions{
+    flex-direction: row;
+    
+  }
+}
+
+
+@media (max-width: 600px) {
+  .logo-big {
+    display: none;
+  }
+  
+  .logo-small {
+    display: block; /* Mostrar la imagen pequeña */
+  }
+
+}
+
+
+/* Estilos para pantallas más grandes */
+@media screen and (min-width: 768px) { /* Ajusta el 768px según tus necesidades */
+  .project-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .left-column, .right-column{
+    width: 49%;
+  }
+  .left-column{
+    padding-right: 1em;
+    border-right: 1px solid #666;
+  }
+  .right-column{
+    padding-left: 1em;
+  }
+
+  .custom-file-upload {
+    padding: 150px 225px;
+  
+}
+
+  /* Asegúrate de que las imágenes dentro de .project-container y .resources-section no se desborden de sus contenedores */
+  .slider-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  /* Ajusta el diseño del slider para que no ocupe toda la altura de la pantalla en pantallas grandes */
+  .slider-container {
+    height: auto;
+    overflow-x: auto; /* Cambia a auto para evitar altura innecesaria */
+  }
+  
+  /* Contenedor para la barra de búsqueda y la imagen del perfil */
+  .search-and-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ocupa toda la anchura disponible */
+    margin-bottom: 1em; /* Agrega margen debajo si es necesario */
+  }
+
+  .search-bar {
+    flex-grow: 1; /* Permite que la barra de búsqueda crezca para llenar el espacio */
+    margin-right: 1em; /* Añade margen a la derecha */
+  }
+
+  .profile {
+    /* Si la imagen de perfil necesita ajustes de tamaño, agrégalos aquí */
+  }
+
+  .project-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    
+  }
+
+
+}
+
+@media (min-width: 975px) {
+  .project-actions{
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  
+}
+
+
+
+
+
+
+/* Estilo del fondo del modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Estilo del contenido del modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* El botón cerrar (x) */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Estilos generales del modal */
+.upload-modal {
+display: none;
+position: fixed;
+z-index: 1001; /* Alta prioridad para superponer sobre otros elementos */
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto; /* Permite el desplazamiento dentro del modal si es necesario */
+background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
+}
+
+/* Contenido del modal */
+.upload-modal-content {
+position: relative; /* Para posicionar absolutamente elementos dentro, como el botón de cerrar */
+background-color: #fff;
+margin: 5% auto; /* Centrado vertical y horizontal */
+padding: 20px;
+border-radius: 5px;
+border: 1px solid #888;
+width: 50%; /* Ajusta esto según tu diseño */
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Estilos para inputs, selects y textareas dentro del modal */
+.upload-modal-content label,
+.upload-modal-content input,
+.upload-modal-content select,
+.upload-modal-content textarea {
+width: 100%;
+margin-top: 10px;
+box-sizing: border-box; /* Asegura que el padding y el border sean incluidos en el width/height */
+}
+
+/* Vista previa de la imagen cargada */
+.uploadImagePreview {
+height: 200px; /* Altura fija para mantener consistencia */
+width: auto; 
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+/* Botón de cerrar en el modal */
+.upload-close {
+cursor: pointer;
+position: absolute;
+right: 10px;
+top: 10px;
+font-size: 24px;
+color: #666;
+}
+
+.upload-close:hover,
+.upload-close:focus {
+color: #000;
+text-decoration: none;
+}
+
+/* Estilos para el botón de carga de archivos */
+.upload-file-button {
+background-color: #007bff; /* Color azul */
+color: white;
+border: none;
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+}
+
+.upload-file-button:hover {
+background-color: #0056b3; /* Un azul más oscuro para el hover */
+}
+
+/* Estilo del input de tipo file para ocultarlo visualmente pero seguir siendo funcional */
+.uploadFileInput {
+opacity: 0;
+position: absolute;
+z-index: -1;
+}
+
+/* Label que actúa como botón para el input file */
+.upload-file-label {
+display: inline-block;
+background-color: #007bff; /* Color azul del botón */
+color: white;
+padding: 8px 15px; /* Reducir el padding para un botón más pequeño */
+border-radius: 5px;
+cursor: pointer;
+font-size: 14px; /* Reducir un poco el tamaño de la fuente */
+margin-top: 10px;
+margin-right: 20px; /* Espacio entre los botones */
+}
+
+.upload-file-label:hover {
+background-color: #0056b3; /* Color azul más oscuro en hover */
+}
+
+.project-info {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%; /* Asegura que ocupa todo el ancho del contenedor padre */
+}
+
+.input-group {
+width: 100%; /* Ocupa todo el ancho posible dentro de project-info */
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 10px 0; /* Añade algo de espacio entre los grupos */
+}
+
+.input_titulo, .descripcion, .input_horas, .tipo_proyecto {
+width: 80%; /* Reduce el ancho para no ocupar todo el contenedor */
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+border: 2px solid #ccc;
+border-radius: 15px;
+background-color: #f8f8f8;
+}
+
+
+
+
+
+
+
+.carousel-container {
+position: relative;
+margin: auto;
+overflow: hidden;
+width: 100%; /* O el ancho que prefieras, pero que coincida con el ancho de las imágenes */
+max-height: 35em;
+}
+
+.carousel-slide {
+display: flex;
+width: calc(100% ); /* Cambiar cantidadDeImagenes por el número real de imágenes en el carrusel */
+}
+
+.carousel-image {
+max-width: 100%;
+width: calc(100%); /* Se establece que cada imagen ocupe todo el ancho del contenedor */
+flex: 0 0 auto; /* Esto evita que las imágenes se estiren o se encojan */
+transition: transform 0.5s ease;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff75;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
 }

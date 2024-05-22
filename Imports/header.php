@@ -43,7 +43,7 @@ include 'scripts/seleccionarIdioma.php';
             echo "<span class='user-name-header'>" . htmlspecialchars($nombre) . "</span>";
             echo "<img src=" . $foto . " alt='Profile Picture'>";
             echo "</a>";
-            echo "<button type='button' onclick='location.href=\"publicar_proyecto.php\"'>". $palabras['publicar'] ."</button>";
+            echo "<button type='button' onclick='location.href=\"publicar_trabajo.php\"'>". $palabras['publicar'] ."</button>";
         }
 
         ?>
