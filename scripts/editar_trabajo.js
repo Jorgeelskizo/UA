@@ -399,7 +399,7 @@ function validateAndUploadProject() {
         if (data.success) {
             console.log('Proyecto actualizado correctamente:', data);
             alert('Trabajo actualizado correctamente.');
-            window.location.href = 'index.php'; // Redirigir tras la subida exitosa
+            uploadMedia(); // Subir archivos multimedia después de actualizar el proyectos
         } else {
             throw new Error(data.error || 'Error desconocido al actualizar el proyecto');
         }
@@ -460,6 +460,6 @@ function uploadMedia() {
                 });
         }
     });
-    alert('Archivos multimedia subidos correctamente. Redirigiendo...');
+    alert('Todo OK, redirigiendo...');
     window.location.href = 'index.php'; // Redirigir tras la subida exitosa
 }
