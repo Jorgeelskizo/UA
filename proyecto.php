@@ -4,6 +4,7 @@ include 'scripts/controlSesion.php';
 
 // Recoger el ID del proyecto de la URL
 $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
+echo $id_proyecto;
 
 ?>
 
@@ -25,21 +26,26 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
   <?php 
   $sql = "SELECT  titulo, descripcion, horas, valoracion, fecha_publicacion, nombre_completo, 
-                  t.id_usuario as id_usu, a.nombre_archivo as ruta
+                  t.id_usuario as id_usu, portada
           FROM trabajos t
           JOIN usuarios u ON t.id_usuario = u.id_usuario
-          join archivos a ON t.id_trabajo = a.id_trabajo
           WHERE t.id_trabajo = $id_proyecto  ";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     
   ?>
+  
 
   
 <div class="left-column">
+  <?php if ($_SESSION["id"] === $row["id_usu"]): ?>
+    <div class="form-container">
+        <button class="form-button" onclick="location.href='editar_documento.php?id=<?php echo $id_trabajo; ?>'">Editar Documento</button>
+    </div>
+    <?php endif; ?>
     <div class="project-image">
-        <img src="<?php echo $row["ruta"]; ?>" alt="Project Thumbnail" class="fixed-size">
+        <img src="<?php echo $row["portada"]; ?>" alt="Project Thumbnail" class="fixed-size">
     </div>
     <div class="project-info">
         <?php echo "<h2>" . $row["titulo"]. "</h2>"; ?>
@@ -112,10 +118,10 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
           <div class="document-item">
             <span class="document-icon"><img src="img/pdf.png"></span> 
             <div class="document-info">
-              <p class="document-title"><?php echo $pdf_row['texto_alternativo']; ?></p>
+              <p class="document-title"><?php echo $pdf_row['descripcion']; ?></p>
               <p class="document-description">Archivo pdf con el proyecto completo.</p>
             </div>
-            <a href="<?php echo $pdf_row['nombre_archivo']; ?>" class="download-button" download>Descargar</a>
+            <a href="#" class="download-button" download>Descargar</a>
           </div>
           <hr>
           <?php 
