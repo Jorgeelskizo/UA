@@ -50,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" || isset($_GET['search']) || isset($_GE
     <title>Universitat d'Alacant</title>
     <link rel="stylesheet" href="estilos/unificado.css">
     <?php include 'scripts/controlEstilo.php'; ?>
+    <?php include 'scripts/controlTamano.php'; ?>
 </head>
 
 <body>

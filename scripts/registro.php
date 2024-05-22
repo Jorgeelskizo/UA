@@ -77,6 +77,7 @@ try {
                         $_SESSION['carrera'] = $user['carrera'];
                         $_SESSION['lang'] = 'es';
                         $_SESSION['modo'] = '';
+                        $_SESSION['tam'] = '1';
             
                         $mensaje = "Entrado";
                         echo $_SESSION['id'];

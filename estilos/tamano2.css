@@ -1,0 +1,57 @@
+/* Estilos Base para Aumentar Tamaño */
+body, button, input, select, textarea {
+    font-size: 18px; /* Tamaño de fuente más grande para mejorar la legibilidad */
+}
+
+h1, h2, h3, h4 {
+    margin-top: 20px; /* Aumenta el espacio sobre los títulos */
+    margin-bottom: 10px; /* Aumenta el espacio debajo de los títulos */
+    font-size: 1.25em; /* Incremento proporcional basado en el tamaño de fuente del body */
+}
+
+/* Ajustes para controles interactivos para mejorar la accesibilidad */
+button, input[type="button"], input[type="submit"], select {
+    padding: 10px 20px; /* Más grande para fácil interacción */
+    font-size: 1em; /* Mantener proporcional al texto general */
+    cursor: pointer;
+}
+
+input[type="text"], input[type="email"], select, textarea {
+    padding: 8px; /* Aumentar padding para fácil interacción */
+    border: 2px solid #ccc; /* Borde más visible */
+}
+
+/* Espacio general y tamaños para todos los elementos */
+.container, .header, .footer, .sidebar, .main-content {
+    padding: 20px; /* Espacio interno aumentado */
+    margin-bottom: 20px; /* Más espacio entre secciones */
+}
+
+/* Elementos específicos como listas, tarjetas de artículo, etc. */
+ul, ol {
+    padding-left: 20px; /* Espacio interior aumentado para listas */
+}
+
+.article-card {
+    padding: 15px; /* Tarjetas con más padding */
+    margin-bottom: 15px; /* Más espacio entre tarjetas */
+}
+
+/* Botones y enlaces más grandes */
+a, .link-button {
+    padding: 10px; /* Hacer enlaces internos como botones más accesibles */
+    display: inline-block; /* Asegurar que el padding se aplique correctamente */
+    text-decoration: none; /* Eliminar subrayado */
+}
+
+/* Ajustes visuales para íconos y elementos pequeños */
+.icon {
+    width: 50px; /* Íconos más grandes */
+    height: 50px; /* Íconos más grandes */
+}
+
+/* Mejorar la visibilidad del pie de página y encabezado */
+.header, .footer {
+    font-size: larger; /* Texto más grande en el encabezado y pie de página */
+    padding: 30px 20px; /* Espaciado más grande para áreas cruciales */
+}

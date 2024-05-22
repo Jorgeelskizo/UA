@@ -16,6 +16,7 @@ include 'scripts/seleccionarIdioma.php';
     <link rel="stylesheet" href="estilos/unificado.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <?php include 'scripts/controlEstilo.php'; ?>
+    <?php include 'scripts/controlTamano.php'; ?>
 
 </head>
 
@@ -35,7 +36,7 @@ include 'scripts/seleccionarIdioma.php';
                     <select class="select-config" id="daltonico-select">
                         <option value="r" <?php echo (isset($_SESSION['modo']) && $_SESSION['modo'] == 'Delta') ? 'selected' : ''; ?>>Deuteranomalia</option>
                         <option value="p" <?php echo (isset($_SESSION['modo']) && $_SESSION['modo'] == 'Pro') ? 'selected' : ''; ?>>Protanopia</option>
-                        <option value="t" <?php echo (isset($_SESSION['modo']) && $_SESSION['modo'] == 'Trio') ? 'selected' : ''; ?>>Tritanopia</option>
+                        <option value="t" <?php echo (isset($_SESSION['modo']) && $_SESSION['modo'] == 'Triple') ? 'selected' : ''; ?>>Tritanopia</option>
                     </select>
                 </div>
             </div>
@@ -61,10 +62,10 @@ include 'scripts/seleccionarIdioma.php';
                     <p><?php echo  $palabras['descvis'] ?></p>
                 </div>
                 <div class="setting-control-config">
-                    <select class="select-config">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                    <select class="select-config" id="tam-select">
+                        <option value="1" <?php echo (isset($_SESSION['tam']) && $_SESSION['tam'] == '1') ? 'selected' : ''; ?>>1</option>
+                        <option value="2" <?php echo (isset($_SESSION['tam']) && $_SESSION['tam'] == '2') ? 'selected' : ''; ?>>2</option>
+                        <option value="3" <?php echo (isset($_SESSION['tam']) && $_SESSION['tam'] == '3') ? 'selected' : ''; ?>>3</option>
                     </select>
                 </div>
             </div>
@@ -84,11 +85,6 @@ include 'scripts/seleccionarIdioma.php';
             </div>
         </div>
     </div>
-
-    <div id="subir_proyecto-config">
-        <button class="upload-button-config">Guardar Cambios</button>
-    </div>
-
 
     <?php include 'imports/footer.php'; ?>
 

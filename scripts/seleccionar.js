@@ -31,15 +31,27 @@ document.addEventListener('DOMContentLoaded', function() {
     if (selectElement) {
         selectElement.addEventListener('change', function() {
             var selectedLanguage = this.value;
-            var devolver = '';
+            var devolver = 'r';
             if(selectedLanguage == "r"){
                 devolver = 'Delta';
-            }else if(selectedLanguage == "p"){
+            }else if(selectedLanguage == "t"){
                 devolver = 'Triple';
-            }else if (selectedLanguage == "t"){
+            }else if (selectedLanguage == "p"){
                 devolver = 'Pro';
             }
             window.location.href = 'configs/modos.php?m=' + devolver;
+        });
+    } else {
+        console.error("Elemento de selección de idioma no encontrado.");
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var selectElement = document.getElementById('tam-select');
+    if (selectElement) {
+        selectElement.addEventListener('change', function() {
+            var selectedLanguage = this.value;
+            window.location.href = 'configs/tam.php?t=' + selectedLanguage;
         });
     } else {
         console.error("Elemento de selección de idioma no encontrado.");

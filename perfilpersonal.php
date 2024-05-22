@@ -15,6 +15,7 @@ $nombre = $_SESSION['nombre_usuario'];
     <title>Perfil de Usuario - Universitat d'Alacant</title>
     <link rel="stylesheet" href="estilos/unificado.css">
     <?php include 'scripts/controlEstilo.php'; ?>
+    <?php include 'scripts/controlTamano.php'; ?>
 </head>
 
 <body>
