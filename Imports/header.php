@@ -13,7 +13,6 @@ if (!isset($_SESSION['nombre_usuario'])) {
 
 include 'scripts/seleccionarIdioma.php';
 
-echo 'estilo: ' . $_SESSION['modo'];
 ?>
 
 

@@ -54,7 +54,7 @@ function displayPDF(docs) {
     docs.forEach(doc => {
         const div = document.createElement('div');
         div.className = 'document-item';
-        div.id = `media-item-${doc.id_archivo}`;
+        div.id = `media-item-pdf-${doc.id_pdf}`;
 
         const docIcon = document.createElement('img');
         docIcon.src = 'img/pdf.png';
@@ -77,9 +77,8 @@ function displayPDF(docs) {
         deleteButton.className = 'delete-button';
         deleteButton.textContent = 'Eliminar';
         deleteButton.onclick = function() {
-            deleteMedia(doc.id_pdf, 'pdf'); // Llamada a la función deleteMedia con el ID y el tipo
+            deleteMedia(doc.id_pdf, 'pdf'); // Función que maneja la eliminación
         };
-
         div.appendChild(docIcon);
         div.appendChild(fileInfo);
         div.appendChild(downloadButton);
@@ -94,7 +93,8 @@ function displayIMG(docs) {
     docs.forEach(doc => {
         const div = document.createElement('div');
         div.className = 'document-item';
-        div.id = `media-item-${doc.id_archivo}`;
+        // Asegúrate que estás usando el identificador correcto aquí
+        div.id = `media-item-img-${doc.id_archivo}`;
 
         const docIcon = document.createElement('img');
         docIcon.src = 'img/image.png';
@@ -116,8 +116,9 @@ function displayIMG(docs) {
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete-button';
         deleteButton.textContent = 'Eliminar';
+        // Verifica que pasas el tipo correcto y el ID adecuado
         deleteButton.onclick = function() {
-            deleteMedia(doc.id_archivo, 'image'); 
+            deleteMedia(doc.id_archivo, 'image'); // Asegúrate de que el tipo es correcto
         };
 
         div.appendChild(docIcon);
@@ -130,10 +131,9 @@ function displayIMG(docs) {
 }
 
 
+
 function deleteMedia(id, type) {
-    if (!confirm('¿Estás seguro de que quieres eliminar este archivo?')) {
-        return;
-    }
+    if (!confirm('¿Estás seguro de que quieres eliminar este archivo?')) return;
 
     const formData = new FormData();
     formData.append('id', id);
@@ -143,12 +143,20 @@ function deleteMedia(id, type) {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
+    .then(response => response.text())  // Cambia aquí para ver el texto plano
+    .then(text => {
+        console.log('Response:', text);  // Imprime la respuesta del servidor
+        return JSON.parse(text);         // Intenta parsear el texto a JSON
+    })
     .then(data => {
         if (data.success) {
             alert('Archivo eliminado correctamente');
-            // Actualiza la interfaz de usuario eliminando el elemento
-            document.getElementById(`media-item-${id}`).remove();
+            const elementToRemove = document.getElementById(`media-item-${type}-${id}`);
+            if (elementToRemove) {
+                elementToRemove.remove();
+            } else {
+                console.error('Element to remove not found:', `media-item-${type}-${id}`);
+            }
         } else {
             alert('Error al eliminar el archivo: ' + data.error);
         }
@@ -158,6 +166,7 @@ function deleteMedia(id, type) {
         alert('Error al eliminar el archivo: ' + error.message);
     });
 }
+
 
 
 function previewImage() {

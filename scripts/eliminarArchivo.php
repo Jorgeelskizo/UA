@@ -1,33 +1,24 @@
 <?php
-include 'conexion.php'; // Asegúrate de que este archivo realiza la conexión a la base de datos.
+include 'conexion.php';  // Asegúrate de que este archivo no genera salida
 
 header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'], $_POST['type'])) {
     $id = $_POST['id'];
-    $type = $_POST['type']; // 'pdf' o 'image'
+    $type = $_POST['type'];
 
-    if ($type == 'pdf') {
-        $table = 'pdf';
-        $id_field = 'id_pdf';
+    // Determina la tabla y el campo ID basado en el tipo
+    $table = ($type === 'pdf') ? 'pdf' : 'archivos';
+    $id_field = ($type === 'pdf') ? 'id_pdf' : 'id_archivo';
+
+    $sql = "DELETE FROM $table WHERE $id_field = ?";
+    $stmt = $conn->prepare($sql);
+    if ($stmt->execute([$id])) {
+        echo json_encode(['success' => true]);
     } else {
-        $table = 'archivos';
-        $id_field = 'id_archivo';
-    }
-
-    // Preparar y ejecutar la consulta para eliminar el archivo
-    $stmt = $conn->prepare("DELETE FROM $table WHERE $id_field = ?");
-    $stmt->bind_param('i', $id);
-    $success = $stmt->execute();
-
-    if ($success) {
-        echo json_encode(['success' => true, 'message' => 'Archivo eliminado correctamente']);
-    } else {
-        http_response_code(500);
-        echo json_encode(['success' => false, 'error' => 'Error al eliminar el archivo']);
+        echo json_encode(['success' => false, 'error' => 'No se pudo eliminar el archivo']);
     }
 } else {
-    http_response_code(405); // Método no permitido
-    echo json_encode(['success' => false, 'error' => 'Método no permitido']);
+    echo json_encode(['success' => false, 'error' => 'Datos insuficientes']);
 }
 ?>
