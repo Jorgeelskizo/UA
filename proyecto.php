@@ -25,7 +25,7 @@ echo $id_proyecto;
 <div class="project-container">
 
   <?php 
-  $sql = "SELECT  titulo, descripcion, horas, valoracion, fecha_publicacion, nombre_completo, 
+  $sql = "SELECT  id_trabajo, titulo, descripcion, horas, valoracion, fecha_publicacion, nombre_completo, 
                   t.id_usuario as id_usu, portada
           FROM trabajos t
           JOIN usuarios u ON t.id_usuario = u.id_usuario
@@ -38,6 +38,7 @@ echo $id_proyecto;
     $horas = $row["horas"];
     $valoracion = $row["valoracion"];
     $descripcion = $row["descripcion"];
+    $id_trabajo = $row["id_trabajo"];
     
   ?>
   
@@ -47,10 +48,8 @@ echo $id_proyecto;
   <?php echo $_SESSION["id"]; ?>
   <?php echo $row["id_usu"]; ?>
 
-  <?php if ($_SESSION["id"] === $row["id_usu"]): ?>
-    <div class="form-container">
-        <button class="form-button" onclick="location.href='editar_documento.php?id=<?php echo $id_trabajo; ?>'">Editar Documento</button>
-    </div>
+  <?php if ($_SESSION["id"] == $row["id_usu"]): ?>
+        <button class="form-button" onclick="location.href='editar_trabajo.php?id=<?php echo $id_trabajo; ?>'">Editar Documento</button>
     <?php endif; ?>
     <div class="project-image">
         <img src="<?php echo $portada; ?>" alt="Project Thumbnail" class="fixed-size">
