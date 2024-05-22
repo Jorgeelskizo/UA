@@ -1,14 +1,7 @@
 <?php 
 include 'scripts/conexion.php';
 include 'scripts/controlSesion.php';
-
-if( isset( $_SESSION['lang'])){
-    $idioma = $_SESSION['lang'];
-}else{
-    $idioma = 'in';
-}
-
-$palabras = parse_ini_file( "idiomas/$idioma.ini");
+include 'scripts/seleccionarIdioma.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +13,7 @@ $palabras = parse_ini_file( "idiomas/$idioma.ini");
     <title>Universitat d'Alacant</title>
     <link rel="stylesheet" href="estilos/unificado.css">
 </head>
-
+<?php echo $_SESSION['lang'];?>
 <body>
 
     <?php

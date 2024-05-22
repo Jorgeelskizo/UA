@@ -11,13 +11,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
         $bool = true;
 }
 
-if( isset( $_SESSION['lang'])){
-    $idioma = $_SESSION['lang'];
-}else{
-    $idioma = 'ch';
-}
-
-$palabras = parse_ini_file( "idiomas/$idioma.ini");
+include 'scripts/seleccionarIdioma.php';
 
 ?>
 
@@ -41,7 +35,7 @@ $palabras = parse_ini_file( "idiomas/$idioma.ini");
         // Comprobar si la variable de sesión 'usuario_id' está establecida
         if ($bool == false) {
             // Mostrar botones de iniciar sesión y registrarse
-            echo "<button type='button' onclick='location.href=\"login-form.php\"'>". $palabras['inicarS'] ."</button>";
+            echo "<button type='button' onclick='location.href=\"login-form.php\"'>". $palabras['iniciarS'] ."</button>";
             echo "<button type='button' onclick='location.href=\"register.php\"'>". $palabras['regis'] ."</button>";
         } else {
             // Mostrar nombre de usuario y foto

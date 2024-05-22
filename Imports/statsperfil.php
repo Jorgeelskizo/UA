@@ -85,6 +85,10 @@ if (!isset($_SESSION['nombre_usuario']) || $_SESSION['id'] != $_GET['id']) {
     else {
     ?>
     
+    <a href="configuracion.php"">
+      <button class="ajustes-perfil">Ajustes</button>
+    </a>
+
     <a href="editarPerfil.php?id=<?php echo $_SESSION['id']; ?>">
       <button class="follow-button-perfil">Editar perfil</button>
     </a>

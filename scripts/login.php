@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['nombre_usuario'] = $user['nombre_completo'];
             $_SESSION['foto'] = $user['foto'];
             $_SESSION['id'] = $user['id_usuario'];
+            $_SESSION['lang'] = 'es';
 
 
             if (isset($_POST['recordar'])) {
