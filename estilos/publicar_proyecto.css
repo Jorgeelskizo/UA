@@ -556,8 +556,129 @@
   }
 
 
+/* Estilos generales del modal */
+.upload-modal {
+  display: none;
+  position: fixed;
+  z-index: 1001; /* Alta prioridad para superponer sobre otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permite el desplazamiento dentro del modal si es necesario */
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
+}
 
-  
+/* Contenido del modal */
+.upload-modal-content {
+  position: relative; /* Para posicionar absolutamente elementos dentro, como el botón de cerrar */
+  background-color: #fff;
+  margin: 5% auto; /* Centrado vertical y horizontal */
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #888;
+  width: 50%; /* Ajusta esto según tu diseño */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Estilos para inputs, selects y textareas dentro del modal */
+.upload-modal-content label,
+.upload-modal-content input,
+.upload-modal-content select,
+.upload-modal-content textarea {
+  width: 100%;
+  margin-top: 10px;
+  box-sizing: border-box; /* Asegura que el padding y el border sean incluidos en el width/height */
+}
+
+/* Vista previa de la imagen cargada */
+#uploadImagePreview {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: 200px; /* Altura fija para mantener consistencia */
+  object-fit: cover; /* Asegura que la imagen se ajuste sin perder proporciones */
+  margin-top: 10px;
+}
+
+/* Botón de cerrar en el modal */
+.upload-close {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 24px;
+  color: #666;
+}
+
+.upload-close:hover,
+.upload-close:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Estilos para el botón de carga de archivos */
+.upload-file-button {
+  background-color: #007bff; /* Color azul */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.upload-file-button:hover {
+  background-color: #0056b3; /* Un azul más oscuro para el hover */
+}
+
+/* Estilo del input de tipo file para ocultarlo visualmente pero seguir siendo funcional */
+#uploadFileInput {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Label que actúa como botón para el input file */
+.upload-file-label {
+  display: inline-block;
+  background-color: #007bff; /* Color azul del botón */
+  color: white;
+  padding: 8px 15px; /* Reducir el padding para un botón más pequeño */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Reducir un poco el tamaño de la fuente */
+  margin-top: 10px;
+  margin-right: 20px; /* Espacio entre los botones */
+}
+
+.upload-file-label:hover {
+  background-color: #0056b3; /* Color azul más oscuro en hover */
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Asegura que ocupa todo el ancho del contenedor padre */
+}
+
+.input-group {
+  width: 100%; /* Ocupa todo el ancho posible dentro de project-info */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0; /* Añade algo de espacio entre los grupos */
+}
+
+#input_titulo, #descripcion, #input_horas, #tipo_proyecto {
+  width: 80%; /* Reduce el ancho para no ocupar todo el contenedor */
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  background-color: #f8f8f8;
+}
+
 
 
 
