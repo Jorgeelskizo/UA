@@ -9,15 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_proyecto'], $_FILES
     try {
         $conn->begin_transaction();
 
-        // Insertamos el registro inicial sin el nombre de archivo
-        $sql = "INSERT INTO archivos (id_trabajo, nombre_archivo, texto_alternativo) VALUES (?, '', ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([$id_proyecto, $altText]);
-        $archivo_id = $conn->insert_id; // Obtener el ID autogenerado para el archivo
-
         // Extraemos la extensión del nombre original del archivo
         $originalName = $_FILES['file']['name'];
         $extension = pathinfo($originalName, PATHINFO_EXTENSION);
+        $baseName = pathinfo($originalName, PATHINFO_FILENAME); // Nombre del archivo sin extensión
+
+        // Insertamos el registro inicial con el nombre del archivo sin extensión
+        $sql = "INSERT INTO archivos (id_trabajo, nombre_archivo, nombre, texto_alternativo) VALUES (?, '', ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id_proyecto, $baseName, $altText]);
+        $archivo_id = $conn->insert_id; // Obtener el ID autogenerado para el archivo
 
         // Construimos el nuevo nombre del archivo utilizando el ID autogenerado
         $newName = $archivo_id . '.' . $extension;

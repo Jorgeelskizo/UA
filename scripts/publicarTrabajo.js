@@ -238,41 +238,6 @@ function uploadProject() {
         });
 }
 
-function uploadPDFs(idProyecto) {
-    const formData = new FormData();
-    documents.filter(doc => doc.type === 'pdf').forEach((doc, index) => {
-        formData.append(`pdfFiles[${index}]`, doc.file);
-        formData.append(`pdfTitles[${index}]`, doc.title);
-        formData.append(`pdfDescriptions[${index}]`, doc.description || 'Sin descripción');
-    });
-
-    documents.filter(doc => doc.type === 'image').forEach((doc, index) => {
-        formData.append(`imageFiles[${index}]`, doc.file);
-        formData.append(`altTexts[${index}]`, doc.altText);
-    });
-
-    formData.append('id_proyecto', idProyecto);
-
-
-    fetch('scripts/publicar_pdf.php', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('PDFs subidos correctamente. Redirigiendo...');
-                window.location.href = 'index.php'; // Redirigir tras la subida exitosa
-            } else {
-                throw new Error(data.error || 'Error desconocido al subir PDFs');
-            }
-        })
-        .catch(error => {
-            console.error('Error al subir PDFs:', error);
-            alert('Error al subir archivos PDF: ' + error.message);
-        });
-}
-
 function uploadMedia(idProyecto) {
 
     documents.forEach((doc, index) => {
