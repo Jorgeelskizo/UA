@@ -15,7 +15,6 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
 <title>Universidad de Alicante - Proyecto Fin de Grado Ingenieria Multimedia</title>
 <link rel="stylesheet" href="estilos/unificado.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<?php include 'scripts/controlEstilo.php'; ?>
 
 </head>
 <body>
@@ -69,7 +68,9 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
               ?>
               
               <div class="comment">
+                <div class="imagen-comentario-contenedor">
                   <img src="<?php echo $comment_row['foto']; ?>" alt="<?php echo $comment_row['nombre_completo']; ?>" class="comment-avatar">
+                </div>
                   <div class="comment-title"><?php echo $comment_row['titulo']; ?></div>
                   <div class="comment-caption"><?php echo $comment_row['descripcion']; ?><br><?php echo $comment_row['fecha_publicacion']; ?></div>
               </div>

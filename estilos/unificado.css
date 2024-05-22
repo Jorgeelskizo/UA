@@ -26,10 +26,10 @@ body {
   }
 
   .profile-photo img {
-    width: 100%;
+    /* width: 100%;
     height: auto;
     border-radius: 50%;
-    display: block;
+    display: block; */
   }
 
   .profile-info {
@@ -45,7 +45,7 @@ body {
   .profile-username,
   .profile-university,
   .profile-degree {
-    font-size: 2em;
+    /* font-size: 2em; */
     color: #666;
     margin: 0;
   }
@@ -1937,10 +1937,10 @@ padding: 20px; /* Añade algo de padding alrededor */
 }
 
 .profile-photo img {
-  width: 100%;
+  /* width: 100%;
   height: auto;
   border-radius: 50%;
-  display: block;
+  display: block; */
 }
 
 .profile-info {
@@ -1956,7 +1956,7 @@ padding: 20px; /* Añade algo de padding alrededor */
 .profile-username,
 .profile-university,
 .profile-degree {
-  font-size: 2em;
+  /* font-size: 2em; */
   color: #666;
   margin: 0;
 }

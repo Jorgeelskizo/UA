@@ -108,15 +108,24 @@ body {
   .profile-photo {
     flex: 1; /* takes up 1 part of the flex container */
     margin-right: 15px;
-    max-width: 120px;
+    /* max-width: 120px; */
+    /* max-height: 120px;   */
+  }
+  .imagen-perfil{
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    border-radius: 50%;
+    object-fit: cover;
   }
   
   .profile-photo img {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 50%;
     display: block;
-  }
+    object-fit: cover;
+}
   
   .profile-info {
     flex: 2; /* takes up 2 parts of the flex container */
@@ -165,6 +174,19 @@ body {
     border-radius: 5px;
     border: 1px solid #ddd;
     font-size: 0.9em;
+  }
+
+  .form-group select {
+    width: 98%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+  }
+
+  .form-group select:focus {
+    outline: none;
+    border-color: #007bff;
   }
 
   .form-group input[type="text"]:focus,
