@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['id'] = $user['id_usuario'];
             $_SESSION['lang'] = 'es';
             $_SESSION['modo'] = '';
+            $_SESSION['tam'] = '1';
 
 
             if (isset($_POST['recordar'])) {

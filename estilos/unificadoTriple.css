@@ -1,0 +1,343 @@
+/* ----------------------Index-------------------------- */
+/* Estilos generales para la Tritanopia */
+body {
+    background-color: #222222; /* Fondo oscuro neutro */
+    color: #f2f2f2; /* Texto claro con contraste alto */
+}
+
+a {
+    color: #ff8c00; /* Naranja oscuro para enlaces */
+}
+
+/* Cabecera y navegación */
+.header-image-index {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Galería de proyectos */
+.gallery-container-index {
+    background-color: #333333;
+    padding: 20px;
+}
+
+.project-gallery-index article {
+    background-color: #454545;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.project-gallery-index img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.project-gallery-index p {
+    color: #ffffff;
+}
+
+.project-gallery-index footer {
+    color: #a0a0a0;
+    font-size: 0.8em;
+}
+
+/* Botones */
+button {
+    background-color: #ff4500; /* Rojo anaranjado para botones */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e63900; /* Rojo anaranjado oscuro */
+}
+
+
+/* --------------------Header------------------------------------- */
+/* Estilos para el header */
+.site-header-header {
+    background-color: #3b3b3b;
+    color: #f2f2f2;
+}
+
+/* Estilos para el logo */
+.logo-header img {
+    width: auto;
+}
+
+/* Estilos para la barra de búsqueda */
+.search-bar-header input[type="text"] {
+    background-color: #454545;
+    color: #ffffff;
+    border: 1px solid #666;
+    padding: 8px;
+}
+
+.search-button-header {
+    background-color: #ff4500;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.search-button-header i {
+    color: #ffffff;
+}
+
+/* Estilos para la sección de perfil */
+.profile-header button {
+    background-color: #ff4500;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-header button:hover {
+    background-color: #e63900;
+}
+
+.profile-header a,
+.profile-header span {
+    color: #ff8c00; /* Naranja oscuro */
+}
+
+.profile-header img {
+    border-radius: 50%;
+    width: 50px;
+}
+
+
+/* -------------Nav-------------------------------- */
+.barranav-nav {
+    background-color: #333333;
+    color: #f2f2f2;
+}
+
+.libarranav-nav a {
+    color: #ff8c00;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.libarranav-nav a:hover {
+    color: #e63900;
+}
+
+.barranav-nav li:hover {
+    background-color: #333333;
+    border: 1px solid #fff;
+}
+
+/* ----------------------Botones perfil ajeno y personal---------------------- */
+.follow-button-perfil,
+.ajustes-perfil,
+.cerrar-sesion {
+    background-color: #ff4500;
+}
+
+.follow-button-perfil:hover,
+.ajustes-perfil:hover,
+.cerrar-sesion:hover {
+    background-color: #e63900;
+}
+
+
+
+/* --------------------------Publicar proyecto------------------------------ */
+.project-container {
+    background-color: #454545;
+    color: #f2f2f2;
+}
+
+.left-column, .right-column {
+    background-color: #333333;
+}
+
+#titulo {
+    color: #ffffff;
+}
+
+.input_titulo, .descripcion, .input_horas, .tipo_proyecto {
+    background-color: #222222;
+    color: #f2f2f2;
+    border: 1px solid #666;
+}
+
+.upload-button, #upload-project-button {
+    background-color: #ff4500;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover, #upload-project-button:hover {
+    background-color: #e63900;
+}
+
+/* Estilos para los enlaces dentro de las secciones */
+.view-all, .social-icon {
+    color: #ff8c00;
+    text-decoration: none;
+}
+
+/* Sección de acciones y recursos multimedia */
+.resources-section, .project-actions {
+    background-color: #383838;
+}
+
+.social-icon i {
+    color: #ffffff;
+}
+
+.resources-section h2 {
+    color: #ffffff;
+}
+
+/* Estilo del modal de subida de archivos */
+.upload-modal {
+    color: #ffffff;
+}
+
+.upload-modal-content {
+    background-color: #333333;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.upload-close {
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.upload-close:hover {
+    color: #ff8c00;
+}
+
+/* -----------Configuracion-------------------------------- */
+.project-container-config {
+    background-color: #454545;
+    color: #f2f2f2;
+}
+
+.left-column-config, .right-column-config {
+    background-color: #383838;
+}
+
+.title-config {
+    color: #ffffff;
+}
+
+.select-config, .input-config {
+    background-color: #222222;
+    color: #f2f2f2;
+    border: 1px solid #666;
+}
+
+.slider {
+    cursor: pointer;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.input-config:checked + .slider {
+    background-color: #ff4500;
+}
+
+.upload-button-config {
+    background-color: #ff4500;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-button-config:hover {
+    background-color: #e63900;
+}
+
+#titulo-config{
+    color: white;
+}
+
+/* -------------------Editar perfil------------------------------------ */
+.resumenPerfil, .profile-card-global, .content-container {
+    background-color: #454545;
+    color: #f2f2f2;
+    border-radius: 8px;
+}
+
+.profile-card {
+    background-color: #383838;
+    border-radius: 8px;
+}
+
+.profile-photo img {
+    border-radius: 50%;
+}
+
+.profile-name, .profile-username, .profile-university, .profile-degree {
+    color: #ffffff;
+}
+
+.form-container {
+    background-color: #383838;
+    border-radius: 8px;
+}
+
+.form-group label {
+    color: #f2f2f2;
+}
+
+.form-group input[type="text"], .form-group input[type="password"], .form-group select {
+    background-color: #222222;
+    color: #ffffff;
+    border: 1px solid #666;
+    border-radius: 5px;
+}
+
+.form-button {
+    background-color: #ff4500;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.section-header {
+    font-size: 1em;
+    color: #fffefe;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.upload-instructions {
+    font-size: 0.8em;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.form-button:hover {
+    background-color: #e63900;
+}

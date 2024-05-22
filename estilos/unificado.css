@@ -968,6 +968,19 @@ body {
     margin-right: 10em; /* Añade un margen derecho si es necesario para alinear correctamente */
   }
 
+  .cerrar-sesion {
+    position: absolute;
+    top: 0; /* Ajusta esto según sea necesario para que quede justo debajo de la cabecera */
+    right: 0; /* Alineado a la derecha */
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 1em; /* Añade un margen superior si es necesario para que no toque la cabecera */
+    margin-right: 17em; /* Añade un margen derecho si es necesario para alinear correctamente */
+  }
+
   .profile-image-perfil {
     width: 200px; /* Ajusta según tus necesidades */
     height: 200px;
@@ -2684,8 +2697,21 @@ body {
   border-color: #007bff;
 }
 
+.titulo-y-editar{
+  display: flex;
+  justify-content: space-between;
+
+}
+.interior{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+
+}
+
 .form-button {
   width: 35%;
+  max-height: 3em;
   padding: 10px;
   background-color: #007bff;
   color: white;
@@ -2693,6 +2719,60 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9em;
+}
+
+.editar-proyecto{
+  max-height: 3em;
+  padding: 10px;
+  background-color: #349500;
+  border: 1px solid #8b8b8b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-right: 1em;
+
+}
+.editar-proyecto:hover{
+  
+  background-color: #1c5100;
+  border: 1px solid #8b8b8b;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+
+}
+
+.eliminar-proyecto{
+  max-height: 3em;
+  padding: 10px;
+  background-color: #ff0000;
+  border: 1px solid #8b8b8b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-right: 1em;
+}
+
+.eliminar-proyecto:hover{
+  max-height: 3em;
+  padding: 10px;
+  background-color: #970000;
+  border: 1px solid #8b8b8b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-right: 1em;
+}
+
+#h3-imagenes{
+  margin-top: 1em;
+
 }
 
 .form-button:hover {

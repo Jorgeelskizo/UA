@@ -4,7 +4,6 @@ include 'scripts/controlSesion.php';
 
 // Recoger el ID del proyecto de la URL
 $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
-echo $id_proyecto;
 
 ?>
 
@@ -25,7 +24,7 @@ echo $id_proyecto;
 <div class="project-container">
 
   <?php 
-  $sql = "SELECT  titulo, descripcion, horas, valoracion, fecha_publicacion, nombre_completo, 
+  $sql = "SELECT  id_trabajo, titulo, descripcion, horas, valoracion, fecha_publicacion, nombre_completo, 
                   t.id_usuario as id_usu, portada
           FROM trabajos t
           JOIN usuarios u ON t.id_usuario = u.id_usuario
@@ -38,25 +37,33 @@ echo $id_proyecto;
     $horas = $row["horas"];
     $valoracion = $row["valoracion"];
     $descripcion = $row["descripcion"];
+    $id_trabajo = $row["id_trabajo"];
     
   ?>
   
 
   
 <div class="left-column">
-  <?php echo $_SESSION["id"]; ?>
-  <?php echo $row["id_usu"]; ?>
 
-  <?php if ($_SESSION["id"] === $row["id_usu"]): ?>
-    <div class="form-container">
-        <button class="form-button" onclick="location.href='editar_documento.php?id=<?php echo $id_trabajo; ?>'">Editar Documento</button>
-    </div>
-    <?php endif; ?>
+  
     <div class="project-image">
         <img src="<?php echo $portada; ?>" alt="Project Thumbnail" class="fixed-size">
     </div>
     <div class="project-info">
+      <div class="titulo-y-editar">    
         <?php echo "<h2>" . $titulo. "</h2>"; ?>
+        <div class="interior">
+        <?php if ($_SESSION["id"] == $row["id_usu"]): ?>
+          <button type="submit" class="editar-proyecto" onclick="location.href='editar_trabajo.php?id=<?php echo $id_trabajo; ?>'">Editar Documento</button>
+        <?php endif; ?>
+        <?php if ($_SESSION["id"] == $row["id_usu"]): ?>
+          <form id="delete-project-form" action="scripts/delete_project.php" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proyecto?');">
+            <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
+            <button type="submit" class="eliminar-proyecto">Eliminar Proyecto</button>
+          </form>
+        <?php endif; ?>
+        </div>
+      </div>
 
         <div class="project-meta">
             <p class="author">Hecho por <span class="author-name"><a href="perfilajeno.php?id=<?php echo $row['id_usu']; ?>"><?php echo $row["nombre_completo"]; ?></a></span></p>
@@ -127,8 +134,8 @@ echo $id_proyecto;
           <div class="document-item">
             <span class="document-icon"><img src="img/pdf.png"></span> 
             <div class="document-info">
-              <p class="document-title"><?php echo $pdf_row['descripcion']; ?></p>
-              <p class="document-description">Archivo pdf con el proyecto completo.</p>
+              <p class="document-title"><?php echo $pdf_row['titulo']; ?></p>
+              <p class="document-description"><?php echo $pdf_row['descripcion']; ?></p>
             </div>
             <a href="#" class="download-button" download>Descargar</a>
           </div>
@@ -139,23 +146,53 @@ echo $id_proyecto;
               echo "<p>No hay documentos disponibles.</p>";
           }
           ?>
-          <a href="#" class="view-all">Ver todos</a>
+          <a href="#" class="view-all">Ver todos los documentos</a>
+          
+          <h3 id="h3-imagenes">Imagenes</h3>
+
+          <?php
+          $pdf_sql = "SELECT nombre, texto_alternativo 
+                      FROM archivos 
+                      WHERE id_archivo = $id_proyecto
+                      ORDER BY id_archivo ASC 
+                      LIMIT 2";
+          $pdf_result = $conn->query($pdf_sql);
+          if ($pdf_result->num_rows > 0) {
+              while ($pdf_row = $pdf_result->fetch_assoc()) {
+          ?>
+          <div class="document-item">
+            <span class="document-icon"><img src="img/image.png"></span> 
+            <div class="document-info">
+              <p class="document-title"><?php echo $pdf_row['nombre']; ?></p>
+              <p class="document-description"><?php echo $pdf_row['texto_alternativo']; ?></p>
+            </div>
+            <a href="#" class="download-button" download>Descargar</a>
+          </div>
+          <hr>
+          <?php 
+              }
+          } else {
+              echo "<p>No hay documentos disponibles.</p>";
+          }
+          ?>
+          <a href="#" class="view-all">Ver todas las fotos</a>
+          
         </section>
           
-          <section class="other">
+          <!-- <section class="other">
             <h3>Otros</h3>
             <div class="carousel-container">
               <div class="carousel-slide">
                 <img src="img/pasoPeatones.jpg" alt="Imagen 1" class="carousel-image">
                 <img src="img/logoUA.png" alt="Imagen 2" class="carousel-image">
                 <img src="img/pdf.png" alt="Imagen 3" class="carousel-image">
-                <!-- Agrega tantas imágenes como desees en el carrusel aquí -->
+                
               </div>
               <button id="prevBtn" class="carousel-btn prev">❮</button>
               <button id="nextBtn" class="carousel-btn next">❯</button>
             </div>  
                
-          </section>
+          </section> -->
       </article>
 
       <div class="project-actions">

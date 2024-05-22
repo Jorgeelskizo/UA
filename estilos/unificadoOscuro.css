@@ -231,6 +231,16 @@ label[for="checkmenu"] {
     /* Efecto hover */
 }
 
+.cerrar-sesion {
+    background-color: #6200ee;
+}
+
+.cerrar-sesion:hover {
+    background-color: #3700b3;
+    /* Efecto hover */
+}
+
+
 
 /* --------------------------Publicar proyecto------------------------------ */
 /* Contenedor principal del proyecto */
