@@ -44,6 +44,9 @@ echo $id_proyecto;
 
   
 <div class="left-column">
+  <?php echo $_SESSION["id"]; ?>
+  <?php echo $row["id_usu"]; ?>
+
   <?php if ($_SESSION["id"] === $row["id_usu"]): ?>
     <div class="form-container">
         <button class="form-button" onclick="location.href='editar_documento.php?id=<?php echo $id_trabajo; ?>'">Editar Documento</button>
