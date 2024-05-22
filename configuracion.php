@@ -32,10 +32,10 @@ include 'scripts/seleccionarIdioma.php';
                     <p><?php echo  $palabras['descdalt'] ?></p>
                 </div>
                 <div class="setting-control-config">
-                    <select class="select-config">
-                        <option>Deuteranomalia</option>
-                        <option>Protanopia</option>
-                        <option>Tritanopia</option>
+                    <select class="select-config" id="daltonico-select">
+                        <option value="r" <?php echo (isset($_SESSION['modo']) && $_SESSION['modo'] == 'Delta') ? 'selected' : ''; ?>>Deuteranomalia</option>
+                        <option value="p" <?php echo (isset($_SESSION['modo']) && $_SESSION['modo'] == 'Pro') ? 'selected' : ''; ?>>Protanopia</option>
+                        <option value="t" <?php echo (isset($_SESSION['modo']) && $_SESSION['modo'] == 'Trio') ? 'selected' : ''; ?>>Tritanopia</option>
                     </select>
                 </div>
             </div>

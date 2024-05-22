@@ -84,6 +84,10 @@ if (!isset($_SESSION['nombre_usuario']) || $_SESSION['id'] != $_GET['id']) {
     }
     else {
     ?>
+
+    <a href="scripts/closeSesion.php">
+      <button class="cerrar-sesion">Cerrar Sesión</button>
+    </a>
     
     <a href="configuracion.php"">
       <button class="ajustes-perfil">Ajustes</button>
