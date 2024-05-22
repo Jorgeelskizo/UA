@@ -9,7 +9,7 @@ if (!isset($_SESSION['id'])) {
 
 $id_usuario = $_SESSION['id'];
 
-$sql = "SELECT carrera FROM usuarios WHERE id_usuario = ?";
+$sql = "SELECT nombre_completo, carrera, foto, nick FROM usuarios WHERE id_usuario = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $id_usuario);
 $stmt->execute();
@@ -20,8 +20,14 @@ if ($user = $result->fetch_assoc()) {
     
         // Si las credenciales son correctas, establece las variables de sesión
         $carrera = $user['carrera'];
+        $imagen = $user['foto'];
+        $nick = $user['nick'];
+        $carrera = $user['carrera'];
+        $nombre = $user['nombre_completo'];
 
   }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -33,12 +39,33 @@ if ($user = $result->fetch_assoc()) {
 <link rel="stylesheet" href="estilos/stylesEditarPerfil.css">
 <link rel="stylesheet" href="estilos/unificado.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<?php include 'scripts/controlEstilo.php'; ?>
+<style>
+    .form-group img {
+        width: 150px; /* Ajusta según tu necesidad */
+        height: 150px; /* Ajusta según tu necesidad */
+        cursor: pointer;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    #profile-photo-input {
+        display: none;
+    }
+</style>
 
 </head>
 <body>
 
-<?php include 'imports/header.php'; ?>
+<?php
+    include 'Imports/header.php';
+    ?>
+
+    <div class="header-image-index"></div>
+
+    <?php
+    include 'Imports/barranav.php';
+    ?>
+
 
 <section class="resumenPerfil">
     
@@ -61,13 +88,15 @@ if ($user = $result->fetch_assoc()) {
     <div class="profile-card">
 
         <div class="profile-photo">
-        <img src="img/user.jpg" alt="Nombre Usuario">
+          <div class="imagen-perfil">
+            <img src="<?php echo $imagen?>" alt="Nombre Usuario">
+          </div>
         </div>
         <div class="profile-info">
-        <p class="profile-name">Nombre Usuario</p>
-        <p class="profile-username">Username</p>
+        <p class="profile-name"><?php echo $nombre?></p>
+        <p class="profile-username"><?php echo $nick?></p>
         <p class="profile-university">Universidad de Alicante</p>
-        <p class="profile-degree">Carrera cursada</p>
+        <p class="profile-degree"><?php echo $carrera?></p>
         </div>
     </div>
 </div>
@@ -100,7 +129,7 @@ if ($user = $result->fetch_assoc()) {
   </div>
 
   <div class="right-container">
-    <div class="form-container">
+  <div class="form-container">
       <!-- Profile Image Update Section -->
       <h2 class="section-header">Foto de perfil</h2>
       <p class="upload-instructions">
@@ -108,25 +137,71 @@ if ($user = $result->fetch_assoc()) {
       </p>
       <form action="scripts/update_profile_foto.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
-          <input type="file" id="profile-photo" name="profile-photo">
+          <input type="file" id="profile-photo-input" name="profile-photo" accept="image/*">
+          <img src="<?php echo $imagen ?>" alt="Foto de perfil" id="profile-photo-preview" onclick="document.getElementById('profile-photo-input').click();">
         </div>
         <button type="submit" class="form-button">Actualizar</button>
       </form>
     </div>
     
     <div class="form-container">
-      <!-- Password Change Section -->
-      <h2 class="section-header">Cambiar contraseña</h2>
-      <form action="scripts/update_password.php" method="POST">
-        <div class="form-group">
-          <input type="password" id="new-password" name="new-password" placeholder="Nueva Contraseña">
-        </div>
-        <div class="form-group">
-          <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmar Nueva Contraseña">
-        </div>
-        <button type="submit" class="form-button">Actualizar</button>
-      </form>
+        <!-- Password Change Section -->
+        <h2 class="section-header">Cambiar contraseña</h2>
+        <form id="password-form" action="scripts/update-password.php" method="POST">
+            <div class="form-group">
+                <input type="password" id="new-password" name="new-password" placeholder="Nueva Contraseña" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmar Nueva Contraseña" required>
+            </div>
+            <button type="submit" class="form-button">Actualizar</button>
+        </form>
+        <div id="error-message" style="color: red;"></div>
+        <div id="success-message" style="color: green;"></div>
     </div>
+
+    <script>
+    document.getElementById('password-form').addEventListener('submit', function(event) {
+        var newPassword = document.getElementById('new-password').value;
+        var confirmPassword = document.getElementById('confirm-password').value;
+        var errorMessage = document.getElementById('error-message');
+        var successMessage = document.getElementById('success-message');
+
+        errorMessage.textContent = '';
+        successMessage.textContent = '';
+
+        if (newPassword !== confirmPassword) {
+            event.preventDefault();
+            errorMessage.textContent = 'Las contraseñas no coinciden.' ;
+        }
+        
+        if (newPassword.length < 5) { // Por ejemplo, mínimo 6 caracteres
+            event.preventDefault();
+            errorMessage.textContent = 'La nueva contraseña debe tener al menos 5 caracteres';
+        }
+    });
+
+    // Mostrar mensajes desde el servidor
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            document.getElementById('error-message').textContent = urlParams.get('error');
+        }
+        if (urlParams.has('success')) {
+            document.getElementById('success-message').textContent = urlParams.get('success');
+        }
+    }
+
+    document.getElementById('profile-photo-input').addEventListener('change', function(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('profile-photo-preview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    });
+    </script>
+
   </div>
 </div>
 </div>

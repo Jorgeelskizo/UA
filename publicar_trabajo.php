@@ -132,7 +132,7 @@ include 'scripts/controlSesion.php';
                     </select>
                 </label>
                 <br>
-                <label id="uploadTitleField" class="uploadFileType" style="display: none;">
+                <label id="uploadTitleField" class="uploadFileTypetxt" style="display: none;">
                     Título:
                     <input type="text" id="uploadFileTitle" class="uploadFileType">
                 </label>
@@ -142,7 +142,7 @@ include 'scripts/controlSesion.php';
                     <textarea id="uploadFileDescription" class="uploadFileDescription"></textarea>
                 </label>
                 <br>
-                <label id="altTextField" class="altTextField" style="display: none;">
+                <label id="altTextField" class="altTextFieldtxt" style="display: none;">
                     Texto Alternativo:
                     <input type="text" id="uploadAltText" class="altTextField">
                 </label>

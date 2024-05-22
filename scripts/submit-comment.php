@@ -11,7 +11,7 @@ $id_usuario = $_SESSION['id'];
 
 echo $id_usuario;
 $id_trabajo = isset($_POST['id_trabajo']) ? intval($_POST['id_trabajo']) : 0;
-$titulo = isset($_POST['titulo']) ? intval($_POST['titulo']) : '';
+$titulo = isset($_POST['titulo']) ? trim($_POST['titulo']) : '';
 $comentario = isset($_POST['comentario']) ? trim($_POST['comentario']) : '';
 
 if ($id_trabajo > 0 && !empty($comentario)) {

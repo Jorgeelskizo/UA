@@ -230,3 +230,193 @@ label[for="checkmenu"] {
     background-color: #3700b3;
     /* Efecto hover */
 }
+
+
+/* --------------------------Publicar proyecto------------------------------ */
+/* Contenedor principal del proyecto */
+.project-container {
+    background-color: #333333; /* Fondo oscuro para el contenedor principal */
+    color: #e0e0e0; /* Texto claro */
+}
+
+/* Columnas dentro del contenedor principal */
+.left-column, .right-column {
+    background-color: #1e1e1e; /* Fondo más oscuro para las columnas */
+}
+
+/* Títulos dentro de las columnas */
+#titulo {
+    color: #ffffff; /* Texto blanco para títulos */
+}
+
+/* Estilos para los inputs y textareas */
+.input_titulo, .descripcion, .input_horas, .tipo_proyecto {
+    background-color: #121212; /* Fondo oscuro para inputs */
+    color: #e0e0e0; /* Texto claro */
+    border: 1px solid #555; /* Borde sutil */
+}
+
+/* Botones */
+.upload-button, #upload-project-button {
+    background-color: #6200ee; /* Fondo morado para los botones */
+    color: #ffffff; /* Texto claro */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover, #upload-project-button:hover {
+    background-color: #3700b3; /* Cambio de color al pasar el ratón */
+}
+
+/* Estilos para los enlaces dentro de las secciones */
+.view-all, .social-icon {
+    color: #bb86fc; /* Color claro para enlaces */
+    text-decoration: none;
+}
+
+/* Sección de acciones y recursos multimedia */
+.resources-section, .project-actions {
+    background-color: #2a2a2a; /* Fondo ligeramente diferente para secciones específicas */
+}
+
+/* Íconos sociales */
+.social-icon i {
+    color: #ffffff; /* Íconos blancos para mejor visibilidad */
+}
+
+
+.resources-section h2 {
+    color: #ffffff;
+}
+
+/* Estilo del modal de subida de archivos */
+.upload-modal {
+    color: #ffffff; /* Texto claro */
+}
+
+.upload-modal-content {
+    background-color: #1e1e1e; /* Fondo más oscuro para el contenido del modal */
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+.upload-close {
+    float: right; /* Colocar el botón de cerrar a la derecha */
+    font-size: 1.5em; /* Aumentar el tamaño del ícono de cerrar */
+    cursor: pointer; /* Cambiar el cursor a puntero */
+}
+
+.upload-close:hover {
+    color: #bb86fc; /* Cambio de color al pasar el ratón por el botón cerrar */
+}
+
+/* Estilos para etiquetas y selecciones */
+.uploadFileType, .uploadFileDescription, .altTextField {
+    background-color: #121212; /* Fondo oscuro para los inputs y select */
+    color: #ffffff; /* Fondo oscuro para los inputs y select */
+}
+
+.uploadFileType:focus, .uploadFileDescription:focus, .altTextField:focus {
+    border-color: #6200ee; /* Borde morado al enfocar */
+    outline: none; /* Quitar el outline predeterminado */
+}
+
+/* Botón para añadir archivo al listado */
+button {
+    background-color: #6200ee; /* Fondo morado para el botón */
+    color: #ffffff; /* Texto claro */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3700b3; /* Cambio de color al pasar el ratón */
+}
+
+/* Estilos para la sección de acciones del proyecto */
+.project-actions {
+    background-color: #2a2a2a; /* Fondo oscuro para la sección de acciones */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.share-project {
+    color: #e0e0e0; /* Texto claro para la sección de compartir */
+    background-color: #2a2a2a; /* Texto claro para la sección de compartir */
+}
+
+.social-icon {
+    color: #bb86fc; /* Color claro para los íconos, fácil de identificar */
+    font-size: 1.5em; /* Tamaño adecuado para los íconos */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s; /* Transición suave al cambiar el color */
+}
+
+.social-icon:hover {
+    color: #3700b3; /* Cambio de color al pasar el ratón */
+}
+
+/* -----------Configuracion-------------------------------- */
+/* Estilo para la página de configuración */
+.project-container-config {
+    background-color: #333333; /* Fondo oscuro para el contenedor principal */
+    color: #e0e0e0; /* Texto claro */
+    padding: 20px; /* Espaciado interno */
+}
+
+.left-column-config, .right-column-config {
+    background-color: #2a2a2a; /* Fondo más oscuro para las columnas */
+    padding: 10px; /* Espaciado interno */
+    margin: 10px; /* Espaciado externo */
+}
+
+
+.title-config {
+    color: #ffffff; /* Color blanco para los títulos */
+}
+
+/* Selectores y elementos de formulario */
+.select-config, .input-config {
+    background-color: #121212; /* Fondo oscuro para los selectores */
+    color: #e0e0e0; /* Texto claro */
+    border: 1px solid #555; /* Borde sutil */
+}
+
+/* Estilo para la parte deslizante del switch */
+.slider {
+    cursor: pointer;
+    background-color: #ccc; /* Color de fondo inicial */
+    transition: .4s; /* Transición suave */
+    border-radius: 34px; /* Bordes redondeados */
+}
+
+.slider:before {
+
+    background-color: white; /* Color del círculo */
+    transition: .4s; /* Transición suave */
+    border-radius: 50%; /* Forma redonda */
+}
+
+
+.input-config:checked + .slider {
+    background-color: #6200ee; /* Fondo morado cuando está activado */
+}
+
+/* Botones */
+.upload-button-config {
+    background-color: #6200ee; /* Fondo morado para el botón de guardar */
+    color: #ffffff; /* Texto claro */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-button-config:hover {
+    background-color: #3700b3; /* Cambio de color al pasar el ratón */
+}
+
+#titulo-config{
+    color:white;
+}

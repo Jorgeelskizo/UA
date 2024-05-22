@@ -5,5 +5,5 @@ if( isset( $_SESSION['lang'])){
     $idioma = 'in';
 }
 
-$palabras = parse_ini_file( "nombre_idi/$idioma.ini");
+$palabras = parse_ini_file( "configs/$idioma.ini");
 ?>
