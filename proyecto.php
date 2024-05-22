@@ -17,6 +17,8 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
+
+
 <body>
 
   <?php include "imports/header.php"?>
@@ -57,7 +59,7 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
           <button type="submit" class="editar-proyecto" onclick="location.href='editar_trabajo.php?id=<?php echo $id_trabajo; ?>'">Editar Documento</button>
         <?php endif; ?>
         <?php if ($_SESSION["id"] == $row["id_usu"]): ?>
-          <form id="delete-project-form" action="scripts/delete_project.php" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proyecto?');">
+          <form id="delete-project-form" action="scripts/delete-project.php" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proyecto?');">
             <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
             <button type="submit" class="eliminar-proyecto">Eliminar Proyecto</button>
           </form>
@@ -120,8 +122,9 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
           <hr>
           <section class="documents">
           <h3>Documentos</h3>
+          <?php echo $id_proyecto; ?>
           <?php
-          $pdf_sql = "SELECT nombre, titulo, descripcion 
+          $pdf_sql = "SELECT nombre, titulo, descripcion, ruta 
                       FROM pdf 
                       WHERE nombre LIKE '%.pdf' 
                       AND id_proyecto = $id_proyecto
@@ -137,7 +140,7 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
               <p class="document-title"><?php echo $pdf_row['titulo']; ?></p>
               <p class="document-description"><?php echo $pdf_row['descripcion']; ?></p>
             </div>
-            <a href="#" class="download-button" download>Descargar</a>
+            <a href="<?php echo $pdf_row['ruta']; ?>" class="download-button" download>Descargar</a>
           </div>
           <hr>
           <?php 
@@ -151,9 +154,9 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
           <h3 id="h3-imagenes">Imagenes</h3>
 
           <?php
-          $pdf_sql = "SELECT nombre, texto_alternativo 
+          $pdf_sql = "SELECT nombre, texto_alternativo, nombre_archivo 
                       FROM archivos 
-                      WHERE id_archivo = $id_proyecto
+                      WHERE id_trabajo = $id_proyecto
                       ORDER BY id_archivo ASC 
                       LIMIT 2";
           $pdf_result = $conn->query($pdf_sql);
@@ -163,11 +166,14 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
           <div class="document-item">
             <span class="document-icon"><img src="img/image.png"></span> 
             <div class="document-info">
-              <p class="document-title"><?php echo $pdf_row['nombre']; ?></p>
-              <p class="document-description"><?php echo $pdf_row['texto_alternativo']; ?></p>
+                <p class="document-title"><?php echo htmlspecialchars($pdf_row['nombre']); ?></p>
+                <p class="document-description"><?php echo htmlspecialchars($pdf_row['texto_alternativo']); ?></p>
             </div>
-            <a href="#" class="download-button" download>Descargar</a>
-          </div>
+            
+            <a href="#" class="view-button download-button" data-image-url="<?php echo htmlspecialchars($pdf_row['nombre_archivo']); ?>">Ver</a>
+            <a href="<?php echo htmlspecialchars($pdf_row['nombre_archivo']); ?>" class="download-button" download>Descargar</a>
+
+        </div>
           <hr>
           <?php 
               }
@@ -175,7 +181,7 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
               echo "<p>No hay documentos disponibles.</p>";
           }
           ?>
-          <a href="#" class="view-all">Ver todas las fotos</a>
+          <a href="#" class="view-all-photos">Ver todas las fotos</a>
           
         </section>
           
@@ -234,59 +240,118 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 
 
-<div id="modal" class="modal">
+<!-- Modal para documentos -->
+<div id="documentModal" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Documentos Disponibles</h2>
+    <span class="close" data-modal-id="documentModal">&times;</span>
+    <h2>Documentos Asociados</h2>
     <hr>
-    <section class="documents" id="all-documents">
-      <!-- Los documentos se cargarán aquí dinámicamente -->
-    </section>
+    <div id="document-list">
+      <!-- Aquí se cargarán los documentos con AJAX -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal para imágenes -->
+<div id="documentModalImage" class="modal">
+  <div class="modal-content">
+    <span class="close" data-modal-id="documentModalImage">&times;</span>
+    <h2>Imágenes Asociadas</h2>
+    <hr>
+    <div id="photos-list">
+      <!-- Aquí se cargarán las imágenes con AJAX -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal para ver una imagen en grande -->
+<div id="imageModal" class="modal">
+  <div class="modal-content modal-image-content">
+    <span class="close" data-modal-id="imageModal">&times;</span>
+    <img id="modal-image" src="" alt="Imagen en grande">
   </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var modal = document.getElementById("modal");
-    var closeModal = document.getElementsByClassName("close")[0];
-    var viewAllLink = document.querySelector('.view-all');
+// Lógica para abrir y cerrar el modal
+var modal = document.getElementById("documentModal");
+var modal1 = document.getElementById("documentModalImage");
+var imageModal = document.getElementById("imageModal");
+var ver = document.getElementById("verImage");
+var btn = document.querySelector(".view-all");
+var btnImg = document.querySelector(".view-all-photos");
 
-    viewAllLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        fetch('get_all_documents.php')
-            .then(response => response.json())
-            .then(data => {
-                var allDocumentsContainer = document.getElementById('all-documents');
-                allDocumentsContainer.innerHTML = ''; // Clear previous content
-                data.forEach(doc => {
-                    var documentItem = document.createElement('div');
-                    documentItem.classList.add('document-item');
-                    documentItem.innerHTML = `
-                        <span class="document-icon"><img src="img/pdf.png"></span> 
-                        <div class="document-info">
-                            <p class="document-title">${doc.texto_alternativo}</p>
-                            <p class="document-description">Archivo pdf con el proyecto completo.</p>
-                        </div>
-                        <a href="${doc.nombre_archivo}" class="download-button" download>Descargar</a>
-                        <hr>
-                    `;
-                    allDocumentsContainer.appendChild(documentItem);
-                });
-                modal.style.display = "block";
-            });
-    });
+var span = document.getElementsByClassName("close")[0];
+var imageModal = document.getElementById("imageModal");
+var closeBtns = document.getElementsByClassName("close");
 
-    closeModal.onclick = function() {
-        modal.style.display = "none";
+for (var i = 0; i < closeBtns.length; i++) {
+  closeBtns[i].onclick = function() {
+    var modalId = this.getAttribute("data-modal-id");
+    document.getElementById(modalId).style.display = "none";
+  }
+}
+
+btn.onclick = function() {
+  modal.style.display = "block";
+  loadDocuments(); // Llamar a la función para cargar documentos
+}
+
+btnImg.onclick = function() {
+  modal1.style.display = "block";
+  loadImages(); // Llamar a la función para cargar documentos
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == documentModal) {
+    documentModal.style.display = "none";
+  }
+  if (event.target == documentModalImage) {
+    documentModalImage.style.display = "none";
+  }
+  if (event.target == imageModal) {
+    imageModal.style.display = "none";
+  }
+}
+function loadImages() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "scripts/get_fotos.php?id_trabajo=<?php echo $id_trabajo; ?>", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      document.getElementById("photos-list").innerHTML = xhr.responseText;
+      attachViewButtons();
     }
+  };
+  xhr.send();
+}
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+function loadDocuments() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "scripts/get_documents.php?id_trabajo=<?php echo $id_trabajo; ?>", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      document.getElementById("document-list").innerHTML = xhr.responseText;
     }
-});
-</script>
+  };
+  xhr.send();
+}
+function attachViewButtons() {
+  var viewButtons = document.getElementsByClassName("view-button");
+  for (var i = 0; i < viewButtons.length; i++) {
+    viewButtons[i].onclick = function(event) {
+      event.preventDefault();
+      var imageUrl = this.getAttribute("data-image-url");
+      document.getElementById("modal-image").src = imageUrl;
+      imageModal.style.display = "block";
+    }
+  }
+}
+// Llama a esta función después de que se hayan cargado los documentos
+document.addEventListener('DOMContentLoaded', attachViewButtons);</script>
 
 <script src="scripts/modal.js"></script>
 <script src="scripts/carrusel.js"></script>
