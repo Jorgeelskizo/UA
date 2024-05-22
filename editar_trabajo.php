@@ -119,66 +119,45 @@ if ($trabajo = $result->fetch_assoc()) {
 
 
 
-  <!-- Ventana emergente para "Ver todos" -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Documentos Disponibles</h2>
-      <hr>
-      <section class="documents">
-        <h3>Documentos</h3>
-        <div class="document-item">
-          <span class="document-icon"><img src="img/pdf.png"></span>
-          <div class="document-info">
-            <p class="document-title">Proyecto completo</p>
-            <p class="document-description">Archivo pdf con el proyecto completo.</p>
-          </div>
-          <button class="download-button">Descargar</button>
-          <button class="delete-button">Eliminar</button>
-        </div>
-        <hr>
-        <div class="document-item">
-          <span class="document-icon"><img src="img/pdf.png"></span>
-          <div class="document-info">
-            <p class="document-title">Proyecto completo</p>
-            <p class="document-description">Archivo pdf con el proyecto completo.</p>
-          </div>
-          <button class="download-button">Descargar</button>
-          <button class="delete-button">Eliminar</button>
-        </div>
-        <hr>
-        <div class="document-item">
-          <span class="document-icon"><img src="img/pdf.png"></span>
-          <div class="document-info">
-            <p class="document-title">Proyecto completo</p>
-            <p class="document-description">Archivo pdf con el proyecto completo.</p>
-          </div>
-          <button class="download-button">Descargar</button>
-          <button class="delete-button">Eliminar</button>
-        </div>
-        <hr>
-        <div class="document-item">
-          <span class="document-icon"><img src="img/pdf.png"></span>
-          <div class="document-info">
-            <p class="document-title">Proyecto completo</p>
-            <p class="document-description">Archivo pdf con el proyecto completo.</p>
-          </div>
-          <button class="download-button">Descargar</button>
-          <button class="delete-button">Eliminar</button>
-        </div>
-        <hr>
-        <div class="document-item">
-          <span class="document-icon"><img src="img/pdf.png"></span>
-          <div class="document-info">
-            <p class="document-title">Proyecto completo</p>
-            <p class="document-description">Archivo pdf con el proyecto completo.</p>
-          </div>
-          <button class="download-button">Descargar</button>
-          <button class="delete-button">Eliminar</button>
-        </div>
+  <<!-- Modal para subir archivos con nuevos ID y clases -->
+  <div id="uploadFileModal" class="upload-modal" style="display: none;">
+            <div class="upload-modal-content">
+                <span class="upload-close" onclick="closeUploadFileModal()">&times;</span>
+                <h2>Subir nuevo archivo</h2>
+                <label>
+                    Tipo de archivo:
+                    <select id="uploadFileType" class="uploadFileType" onchange="toggleUploadFields()">
+                        <option value="pdf">PDF</option>
+                        <option value="image">Imagen</option>
+                    </select>
+                </label>
+                <br>
+                <label id="uploadTitleField" class="uploadFileTypetxt" style="display: none;">
+                    Título:
+                    <input type="text" id="uploadFileTitle" class="uploadFileType">
+                </label>
+                <br>
+                <label id="uploadDescField" class="uploadDescField" style="display: none;">
+                    Descripción:
+                    <textarea id="uploadFileDescription" class="uploadFileDescription"></textarea>
+                </label>
+                <br>
+                <label id="altTextField" class="altTextFieldtxt" style="display: none;">
+                    Texto Alternativo:
+                    <input type="text" id="uploadAltText" class="altTextField">
+                </label>
 
-      </section>
-    </div>
+                <br>
+                <label>
+                    Archivo:
+                    <label for="uploadFileInput" class="upload-file-label">Seleccionar archivo</label>
+                    <input type="file" id="uploadFileInput" class="uploadFileInput" onchange="previewUploadFile()" hidden />
+                    <div id="fileNameDisplay"  class="fileNameDisplay"></div>
+                </label>
+                <br>
+                <img id="uploadImagePreview" class="uploadImagePreview">
+                <button onclick="addUploadFileToList()">Añadir</button>
+            </div>
   </div>
 </body>
 
