@@ -1,12 +1,15 @@
 /* ----------------------Index-------------------------- */
 /* Estilos generales para el modo oscuro */
 body {
-    background-color: #121212; /* Fondo oscuro */
-    color: #e0e0e0; /* Texto claro */
+    background-color: #121212;
+    /* Fondo oscuro */
+    color: #e0e0e0;
+    /* Texto claro */
 }
 
 a {
-    color: #bb86fc; /* Color claro para enlaces para más visibilidad */
+    color: #bb86fc;
+    /* Color claro para enlaces para más visibilidad */
 }
 
 /* Cabecera y navegación */
@@ -17,36 +20,44 @@ a {
 
 /* Galería de proyectos */
 .gallery-container-index {
-    background-color: #1e1e1e; /* Un poco más claro que el fondo principal */
+    background-color: #1e1e1e;
+    /* Un poco más claro que el fondo principal */
     padding: 20px;
 }
 
 .project-gallery-index article {
-    background-color: #333333; /* Fondo para cada artículo en la galería */
+    background-color: #333333;
+    /* Fondo para cada artículo en la galería */
     border-radius: 8px;
     margin: 10px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Sombra para dar profundidad */
 }
 
 .project-gallery-index img {
-    width: 100%; /* Ajusta según necesites */
+    width: 100%;
+    /* Ajusta según necesites */
     border-radius: 8px;
 }
 
 .project-gallery-index p {
-    color: #ffffff; /* Texto claro */
+    color: #ffffff;
+    /* Texto claro */
 }
 
 .project-gallery-index footer {
-    color: #a0a0a0; /* Texto un poco más oscuro para el pie de foto */
+    color: #a0a0a0;
+    /* Texto un poco más oscuro para el pie de foto */
     font-size: 0.8em;
 }
 
 /* Botones */
 button {
-    background-color: #6200ee; /* Color de fondo para botones */
-    color: #ffffff; /* Texto del botón */
+    background-color: #6200ee;
+    /* Color de fondo para botones */
+    color: #ffffff;
+    /* Texto del botón */
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
@@ -55,46 +66,60 @@ button {
 }
 
 button:hover {
-    background-color: #3700b3; /* Cambio de color al pasar el ratón */
+    background-color: #3700b3;
+    /* Cambio de color al pasar el ratón */
 }
 
 
 /* --------------------HEader------------------------------------- */
 /* Estilos para el header */
 .site-header-header {
-    background-color: #414040; /* Fondo oscuro similar al del body */
-    color: #e0e0e0; /* Texto claro */
+    background-color: #414040;
+    /* Fondo oscuro similar al del body */
+    color: #e0e0e0;
+    /* Texto claro */
 }
 
 /* Estilos para el logo */
 .logo-header img {
-    width: auto; /* Mantén el tamaño original o ajusta según tu diseño */
+    width: auto;
+    /* Mantén el tamaño original o ajusta según tu diseño */
 }
 
 /* Estilos para la barra de búsqueda */
 .search-bar-header input[type="text"] {
-    background-color: #333333; /* Fondo para la barra de búsqueda */
-    color: #ffffff; /* Texto claro */
-    border: 1px solid #555; /* Borde sutil */
-    padding: 8px; /* Espaciado interno */
+    background-color: #333333;
+    /* Fondo para la barra de búsqueda */
+    color: #ffffff;
+    /* Texto claro */
+    border: 1px solid #555;
+    /* Borde sutil */
+    padding: 8px;
+    /* Espaciado interno */
 }
 
 .search-button-header {
-    background-color: #6200ee; /* Fondo morado para el botón de búsqueda, como los otros botones */
-    color: #ffffff; /* Texto del botón */
+    background-color: #6200ee;
+    /* Fondo morado para el botón de búsqueda, como los otros botones */
+    color: #ffffff;
+    /* Texto del botón */
     border: none;
     padding: 8px 16px;
     cursor: pointer;
 }
 
-.search-button-header i { /* Asumiendo que usas Font Awesome para el ícono de búsqueda */
-    color: #ffffff; /* Ícono blanco */
+.search-button-header i {
+    /* Asumiendo que usas Font Awesome para el ícono de búsqueda */
+    color: #ffffff;
+    /* Ícono blanco */
 }
 
 /* Estilos para la sección de perfil */
 .profile-header button {
-    background-color: #6200ee; /* Fondo morado para botones en la sección de perfil */
-    color: #ffffff; /* Texto claro */
+    background-color: #6200ee;
+    /* Fondo morado para botones en la sección de perfil */
+    color: #ffffff;
+    /* Texto claro */
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
@@ -103,14 +128,105 @@ button:hover {
 }
 
 .profile-header button:hover {
-    background-color: #3700b3; /* Efecto hover */
+    background-color: #3700b3;
+    /* Efecto hover */
 }
 
-.profile-header a, .profile-header span {
-    color: #bb86fc; /* Color claro para enlaces y textos en el perfil */
+.profile-header a,
+.profile-header span {
+    color: #bb86fc;
+    /* Color claro para enlaces y textos en el perfil */
 }
 
 .profile-header img {
-    border-radius: 50%; /* Redondea la imagen de perfil */
-    width: 50px; /* Tamaño específico para la imagen de perfil */
+    border-radius: 50%;
+    /* Redondea la imagen de perfil */
+    width: 50px;
+    /* Tamaño específico para la imagen de perfil */
+}
+
+
+/* -------------Nav-------------------------------- */
+/* Estilos generales para la barra de navegación */
+.barranav-nav {
+    background-color: #1e1e1e;
+    /* Fondo oscuro para la barra de navegación */
+    color: #e0e0e0;
+    /* Texto claro */
+}
+
+.libarranav-nav a {
+    color: #bb86fc;
+    /* Color morado claro para los enlaces, manteniendo la coherencia con otros botones */
+    text-decoration: none;
+    /* Sin subrayado */
+    transition: color 0.3s;
+    /* Transición suave al cambiar el color */
+}
+
+.libarranav-nav a:hover {
+    color: #3700b3;
+    /* Color al pasar el ratón por encima */
+}
+
+.barranav-nav li:hover {
+    background-color: #1e1e1e;
+    /* Color al pasar el ratón por encima */
+    border: 1px solid black;
+    border-color: white;
+    /* Color al pasar el ratón por encima */
+}
+
+
+/* Estilos para los íconos, si estás utilizando Font Awesome u otro sistema de íconos */
+.icon-home-nav,
+.icon-search-nav,
+.icon-user-add-nav,
+.icon-logout-nav,
+.icon-bookmark-nav {
+    margin-right: 5px;
+    /* Espacio entre el ícono y el texto */
+}
+
+/* Estilos para el checkbox usado en menús responsivos (si aplica) */
+#checkmenu-nav {
+    display: none;
+    /* Esconder el checkbox visualmente */
+}
+
+/* Label que actúa como botón del menú en versiones móviles */
+label[for="checkmenu"] {
+    background-color: #6200ee;
+    /* Color de fondo para el botón del menú */
+    color: #ffffff;
+    /* Color del texto */
+    padding: 10px;
+    /* Espaciado interno */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    cursor: pointer;
+    display: none;
+    /* Ocultar por defecto y mostrar solo en móvil si es necesario */
+}
+
+
+
+/* ----------------------Botones perfil ajeno y personal---------------------- */
+.follow-button-perfil {
+
+    background-color: #6200ee;
+}
+
+.follow-button-perfil:hover {
+    background-color: #3700b3;
+    /* Efecto hover */
+}
+
+.ajustes-perfil {
+    background-color: #6200ee;
+}
+
+.ajustes-perfil:hover {
+    background-color: #3700b3;
+    /* Efecto hover */
 }

@@ -806,7 +806,7 @@ body {
   .libarranav-nav{
     justify-content: center;
     align-items: center; /* Centra el contenido de `li` vertical y horizontalmente */
-    padding: 0.5em;
+    padding: 0.3em;
     cursor: pointer;
     transition: background-color 0.3s;
     text-align: center;

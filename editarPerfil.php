@@ -31,7 +31,9 @@ if ($user = $result->fetch_assoc()) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Universidad de Alicante - Proyecto Fin de Grado Ingenieria Multimedia</title>
 <link rel="stylesheet" href="estilos/stylesEditarPerfil.css">
+<link rel="stylesheet" href="estilos/unificado.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<?php include 'scripts/controlEstilo.php'; ?>
 
 </head>
 <body>
