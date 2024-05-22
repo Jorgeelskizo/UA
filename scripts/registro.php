@@ -60,6 +60,37 @@ try {
             $_SESSION['nombre_usuario'] = $nombre_completo;
             $_SESSION['foto'] = $foto_path;
 
+            if(isset($_SESSION['nombre_usuario'])){
+                $username = $_SESSION['nombre_usuario'];
+             // Preparar la consulta para obtener solo el nombre de usuario y la contraseña hasheada
+                $query = "SELECT nombre_completo, carrera,  contrasena, id_usuario, foto FROM usuarios WHERE nombre_completo = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("s", $username);
+                $stmt->execute();
+                $result = $stmt->get_result();
+            
+            
+                if ($user = $result->fetch_assoc()) {
+                    // Verificar si la contraseña coincide
+
+                        $_SESSION['id'] = $user['id_usuario'];
+                        $_SESSION['carrera'] = $user['carrera'];
+                        $_SESSION['lang'] = 'es';
+                        $_SESSION['modo'] = '';
+            
+                        $mensaje = "Entrado";
+                        echo $_SESSION['id'];
+                        // Emitir un script JavaScript para que se ejecute en el navegador
+                        echo "<script>console.log('". addslashes($mensaje) ."');</script>";
+                
+                        // Redirige al usuario a la página principal
+                        header("Location: index.php");
+            
+                } else {
+                    // Usuario no encontrado
+                    $error = "Usuario o contraseña incorrectos.";
+                }
+            }
             echo "Usuario registrado correctamente!";
 
             header("Location: ../index.php");

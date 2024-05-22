@@ -420,3 +420,73 @@ button:hover {
 #titulo-config{
     color:white;
 }
+
+
+/* -------------------Editar perfil------------------------------------ */
+/* Estilo general para la página de perfil */
+.resumenPerfil, .profile-card-global, .content-container {
+    background-color: #333333; /* Fondo oscuro general para secciones */
+    color: #e0e0e0; /* Texto claro */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Detalles del perfil y tarjeta de información */
+.profile-card {
+    background-color: #2a2a2a; /* Fondo para la tarjeta del perfil */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.profile-photo img {
+    border-radius: 50%; /* Hace la imagen circular */
+}
+
+
+.profile-name, .profile-username, .profile-university, .profile-degree {
+    color: #ffffff; /* Texto claro */
+}
+
+/* Formularios y contenedores de formularios */
+.form-container {
+    background-color: #2a2a2a; /* Fondo para los formularios */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+
+.form-group label {
+    color: #e0e0e0; /* Color de etiquetas */
+}
+
+.form-group input[type="text"], .form-group input[type="password"], .form-group select {
+    background-color: #121212; /* Fondo oscuro para campos de entrada */
+    color: #ffffff; /* Texto claro */
+    border: 1px solid #555; /* Borde sutil */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Botones dentro de los formularios */
+.form-button {
+    background-color: #6200ee; /* Fondo morado para botones */
+    color: #ffffff; /* Texto claro */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.section-header {
+    font-size: 1em;
+    color: #fffefe;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.upload-instructions {
+    font-size: 0.8em;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.form-button:hover {
+    background-color: #3700b3; /* Cambio de color al pasar el ratón */
+}
