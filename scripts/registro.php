@@ -1,9 +1,18 @@
 <?php
 include 'conexion.php';
 
-// Intentar la conexión con la base de datos
+// Función para limpiar el nombre del archivo
+function cleanFileName($fileName) {
+    // Elimina los espacios en blanco al principio y al final
+    $fileName = trim($fileName);
+    // Reemplaza múltiples espacios o guiones bajos por un solo guión bajo
+    $fileName = preg_replace('/[\s_]+/', '_', $fileName);
+    // Elimina todos los caracteres no alfanuméricos excepto guiones bajos y puntos
+    $fileName = preg_replace('/[^A-Za-z0-9_\-\.]/', '', $fileName);
+    return $fileName;
+}
+
 try {
-    // Verificar si el método de solicitud es POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Recopilar los datos del formulario
         $nombre_completo = $_POST['nombre_completo'];
@@ -23,28 +32,46 @@ try {
         // Procesar la carga del archivo de foto
         $foto_path = null;
         if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
-            $foto_name = basename($_FILES['foto']['name']);
-            $foto_path = "uploads/" . $foto_name;
-            if (!move_uploaded_file($_FILES['foto']['tmp_name'], "../" . $foto_path)) {
+            $foto_name = cleanFileName(basename($_FILES['foto']['name']));
+            $foto_path = "uploads/" . uniqid() . "_" . $foto_name; // Asegura que el nombre del archivo sea único
+            
+            // Depuración: Verificar el nombre del archivo temporal y la ruta de destino
+            echo "Archivo temporal: " . $_FILES['foto']['tmp_name'] . "<br>";
+            echo "Ruta de destino: " . $foto_path . "<br>";
+
+            // Mover el archivo a la carpeta de destino
+            if (move_uploaded_file($_FILES['foto']['tmp_name'], "../" . $foto_path)) {
+                echo "Archivo movido correctamente<br>";
+            } else {
+                echo "Error al mover el archivo<br>";
                 $foto_path = null;
             }
+        } else {
+            echo "No se ha seleccionado ningún archivo o hubo un error en la subida.<br>";
         }
 
         // Preparar la sentencia SQL para insertar los datos
         $sql = "INSERT INTO usuarios (nombre_completo, nick, carrera, anyo, foto, contrasena, correo_electronico, fecha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$nombre_completo, $nick, $carrera, $anyo, $foto_path, $hashed_password, $email, $fecha_formateada]);
+        $stmt->bind_param('sssissss', $nombre_completo, $nick, $carrera, $anyo, $foto_path, $hashed_password, $email, $fecha_formateada);
 
-        session_start();
-        $_SESSION['nombre_usuario'] = $nombre_completo;
-        $_SESSION['foto'] = $foto_path;
+        if ($stmt->execute()) {
+            session_start();
+            $_SESSION['nombre_usuario'] = $nombre_completo;
+            $_SESSION['foto'] = $foto_path;
 
-        echo "Usuario registrado correctamente!";
+            echo "Usuario registrado correctamente!";
 
-        header("Location: ../index.php");
+            header("Location: ../index.php");
+            exit();
+        } else {
+            echo "Error al registrar el usuario: " . $stmt->error . "<br>";
+        }
+
+        $stmt->close();
     }
 } catch (PDOException $e) {
     // Capturar y mostrar el error en caso de fallo en la conexión o en la consulta
-    echo "Error: " . $e->getMessage();
+    echo "Error: " . $e->getMessage() . "<br>";
 }
 ?>

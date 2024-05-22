@@ -104,7 +104,7 @@ if ($user = $result->fetch_assoc()) {
       <p class="upload-instructions">
         La imagen no debe exceder los 20 MB para garantizar una carga eficiente. Además, al subir tu foto, aceptas los términos y condiciones relacionados con los derechos de autor y cualquier otro requisito que pueda surgir.
       </p>
-      <form action="scripts/update_profile_photo.php" method="POST" enctype="multipart/form-data">
+      <form action="scripts/update_profile_foto.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <input type="file" id="profile-photo" name="profile-photo">
         </div>
