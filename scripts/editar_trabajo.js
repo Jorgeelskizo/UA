@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     toggleUploadFields();  // Configura los campos correctos al cargar la página
     const idTrabajo = new URLSearchParams(window.location.search).get('id');
-
+    
     if (!idTrabajo) {
         console.error('No se ha especificado un ID de trabajo');
         return;
@@ -118,7 +118,7 @@ function displayIMG(docs) {
         deleteButton.textContent = 'Eliminar';
         // Verifica que pasas el tipo correcto y el ID adecuado
         deleteButton.onclick = function() {
-            deleteMedia(doc.id_archivo, 'image'); // Asegúrate de que el tipo es correcto
+            deleteMedia(doc.id_archivo, 'img'); // Asegúrate de que el tipo es correcto
         };
 
         div.appendChild(docIcon);
@@ -143,19 +143,16 @@ function deleteMedia(id, type) {
         method: 'POST',
         body: formData
     })
-    .then(response => response.text())  // Cambia aquí para ver el texto plano
-    .then(text => {
-        console.log('Response:', text);  // Imprime la respuesta del servidor
-        return JSON.parse(text);         // Intenta parsear el texto a JSON
-    })
+    .then(response => response.json())
     .then(data => {
         if (data.success) {
             alert('Archivo eliminado correctamente');
-            const elementToRemove = document.getElementById(`media-item-${type}-${id}`);
+            const elementId = `media-item-${type}-${id}`;
+            const elementToRemove = document.getElementById(elementId);
             if (elementToRemove) {
                 elementToRemove.remove();
             } else {
-                console.error('Element to remove not found:', `media-item-${type}-${id}`);
+                console.error('Element to remove not found:', elementId);
             }
         } else {
             alert('Error al eliminar el archivo: ' + data.error);
@@ -166,6 +163,7 @@ function deleteMedia(id, type) {
         alert('Error al eliminar el archivo: ' + error.message);
     });
 }
+
 
 
 
@@ -336,4 +334,132 @@ function resetUploadFileInput() {
 function closeUploadFileModal() {
     document.getElementById('uploadFileModal').style.display = 'none';
     resetUploadForm(); // Asegura que los campos están listos para la próxima vez
+}
+
+function handleNewImageSelection() {
+    const fileInput = document.getElementById('file-upload');
+    const currentImage = document.getElementById('currentProjectImage');
+    if (fileInput.files.length > 0) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            currentImage.src = e.target.result;
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+    }
+}
+
+function validateAndUploadProject() {
+    const idTrabajo = new URLSearchParams(window.location.search).get('id');
+    const titulo = document.getElementById('input_titulo').value;
+    const descripcion = document.getElementById('descripcion').value;
+    const horas = document.getElementById('input_horas').value;
+    const tipo = document.getElementById('tipo_proyecto').value;
+    const imageInput = document.getElementById('file-upload');
+
+    if (!idTrabajo) {
+        alert("Error: No se ha especificado un ID de trabajo.");
+        return;
+    }
+    if (titulo.trim() === "") {
+        alert("Por favor, introduce un título.");
+        return;
+    }
+
+    if (descripcion.trim() === "") {
+        alert("Por favor, introduce una descripción.");
+        return;
+    }
+
+    if (horas.trim() === "" || isNaN(horas)) {
+        alert("Por favor, introduce las horas en formato numérico.");
+        return;
+    }
+
+    if (tipo.trim() === "") {
+        alert("Por favor, selecciona el tipo de proyecto.");
+        return;
+    }
+    const formData = new FormData();
+    formData.append('id_trabajo', idTrabajo);
+    formData.append('titulo', titulo);
+    formData.append('descripcion', descripcion);
+    formData.append('horas', horas);
+    formData.append('tipo', tipo);
+    if (imageInput.files.length > 0) {
+        formData.append('portada', imageInput.files[0]); // Añade la imagen solo si existe
+    }
+
+    fetch('scripts/editarModificar.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(text => {
+        const data = JSON.parse(text);
+        if (data.success) {
+            console.log('Proyecto actualizado correctamente:', data);
+            alert('Trabajo actualizado correctamente.');
+            window.location.href = 'index.php'; // Redirigir tras la subida exitosa
+        } else {
+            throw new Error(data.error || 'Error desconocido al actualizar el proyecto');
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Hubo un error al actualizar el trabajo: ' + error.message);
+    });
+}
+
+
+function uploadMedia() {
+    const idProyecto = new URLSearchParams(window.location.search).get('id');
+    documents.forEach((doc, index) => {
+        const formData = new FormData();
+
+        if (doc.type === 'pdf') {
+            formData.append(`pdfFiles[${index}]`, doc.file);
+            formData.append(`pdfTitles[${index}]`, doc.title);
+            formData.append(`pdfDescriptions[${index}]`, doc.description || 'Sin descripción');
+            formData.append('id_proyecto', idProyecto);
+
+            fetch('scripts/publicar_pdf.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('PDFs subidos correctamente. Redirigiendo...');
+                    } else {
+                        throw new Error(data.error || 'Error desconocido al subir PDFs');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al subir PDFs:', error);
+                    alert('Error al subir archivos PDF: ' + error.message);
+                });
+        } else if (doc.type === 'image') {
+            formData.append('file', doc.file);
+            formData.append('altText', doc.altText);
+            formData.append('id_proyecto', idProyecto);
+            fetch('scripts/publicar_img.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('PDFs subidos correctamente. Redirigiendo...');
+                    } else {
+                        throw new Error(data.error || 'Error desconocido al subir PDFs');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al subir PDFs:', error);
+                    alert('Error al subir archivos PDF: ' + error.message);
+                });
+        }
+    });
+    alert('Archivos multimedia subidos correctamente. Redirigiendo...');
+    window.location.href = 'index.php'; // Redirigir tras la subida exitosa
 }

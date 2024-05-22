@@ -54,9 +54,11 @@ if ($trabajo = $result->fetch_assoc()) {
     <div class="left-column">
       <h2 id="titulo-img">Imagen del trabajo</h2>
       <div class="project-image">
-        <img src="<?php echo htmlspecialchars($trabajo['portada']); ?>" alt="Imagen del trabajo">
-        <!-- Botón para cambiar la imagen -->
-        <button class="change-image-btn">Cambiar Imagen</button>
+        <img id="currentProjectImage" src="<?php echo htmlspecialchars($trabajo['portada']); ?>"
+          alt="Imagen del trabajo">
+        <input type="file" id="file-upload" style="display: none;" onchange="handleNewImageSelection();" />
+        <button class="change-image-btn" onclick="document.getElementById('file-upload').click();">Cambiar
+          Imagen</button>
       </div>
 
       <div class="project-info">
@@ -106,7 +108,8 @@ if ($trabajo = $result->fetch_assoc()) {
   </div>
 
   <div id="subir_proyecto">
-    <button class="upload-button">Guardar Cambios</button>
+    <button class="upload-button" onclick="validateAndUploadProject()">Guardar Cambios</button>
+
   </div>
 
 
@@ -120,45 +123,45 @@ if ($trabajo = $result->fetch_assoc()) {
 
 
   <<!-- Modal para subir archivos con nuevos ID y clases -->
-  <div id="uploadFileModal" class="upload-modal" style="display: none;">
-            <div class="upload-modal-content">
-                <span class="upload-close" onclick="closeUploadFileModal()">&times;</span>
-                <h2>Subir nuevo archivo</h2>
-                <label>
-                    Tipo de archivo:
-                    <select id="uploadFileType" class="uploadFileType" onchange="toggleUploadFields()">
-                        <option value="pdf">PDF</option>
-                        <option value="image">Imagen</option>
-                    </select>
-                </label>
-                <br>
-                <label id="uploadTitleField" class="uploadFileTypetxt" style="display: none;">
-                    Título:
-                    <input type="text" id="uploadFileTitle" class="uploadFileType">
-                </label>
-                <br>
-                <label id="uploadDescField" class="uploadDescField" style="display: none;">
-                    Descripción:
-                    <textarea id="uploadFileDescription" class="uploadFileDescription"></textarea>
-                </label>
-                <br>
-                <label id="altTextField" class="altTextFieldtxt" style="display: none;">
-                    Texto Alternativo:
-                    <input type="text" id="uploadAltText" class="altTextField">
-                </label>
+    <div id="uploadFileModal" class="upload-modal" style="display: none;">
+      <div class="upload-modal-content">
+        <span class="upload-close" onclick="closeUploadFileModal()">&times;</span>
+        <h2>Subir nuevo archivo</h2>
+        <label>
+          Tipo de archivo:
+          <select id="uploadFileType" class="uploadFileType" onchange="toggleUploadFields()">
+            <option value="pdf">PDF</option>
+            <option value="image">Imagen</option>
+          </select>
+        </label>
+        <br>
+        <label id="uploadTitleField" class="uploadFileTypetxt" style="display: none;">
+          Título:
+          <input type="text" id="uploadFileTitle" class="uploadFileType">
+        </label>
+        <br>
+        <label id="uploadDescField" class="uploadDescField" style="display: none;">
+          Descripción:
+          <textarea id="uploadFileDescription" class="uploadFileDescription"></textarea>
+        </label>
+        <br>
+        <label id="altTextField" class="altTextFieldtxt" style="display: none;">
+          Texto Alternativo:
+          <input type="text" id="uploadAltText" class="altTextField">
+        </label>
 
-                <br>
-                <label>
-                    Archivo:
-                    <label for="uploadFileInput" class="upload-file-label">Seleccionar archivo</label>
-                    <input type="file" id="uploadFileInput" class="uploadFileInput" onchange="previewUploadFile()" hidden />
-                    <div id="fileNameDisplay"  class="fileNameDisplay"></div>
-                </label>
-                <br>
-                <img id="uploadImagePreview" class="uploadImagePreview">
-                <button onclick="addUploadFileToList()">Añadir</button>
-            </div>
-  </div>
+        <br>
+        <label>
+          Archivo:
+          <label for="uploadFileInput" class="upload-file-label">Seleccionar archivo</label>
+          <input type="file" id="uploadFileInput" class="uploadFileInput" onchange="previewUploadFile()" hidden />
+          <div id="fileNameDisplay" class="fileNameDisplay"></div>
+        </label>
+        <br>
+        <img id="uploadImagePreview" class="uploadImagePreview">
+        <button onclick="addUploadFileToList()">Añadir</button>
+      </div>
+    </div>
 </body>
 
 </html>

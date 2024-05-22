@@ -11,7 +11,7 @@ if ($id_proyecto == 0) {
 }
 
 // Preparamos y ejecutamos la consulta para obtener los PDFs asociados
-$stmt = $conn->prepare("SELECT nombre_archivo,nombre,texto_alternativo FROM archivos WHERE id_trabajo = ?");
+$stmt = $conn->prepare("SELECT id_archivo,nombre_archivo,nombre,texto_alternativo FROM archivos WHERE id_trabajo = ?");
 $stmt->bind_param("i", $id_proyecto);
 $stmt->execute();
 $result = $stmt->get_result();
