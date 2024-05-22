@@ -154,7 +154,7 @@ include 'scripts/controlSesion.php';
                     <div id="fileNameDisplay"></div>
                 </label>
                 <br>
-                <img id="uploadImagePreview" style="display: none; max-width: 100%; height: auto;">
+                <img id="uploadImagePreview">
                 <button onclick="addUploadFileToList()">Añadir</button>
             </div>
         </div>

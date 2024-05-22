@@ -118,30 +118,39 @@ var documents = []; // Este array almacenará los objetos de los documentos
 
 function updateDocumentList() {
     var docContainer = document.getElementById('documentList');
-    docContainer.innerHTML = '';
-    documents.forEach((doc, index) => {
-        var fileInfo = doc.type === 'image' ? `<p class="document-title">${doc.fileName}</p>` : `<p class="document-title">${doc.title}</p>`;
-        var additionalInfo = doc.type === 'image' ? `<p class="document-description">${doc.altText}</p>` : `<p class="document-description">${doc.description}</p>`;
+    docContainer.innerHTML = '';  // Limpiar el contenedor existente
 
+    documents.forEach((doc, index) => {
+        // Crear elementos de documento
         var div = document.createElement('div');
         div.className = 'document-item';
-        div.innerHTML = `
-            <span class="document-icon"><img src="${doc.type === 'image' ? 'img/image.png' : 'img/pdf.png'}" alt="${doc.altText || 'Document Icon'}" style="width:50px; height:50px;"></span>
-            <div class="document-info">
-                ${fileInfo}
-                ${additionalInfo}
-            </div>
-            <button class="delete-button" onclick="removeDocument(${index})">Eliminar</button>
-        `;
+
+        var docIcon = document.createElement('img');
+        docIcon.src = doc.type === 'image' ? 'img/image.png' : 'img/pdf.png';
+        docIcon.alt = doc.altText || 'Document Icon';
+        docIcon.style.width = '50px';
+        docIcon.style.height = '50px';
+
+        var fileInfo = document.createElement('div');
+        fileInfo.className = 'document-info';
+        fileInfo.innerHTML = `<p class="document-title">${doc.fileName}</p><p class="document-description">${doc.type === 'image' ? doc.altText : doc.description}</p>`;
+
+        var deleteButton = document.createElement('button');
+        deleteButton.className = 'delete-button';
+        deleteButton.textContent = 'Eliminar';
+        deleteButton.onclick = function() { removeDocument(index); };  // Añadir event listener
+
+        div.appendChild(docIcon);
+        div.appendChild(fileInfo);
+        div.appendChild(deleteButton);
+
         docContainer.appendChild(div);
     });
 }
 
-
-
-function removeDocument(element, index) {
+function removeDocument(index) {
     documents.splice(index, 1);
-    updateDocumentList();
+    updateDocumentList();  // Actualizar la lista para reflejar los cambios
 }
 
 function resetUploadForm() {
