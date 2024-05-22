@@ -725,9 +725,9 @@ body {
   }
   
   .profile-header img {
-    height: 3em;
+    width: 50px;
     /* Adjust as needed */
-    border-radius: 20px;
+    border-radius: 50%;
   }
 
   .profile-header button {
@@ -1289,11 +1289,6 @@ width: 60px;
 height: 34px;
 }
 
-.switch-config input { 
-opacity: 0;
-width: 0;
-height: 0;
-}
 
 .slider-config {
 position: absolute;
@@ -2511,10 +2506,7 @@ background-color: #0056b3; /* Color azul más oscuro en hover */
 }
 
 .project-info {
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 100%; /* Asegura que ocupa todo el ancho del contenedor padre */
+ margin-left: 15px;
 }
 
 .input-group {

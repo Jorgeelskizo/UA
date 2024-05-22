@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['foto'] = $user['foto'];
             $_SESSION['id'] = $user['id_usuario'];
             $_SESSION['lang'] = 'es';
-            $_SESSION['modo'] = 'Oscuro';
+            $_SESSION['modo'] = '';
 
 
             if (isset($_POST['recordar'])) {

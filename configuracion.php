@@ -32,7 +32,7 @@ include 'scripts/seleccionarIdioma.php';
                     <p><?php echo  $palabras['descdalt'] ?></p>
                 </div>
                 <div class="setting-control-config">
-                    <select>
+                    <select class="select-config">
                         <option>Deuteranomalia</option>
                         <option>Protanopia</option>
                         <option>Tritanopia</option>
@@ -46,10 +46,10 @@ include 'scripts/seleccionarIdioma.php';
                     <p><?php echo  $palabras['descosc'] ?></p>
                 </div>
                 <div class="setting-control-config">
-                    <label class="switch-config">
-                        <input class="input-config" type="checkbox-config">
-                        <span class="slider round-config"></span>
-                    </label>
+                    <select class="select-config" id="oscuro-select">
+                        <option value="a" <?php echo (isset($_SESSION['modo']) && $_SESSION['modo'] == 'Oscuro') ? 'selected' : ''; ?>>Activado</option>
+                        <option value="d" <?php echo (isset($_SESSION['modo']) && $_SESSION['modo'] == '') ? 'selected' : ''; ?>>Desactivado</option>
+                    </select>
                 </div>
             </div>
         </div>
