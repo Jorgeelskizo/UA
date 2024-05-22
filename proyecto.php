@@ -33,6 +33,11 @@ echo $id_proyecto;
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
+    $portada = $row["portada"];
+    $titulo = $row["titulo"];
+    $horas = $row["horas"];
+    $valoracion = $row["valoracion"];
+    $descripcion = $row["descripcion"];
     
   ?>
   
@@ -45,19 +50,19 @@ echo $id_proyecto;
     </div>
     <?php endif; ?>
     <div class="project-image">
-        <img src="<?php echo $row["portada"]; ?>" alt="Project Thumbnail" class="fixed-size">
+        <img src="<?php echo $portada; ?>" alt="Project Thumbnail" class="fixed-size">
     </div>
     <div class="project-info">
-        <?php echo "<h2>" . $row["titulo"]. "</h2>"; ?>
+        <?php echo "<h2>" . $titulo. "</h2>"; ?>
 
         <div class="project-meta">
             <p class="author">Hecho por <span class="author-name"><a href="perfilajeno.php?id=<?php echo $row['id_usu']; ?>"><?php echo $row["nombre_completo"]; ?></a></span></p>
-            <p class="time-ago"><?php echo $row["horas"] ." horas"; ?></p>
-            <p class="rating">Valoración <?php echo $row["valoracion"]; ?> /5.0</p>
+            <p class="time-ago"><?php echo $horas ." horas"; ?></p>
+            <p class="rating">Valoración <?php echo $valoracion; ?> /5.0</p>
         </div>
 
         <h3>Descripción del proyecto</h3>
-        <?php echo "<p>" . $row["descripcion"]. "</p>"; ?>
+        <?php echo "<p>" . $descripcion. "</p>"; ?>
         
         <h3>Últimos comentarios</h3>
         <hr>
@@ -109,6 +114,7 @@ echo $id_proyecto;
           $pdf_sql = "SELECT nombre, titulo, descripcion 
                       FROM pdf 
                       WHERE nombre LIKE '%.pdf' 
+                      AND id_proyecto = $id_proyecto
                       ORDER BY id_pdf ASC 
                       LIMIT 2";
           $pdf_result = $conn->query($pdf_sql);
