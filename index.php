@@ -13,7 +13,6 @@ include 'scripts/seleccionarIdioma.php';
     <title>Universitat d'Alacant</title>
     <link rel="stylesheet" href="estilos/unificado.css">
 </head>
-<?php echo $_SESSION['lang'];?>
 <body>
 
     <?php

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include 'scripts/conexion.php';
 include 'scripts/controlSesion.php';
 
@@ -18,19 +18,18 @@ include 'scripts/seleccionarIdioma.php';
     <link rel="stylesheet" href="estilos/styleheader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<?php echo $idioma?>
 
 <body>
 
     <?php include "imports/header.php" ?>
-    <h1 id="titulo-config">Configuración de accesibilidad</h1>
+    <h1 id="titulo-config"><?php echo  $palabras['configtit'] ?></h1>
     <div class="project-container-config">
 
         <div class="left-column-config">
             <div class="setting-config">
                 <div class="setting-description-config">
-                    <div class="title-config">Modo daltónico</div>
-                    <p>Configura un modo daltónico en caso de padecer daltonismo.</p>
+                    <div class="title-config"><?php echo  $palabras['modoDalt'] ?></div>
+                    <p><?php echo  $palabras['descdalt'] ?></p>
                 </div>
                 <div class="setting-control-config">
                     <select>
@@ -43,8 +42,8 @@ include 'scripts/seleccionarIdioma.php';
 
             <div class="setting-config">
                 <div class="setting-description-config">
-                    <div class="title-config">Modo Oscuro</div>
-                    <p>Establece un modo oscuro para situaciones de luz bajas.</p>
+                    <div class="title-config"><?php echo  $palabras['modoosc'] ?></div>
+                    <p><?php echo  $palabras['descosc'] ?></p>
                 </div>
                 <div class="setting-control-config">
                     <label class="switch-config">
@@ -58,8 +57,8 @@ include 'scripts/seleccionarIdioma.php';
         <div class="right-column-config">
             <div class="setting-config">
                 <div class="setting-description-config">
-                    <div class="title-config">Modo baja visibilidad</div>
-                    <p>Configura el tamaño de las letras en caso de tener problemas de visión</p>
+                    <div class="title-config"><?php echo  $palabras['modobajavis'] ?></div>
+                    <p><?php echo  $palabras['descvis'] ?></p>
                 </div>
                 <div class="setting-control-config">
                     <select class="select-config">
@@ -72,14 +71,14 @@ include 'scripts/seleccionarIdioma.php';
 
             <div class="setting-config">
                 <div class="setting-description-config">
-                    <div class="title-config">Cambiar idioma</div>
-                    <p>Configura el idioma que prefieras y que esté disponible en nuestra base de datos</p>
+                    <div class="title-config"><?php echo  $palabras['cambIdi'] ?></div>
+                    <p><?php echo  $palabras['desidi'] ?></p>
                 </div>
                 <div class="setting-control-config">
                     <select class="select-config" id="language-select">
-                        <option value="es">Español</option>
-                        <option value="in">Inglés</option>
-                        <option value="ch">Chino</option>
+                        <option value="es" <?php echo (isset($_SESSION['lang']) && $_SESSION['lang'] == 'es') ? 'selected' : ''; ?>>Español</option>
+                        <option value="in" <?php echo (isset($_SESSION['lang']) && $_SESSION['lang'] == 'in') ? 'selected' : ''; ?>>Inglés</option>
+                        <option value="ch" <?php echo (isset($_SESSION['lang']) && $_SESSION['lang'] == 'ch') ? 'selected' : ''; ?>>Chino</option>
                     </select>
                 </div>
             </div>
@@ -93,74 +92,6 @@ include 'scripts/seleccionarIdioma.php';
 
     <?php include 'imports/footer.php'; ?>
 
-
-    
-
-
-    <!-- Ventana emergente para "Ver todos" -->
-    <div id="modal-config" class="modal-config">
-        <div class="modal-content-config">
-            <span class="close-config">&times;</span>
-            <h2>Documentos Disponibles</h2>
-            <hr>
-            <section class="documents-config">
-                <h3>Documentos</h3>
-                <div class="document-item-config">
-                    <span class="document-icon-config"><img src="img/pdf.png"></span>
-                    <div class="document-info-config">
-                        <p class="document-title-config">Proyecto completo</p>
-                        <p class="document-description-config">Archivo pdf con el proyecto completo.</p>
-                    </div>
-                    <button class="download-button-config">Descargar</button>
-                    <button class="delete-button-config">Eliminar</button>
-                </div>
-                <hr>
-                <div class="document-item-config">
-                    <span class="document-icon-config"><img src="img/pdf.png"></span>
-                    <div class="document-info-config">
-                        <p class="document-title-config">Proyecto completo</p>
-                        <p class="document-description-config">Archivo pdf con el proyecto completo.</p>
-                    </div>
-                    <button class="download-button-config">Descargar</button>
-                    <button class="delete-button-config">Eliminar</button>
-                </div>
-                <hr>
-                <div class="document-item-config">
-                    <span class="document-icon-config"><img src="img/pdf.png"></span>
-                    <div class="document-info-config">
-                        <p class="document-title-config">Proyecto completo</p>
-                        <p class="document-description-config">Archivo pdf con el proyecto completo.</p>
-                    </div>
-                    <button class="download-button-config">Descargar</button>
-                    <button class="delete-button-config">Eliminar</button>
-                </div>
-                <hr>
-                <div class="document-item-config">
-                    <span class="document-icon-config"><img src="img/pdf.png"></span>
-                    <div class="document-info-config">
-                        <p class="document-title-config">Proyecto completo</p>
-                        <p class="document-description-config">Archivo pdf con el proyecto completo.</p>
-                    </div>
-                    <button class="download-button-config">Descargar</button>
-                    <button class="delete-button-config">Eliminar</button>
-                </div>
-                <hr>
-                <div class="document-item-config">
-                    <span class="document-icon-config"><img src="img/pdf.png"></span>
-                    <div class="document-info-config">
-                        <p class="document-title-config">Proyecto completo</p>
-                        <p class="document-description-config">Archivo pdf con el proyecto completo.</p>
-                    </div>
-                    <button class="download-button-config">Descargar</button>
-                    <button class="delete-button-config">Eliminar</button>
-                </div>
-
-            </section>
-        </div>
-    </div>
-
-    <script src="scripts/modal.js"></script>
-    <script src="scripts/carrusel.js"></script>
     <script src="scripts/seleccionar.js"></script>
 
 
