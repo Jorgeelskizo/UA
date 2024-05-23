@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'scripts/conexion.php';
+include 'conexion.php';
 
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 

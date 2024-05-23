@@ -15,8 +15,6 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
 <title>Universidad de Alicante - Proyecto Fin de Grado Ingenieria Multimedia</title>
 <link rel="stylesheet" href="estilos/unificado.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<?php include 'scripts/controlEstilo.php'; ?>
-<?php include 'scripts/controlTamano.php'; ?>
 
 </head>
 
@@ -208,14 +206,16 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
           <span class="rate-title">Valorar proyecto</span>
           <div class="valorar">
             <button class="rate-button">★</button>
-            <form action="">
-              <select name="" id="estrellas">
+            <form id="rate-form" action="scripts/submit-rating.php" method="POST">
+              <select name="estrellas" id="estrellas">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
+              <input type="submit" name="enviar" id="sb">
+              <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
             </form>
           </div>
         </div>
