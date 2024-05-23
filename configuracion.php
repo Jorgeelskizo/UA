@@ -86,7 +86,6 @@ include 'scripts/seleccionarIdioma.php';
         </div>
     </div>
 
-    <?php include 'imports/footer.php'; ?>
 
     <script src="scripts/seleccionar.js"></script>
 

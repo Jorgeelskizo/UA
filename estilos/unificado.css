@@ -514,14 +514,12 @@ body {
     /* El div se extiende a lo ancho de su contenedor */
     height: 150px;
     /* Altura fija para hacerla rectangular, ajusta según necesites */
-    background-image: url('Imagenes/Ej_diagrama.jpeg');
+    background-image: url('../Imagenes/2023-banner-cursos-de-verano-ua.jpg');
     /* Imagen de fondo */
     background-size: cover;
     /* La imagen cubre completamente el div */
     background-position: center;
     /* La imagen se centra dentro del div */
-    margin-top: 20px;
-    /* Espacio entre la cabecera y la imagen */
   }
   
   
