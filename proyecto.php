@@ -30,7 +30,6 @@ $stmt->close();
 
 </head>
 
-
 <body>
 
   <?php include "imports/header.php"?>
@@ -52,14 +51,9 @@ $stmt->close();
     $valoracion = $row["valoracion"];
     $descripcion = $row["descripcion"];
     $id_trabajo = $row["id_trabajo"];
-    
   ?>
-  
 
-  
 <div class="left-column">
-
-  
     <div class="project-image">
         <img src="<?php echo $portada; ?>" alt="Project Thumbnail" class="fixed-size">
     </div>
@@ -137,7 +131,6 @@ $stmt->close();
           <?php
           $pdf_sql = "SELECT nombre, titulo, descripcion, ruta 
                       FROM pdf 
-                       
                       WHERE id_proyecto = $id_proyecto
                       ORDER BY id_pdf ASC 
                       LIMIT 2";
@@ -164,41 +157,38 @@ $stmt->close();
           }
           ?>
           
-          
-          <h3 id="h3-imagenes">Imagenes</h3>
+          <h3 id="h3-imagenes">Imágenes</h3>
 
           <?php
-          $pdf_sql = "SELECT nombre, texto_alternativo, nombre_archivo 
+          $img_sql = "SELECT nombre, texto_alternativo, nombre_archivo 
                       FROM archivos 
                       WHERE id_trabajo = $id_proyecto
                       ORDER BY id_archivo ASC 
                       LIMIT 2";
-          $pdf_result = $conn->query($pdf_sql);
-          if ($pdf_result->num_rows > 0) {
-              while ($pdf_row = $pdf_result->fetch_assoc()) {
+          $img_result = $conn->query($img_sql);
+          if ($img_result->num_rows > 0) {
+              while ($img_row = $img_result->fetch_assoc()) {
           ?>
           <div class="document-item">
             <span class="document-icon"><img src="img/image.png"></span> 
             <div class="document-info">
-                <p class="document-title"><?php echo htmlspecialchars($pdf_row['nombre']); ?></p>
-                <p class="document-description"><?php echo htmlspecialchars($pdf_row['texto_alternativo']); ?></p>
+                <p class="document-title"><?php echo htmlspecialchars($img_row['nombre']); ?></p>
+                <p class="document-description"><?php echo htmlspecialchars($img_row['texto_alternativo']); ?></p>
             </div>
             
-            <a href="#" class="view-button download-button" data-image-url="<?php echo htmlspecialchars($pdf_row['nombre_archivo']); ?>">Ver</a>
-            <a href="<?php echo htmlspecialchars($pdf_row['nombre_archivo']); ?>" class="download-button" download>Descargar</a>
-
-        </div>
+            <a href="#" class="view-button download-button" data-image-url="<?php echo htmlspecialchars($img_row['nombre_archivo']); ?>">Ver</a>
+            <a href="<?php echo htmlspecialchars($img_row['nombre_archivo']); ?>" class="download-button" download>Descargar</a>
+          </div>
           <hr>
           <?php 
               }
               ?>
-          <a href="#" class="view-all">Ver todos los documentos</a>
+          <a href="#" class="view-all-photos">Ver todas las imágenes</a>
           <?php
           } else {
-              echo "<p>No hay documentos disponibles.</p>";
+              echo "<p>No hay imágenes disponibles.</p>";
           }
           ?>
-          
           
         </section>
           
@@ -209,12 +199,10 @@ $stmt->close();
                 <img src="img/pasoPeatones.jpg" alt="Imagen 1" class="carousel-image">
                 <img src="img/logoUA.png" alt="Imagen 2" class="carousel-image">
                 <img src="img/pdf.png" alt="Imagen 3" class="carousel-image">
-                
               </div>
               <button id="prevBtn" class="carousel-btn prev">❮</button>
               <button id="nextBtn" class="carousel-btn next">❯</button>
             </div>  
-               
           </section> -->
       </article>
 
@@ -239,7 +227,6 @@ $stmt->close();
         <div class="share-project">
           <span class="share-title">Compartir Proyecto</span>
           <div class="social-icons">
-            <!-- Los íconos pueden ser de FontAwesome o imágenes -->
             <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -249,15 +236,9 @@ $stmt->close();
     </div>
 </div>
 
-
 <?php include 'imports/footer.php'; ?>
 
-
 <script src="script.js"></script>
-
-
-
-
 
 <!-- Modal para documentos -->
 <div id="documentModal" class="modal">
@@ -296,12 +277,10 @@ $stmt->close();
 var modal = document.getElementById("documentModal");
 var modal1 = document.getElementById("documentModalImage");
 var imageModal = document.getElementById("imageModal");
-var ver = document.getElementById("verImage");
+
 var btn = document.querySelector(".view-all");
 var btnImg = document.querySelector(".view-all-photos");
 
-var span = document.getElementsByClassName("close")[0];
-var imageModal = document.getElementById("imageModal");
 var closeBtns = document.getElementsByClassName("close");
 
 for (var i = 0; i < closeBtns.length; i++) {
@@ -318,24 +297,21 @@ btn.onclick = function() {
 
 btnImg.onclick = function() {
   modal1.style.display = "block";
-  loadImages(); // Llamar a la función para cargar documentos
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
+  loadImages(); // Llamar a la función para cargar imágenes
 }
 
 window.onclick = function(event) {
-  if (event.target == documentModal) {
-    documentModal.style.display = "none";
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
-  if (event.target == documentModalImage) {
-    documentModalImage.style.display = "none";
+  if (event.target == modal1) {
+    modal1.style.display = "none";
   }
   if (event.target == imageModal) {
     imageModal.style.display = "none";
   }
 }
+
 function loadImages() {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "scripts/get_fotos.php?id_trabajo=<?php echo $id_trabajo; ?>", true);
@@ -358,6 +334,7 @@ function loadDocuments() {
   };
   xhr.send();
 }
+
 function attachViewButtons() {
   var viewButtons = document.getElementsByClassName("view-button");
   for (var i = 0; i < viewButtons.length; i++) {
@@ -369,12 +346,12 @@ function attachViewButtons() {
     }
   }
 }
-// Llama a esta función después de que se hayan cargado los documentos
-document.addEventListener('DOMContentLoaded', attachViewButtons);</script>
+
+document.addEventListener('DOMContentLoaded', attachViewButtons);
+</script>
 
 <script src="scripts/modal.js"></script>
 <script src="scripts/carrusel.js"></script>
-
 
 </body>
 </html>
@@ -382,6 +359,6 @@ document.addEventListener('DOMContentLoaded', attachViewButtons);</script>
 <?php
 } else {
     echo "0 results";
-  }
-  $conn->close();
+}
+$conn->close();
 ?>
