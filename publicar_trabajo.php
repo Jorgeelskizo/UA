@@ -94,17 +94,7 @@ include 'scripts/controlSesion.php';
 
             </article>
 
-            <div class="project-actions">
-                <div class="share-project">
-                    <span class="share-title">Compartir trabajo</span>
-                    <div class="social-icons">
-                        <!-- Los íconos pueden ser de FontAwesome o imágenes -->
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 

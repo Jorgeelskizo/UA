@@ -5,7 +5,19 @@ include 'scripts/controlSesion.php';
 // Recoger el ID del proyecto de la URL
 $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
+$rating_sql = "SELECT AVG(valoracion) as media_valoracion FROM valoraciones WHERE id_trabajo = ?";
+$stmt = $conn->prepare($rating_sql);
+$stmt->bind_param('i', $id_proyecto);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$media_valoracion = 0;
+if ($rating_row = $result->fetch_assoc()) {
+    $media_valoracion = $rating_row['media_valoracion'];
+}
+$stmt->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +82,7 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
         <div class="project-meta">
             <p class="author">Hecho por <span class="author-name"><a href="perfilajeno.php?id=<?php echo $row['id_usu']; ?>"><?php echo $row["nombre_completo"]; ?></a></span></p>
             <p class="time-ago"><?php echo $horas ." horas"; ?></p>
-            <p class="rating">Valoración <?php echo $valoracion; ?> /5.0</p>
+            <p class="rating">Valoración <?php echo number_format($media_valoracion, 1); ?> /5.0</p>
         </div>
 
         <h3>Descripción del proyecto</h3>
@@ -122,12 +134,11 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
           <hr>
           <section class="documents">
           <h3>Documentos</h3>
-          <?php echo $id_proyecto; ?>
           <?php
           $pdf_sql = "SELECT nombre, titulo, descripcion, ruta 
                       FROM pdf 
-                      WHERE nombre LIKE '%.pdf' 
-                      AND id_proyecto = $id_proyecto
+                       
+                      WHERE id_proyecto = $id_proyecto
                       ORDER BY id_pdf ASC 
                       LIMIT 2";
           $pdf_result = $conn->query($pdf_sql);
@@ -145,11 +156,14 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
           <hr>
           <?php 
               }
+          ?>
+          <a href="#" class="view-all">Ver todos los documentos</a>
+          <?php
           } else {
               echo "<p>No hay documentos disponibles.</p>";
           }
           ?>
-          <a href="#" class="view-all">Ver todos los documentos</a>
+          
           
           <h3 id="h3-imagenes">Imagenes</h3>
 
@@ -177,11 +191,14 @@ $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;
           <hr>
           <?php 
               }
+              ?>
+          <a href="#" class="view-all">Ver todos los documentos</a>
+          <?php
           } else {
               echo "<p>No hay documentos disponibles.</p>";
           }
           ?>
-          <a href="#" class="view-all-photos">Ver todas las fotos</a>
+          
           
         </section>
           
