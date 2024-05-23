@@ -301,6 +301,45 @@ label[for="checkmenu"] {
     color: #ffffff;
 }
 
+/* Estilo del fondo del modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Estilo del contenido del modal */
+  .modal-content {
+    background-color: #1c1c1c;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* El botón cerrar (x) */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+
 /* Estilo del modal de subida de archivos */
 .upload-modal {
     color: #ffffff; /* Texto claro */
@@ -351,9 +390,13 @@ button:hover {
     border-radius: 8px; /* Bordes redondeados */
 }
 
-.share-project {
+.share-project, .rate-project {
     color: #e0e0e0; /* Texto claro para la sección de compartir */
     background-color: #2a2a2a; /* Texto claro para la sección de compartir */
+}
+
+.rate-button {
+    color: #ffffff;
 }
 
 .social-icon {
@@ -499,4 +542,18 @@ button:hover {
 
 .form-button:hover {
     background-color: #3700b3; /* Cambio de color al pasar el ratón */
+}
+
+
+.document-title {
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ------------------------Editar trabajo-------------------------------- */
+
+.resources-section-edit {
+    background: #3a3a3a;
+    padding: 5px;
 }

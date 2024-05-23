@@ -2540,12 +2540,6 @@ border-radius: 15px;
 background-color: #f8f8f8;
 }
 
-
-
-
-
-
-
 .carousel-container {
 position: relative;
 margin: auto;
@@ -2867,3 +2861,193 @@ width: 100%;
 }
 }
 
+
+
+/* -----------------------Editar trabajo-------------------------------- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-width: 352px;
+}
+.project-image-edit {
+  position: relative; /* Establece la posición relativa */
+  display: flex;
+  justify-content: center; /* Alinea horizontalmente al centro */
+  align-items: center; /* Alinea verticalmente al centro */
+  height: 300px; /* Ajusta según el tamaño de la imagen */
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden; /* Evita que los contenidos se desborden */
+}
+
+.project-image-edit img {
+  width: 100%; /* Asegura que la imagen cubra el contenedor */
+  height: auto;
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.change-image-btn-edit {
+  position: absolute; /* Posiciona el botón de manera absoluta dentro del .project-image */
+  top: 50%; /* Coloca el botón en el centro vertical del contenedor */
+  left: 50%; /* Coloca el botón en el centro horizontal del contenedor */
+  transform: translate(-50%, -50%); /* Ajusta la posición precisa del botón */
+  padding: 5px 10px;
+  background-color: rgba(0, 123, 255, 0.8); /* Color de fondo con opacidad */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.change-image-btn-edit:hover {
+  background-color: rgba(0, 123, 255, 1); /* Color más sólido al pasar el mouse */
+}
+
+
+
+.subir_proyecto-edit {
+display: flex; /* Usa Flexbox para el diseño */
+justify-content: center; /* Centra horizontalmente */
+align-items: center; /* Centra verticalmente si deseas que también esté centrado verticalmente */
+padding: 20px; /* Añade algo de padding alrededor */
+}
+
+.input_titulo-edit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  background-color: #f8f8f8;
+}
+.descripcion-edit {
+  width: 100%;
+  height: 200px;
+  padding: 15px 15px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+.titulo-edit {
+  color: #333;
+  text-align: center;
+}
+
+.project-container {
+  background: #fff;
+  margin-top: 0.1em;;
+  
+  padding: 20px;
+}
+
+
+.comment-section {
+  background-color: #fff;
+  /* padding: 20px; */
+  border-radius: 10px;
+  /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+  margin: auto;
+}
+.comment {
+  margin-bottom: 20px;
+}
+.comment img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+.comment-title {
+  font-size: 1em;
+  color: #333;
+  margin: 5px 0;
+}
+.comment-caption {
+  font-size: 0.9em;
+  color: #666;
+}
+.comment-box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  
+}
+.comment-box input[type="text"] {
+  width: calc(100% - 110px);
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.comment-box input[type="submit"] {
+  width: 100px;
+  border: none;
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* MULTIMEDIA */
+
+.resources-section-edit {
+background: #fff;
+border-radius: 4px;
+margin-bottom: 20px;
+margin-top: 1em;
+}
+.resources-edit h2 {
+font-size: 1.25rem;
+color: #333;
+}
+.documents-edit {
+/* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+/* padding: 1em; */
+margin: 0;
+}
+
+.documents-edit  h3 {
+margin-top:0.1em;
+}
+
+.upload-button-edit {
+background: #565656;
+color: white;
+border: none;
+padding: 0.5em 0.9em;
+border-radius: 4px;
+font-size: 0.875rem;
+cursor: pointer;
+}
+
+.upload-button-edit:hover {
+background: #000000;
+}
+
+/* Estilos para pantallas más grandes */
+@media screen and (min-width: 768px) { /* Ajusta el 768px según tus necesidades */
+.project-container-edit {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.left-column-edit, .right-column-edit{
+  width: 49%;
+}
+.left-column-edit{
+  padding-right: 1em;
+  border-right: 1px solid #666;
+}
+.right-column-edit{
+  padding-left: 1em;
+}
+}

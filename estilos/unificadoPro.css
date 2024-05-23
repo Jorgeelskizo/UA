@@ -341,3 +341,24 @@ button:hover {
 .form-button:hover {
     background_color: #0080ff;
 }
+
+
+.rate-project, .share-project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    width: 12em;
+    height: 6.5em;
+    border-radius: 8px;
+    background-color: #4a4a4a;
+
+    gap: 0.5em;
+}
+
+.document-title {
+    font-size: 1rem;
+    color: #dfdfdf;
+    margin: 0;
+}

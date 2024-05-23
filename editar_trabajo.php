@@ -28,11 +28,10 @@ if ($trabajo = $result->fetch_assoc()) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Universidad de Alicante - Proyecto Fin de Grado Ingenieria Multimedia</title>
-  <link rel="stylesheet" href="estilos/editar_proyecto.css">
   <link rel="stylesheet" href="estilos/unificado.css">
-  <link rel="stylesheet" href="estilos/styleheader.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+  <?php include 'scripts/controlEstilo.php'; ?>
+  <?php include 'scripts/controlTamano.php'; ?>
   <script src="scripts/editar_trabajo.js"></script>
 
 </head>
@@ -48,39 +47,39 @@ if ($trabajo = $result->fetch_assoc()) {
   <?php
   include 'Imports/barranav.php';
   ?>
-  <h1 id="titulo">Edita tu trabajo </h1>
-  <div class="project-container">
+  <h1 id="titulo" class="titulo-edit">Edita tu trabajo </h1>
+  <div class="project-container-edit">
 
-    <div class="left-column">
+    <div class="left-column-edit">
       <h2 id="titulo-img">Imagen del trabajo</h2>
-      <div class="project-image">
+      <div class="project-image-edit">
         <img id="currentProjectImage" src="<?php echo htmlspecialchars($trabajo['portada']); ?>"
           alt="Imagen del trabajo">
-        <input type="file" id="file-upload" style="display: none;" onchange="handleNewImageSelection();" />
-        <button class="change-image-btn" onclick="document.getElementById('file-upload').click();">Cambiar
+        <input type="file" id="file-upload" class="file-upload-edit" style="display: none;" onchange="handleNewImageSelection();" />
+        <button class="change-image-btn-edit" onclick="document.getElementById('file-upload').click();">Cambiar
           Imagen</button>
       </div>
 
-      <div class="project-info">
-        <div class="input-group">
+      <div class="project-info-edit">
+        <div class="input-group-edit">
           <h2>Título del trabajo</h2>
-          <input id="input_titulo" type="text" value="<?php echo htmlspecialchars($trabajo['titulo']); ?>">
+          <input id="input_titulo" class="input_titulo-edit" type="text" value="<?php echo htmlspecialchars($trabajo['titulo']); ?>">
         </div>
 
-        <div class="input-group">
+        <div class="input-group-edit">
           <h2>Descripción del trabajo</h2>
-          <textarea name="descripcion" id="descripcion" cols="30"
+          <textarea name="descripcion" id="descripcion" class="descripcion-edit" cols="30"
             rows="10"><?php echo htmlspecialchars($trabajo['descripcion']); ?></textarea>
         </div>
 
-        <div class="input-group">
+        <div class="input-group-edit">
           <h2>Horas de desarrollo</h2>
-          <input id="input_horas" type="number" value="<?php echo $trabajo['horas']; ?>" min="1" step="1"> horas
+          <input id="input_horas" class="input_horas-edit" type="number" value="<?php echo $trabajo['horas']; ?>" min="1" step="1"> horas
         </div>
 
-        <div class="input-group">
+        <div class="input-group-edit">
           <h2>Tipo de trabajo</h2>
-          <select name="tipo_proyecto" id="tipo_proyecto">
+          <select name="tipo_proyecto" id="tipo_proyecto" class="select-config">
             <option value="TFG" <?php echo $trabajo['tipo'] == 'TFG' ? 'selected' : ''; ?>>TFG</option>
             <option value="TFM" <?php echo $trabajo['tipo'] == 'TFM' ? 'selected' : ''; ?>>TFM</option>
             <option value="Práctica" <?php echo $trabajo['tipo'] == 'Práctica' ? 'selected' : ''; ?>>Práctica</option>
@@ -90,25 +89,25 @@ if ($trabajo = $result->fetch_assoc()) {
       </div>
     </div>
 
-    <div class="right-column">
-      <article class="resources-section">
-        <h2>Recursos Multimedia Asociados <button class="upload-button" onclick="openUploadFileModal()">Subir
+    <div class="right-column-edit">
+      <article class="resources-section-edit">
+        <h2>Recursos Multimedia Asociados <button class="upload-button-edit" onclick="openUploadFileModal()">Subir
             Archivo</button></h2>
         <hr>
-        <section class="documents">
+        <section class="documents-edit">
           <h3>Documentos</h3>
           <div id="documentList"> <!-- Contenedor para los documentos añadidos -->
             <!-- Aquí se añadirán los documentos dinámicamente -->
           </div>
-          <a href="#" class="view-all">Ver todos</a>
+          <a href="#" class="view-all-edit">Ver todos</a>
         </section>
 
       </article>
     </div>
   </div>
 
-  <div id="subir_proyecto">
-    <button class="upload-button" onclick="validateAndUploadProject()">Guardar Cambios</button>
+  <div id="subir_proyecto" class="subir_proyecto-edit">
+    <button class="upload-button-edit" onclick="validateAndUploadProject()">Guardar Cambios</button>
 
   </div>
 
