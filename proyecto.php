@@ -150,12 +150,13 @@ $stmt->close();
           <?php 
               }
           ?>
-          <a href="#" class="view-all">Ver todos los documentos</a>
+          
           <?php
           } else {
               echo "<p>No hay documentos disponibles.</p>";
           }
           ?>
+          <a href="#" class="view-all">Ver todos los documentos</a>
           
           <h3 id="h3-imagenes">Imágenes</h3>
 
@@ -183,13 +184,13 @@ $stmt->close();
           <?php 
               }
               ?>
-          <a href="#" class="view-all-photos">Ver todas las imágenes</a>
+          
           <?php
           } else {
               echo "<p>No hay imágenes disponibles.</p>";
           }
           ?>
-          
+          <a href="#" class="view-all-photos">Ver todas las imágenes</a>
         </section>
           
           <!-- <section class="other">
