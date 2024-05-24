@@ -23,7 +23,7 @@ include 'scripts/seleccionarIdioma.php';
     </div>
     <div class="search-bar-header">
         <form action="buscar.php" method="GET">
-            <input type="text" name="search" placeholder="Buscar por título o nick">
+            <input type="text" name="search" placeholder=<?php echo $palabras['barraBus'] ?>>
             <button type="submit" class="search-button-header">
                 <i class="fas fa-search"></i>
             </button>
@@ -34,7 +34,7 @@ include 'scripts/seleccionarIdioma.php';
         // Comprobar si la variable de sesión 'usuario_id' está establecida
         if ($bool == false) {
             // Mostrar botones de iniciar sesión y registrarse
-            echo "<button type='button' onclick='location.href=\"buscar.php\"'>". $palabras['buscar'] ."</button>";
+            echo "<button type='button' accesskey='b' onclick='location.href=\"buscar.php\"'>". $palabras['buscar'] ."</button>";
             echo "<button type='button' accesskey='s' onclick='location.href=\"login-form.php\"'>". $palabras['iniciarS'] ."</button>";
             echo "<button type='button' accesskey='r' onclick='location.href=\"register.php\"'>". $palabras['regis'] ."</button>";
         } else {
@@ -43,8 +43,8 @@ include 'scripts/seleccionarIdioma.php';
             echo "<span class='user-name-header'>" . htmlspecialchars($nombre) . "</span>";
             echo "<img src=" . $foto . " alt='Profile Picture'>";
             echo "</a>";
-            echo "<button type='button' onclick='location.href=\"buscar.php\"'>". $palabras['buscar'] ."</button>";
-            echo "<button type='button' onclick='location.href=\"publicar_trabajo.php\"'>". $palabras['publicar'] ."</button>";
+            echo "<button type='button' accesskey='b' onclick='location.href=\"buscar.php\"'>". $palabras['buscar'] ."</button>";
+            echo "<button type='button' accesskey='u' onclick='location.href=\"publicar_trabajo.php\"'>". $palabras['publicar'] ."</button>";
         }
         ?>
     </div>

@@ -72,8 +72,8 @@ if (!isset($_SESSION['nombre_usuario']) || $_SESSION['id'] != $_GET['id']) {
       echo  "<h1>$nombre</h1>";
       ?>
       <div class="stats-perfil">
-        <div><span>Media de valoraciones</span><br><?php echo $media?></div>
-        <div><span>Trabajos publicados</span><br><?php echo $cant ?></div>
+        <div><span><?php echo $palabras['mediaVal'] ?></span><br><?php echo $media?></div>
+        <div><span><?php echo $palabras['trabajosPub'] ?></span><br><?php echo $cant ?></div>
       </div>
     </div>
     <?php
@@ -86,15 +86,15 @@ if (!isset($_SESSION['nombre_usuario']) || $_SESSION['id'] != $_GET['id']) {
     ?>
 
     <a href="scripts/closeSesion.php">
-      <button class="cerrar-sesion">Cerrar Sesión</button>
+      <button class="cerrar-sesion"><?php echo $palabras['cerrarSesion'] ?></button>
     </a>
     
     <a href="configuracion.php"">
-      <button class="ajustes-perfil">Ajustes</button>
+      <button class="ajustes-perfil"><?php echo $palabras['ajustes'] ?></button>
     </a>
 
     <a href="editarPerfil.php?id=<?php echo $_SESSION['id']; ?>">
-      <button class="follow-button-perfil">Editar perfil</button>
+      <button class="follow-button-perfil"><?php echo $palabras['editarperfil'] ?></button>
     </a>
 
     <?php

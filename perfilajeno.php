@@ -1,8 +1,14 @@
 <?php
 include 'scripts/conexion.php';
 include 'scripts/controlSesion.php';
+include 'scripts/seleccionarIdioma.php';
 
-$idActual  = $_SESSION['id'];
+$idActual = null;
+
+if(isset($_SESSION['id'])){
+    $idActual  = $_SESSION['id'];
+}
+
 $id = $_GET['id'];
 
 if ($idActual == $_GET['id']) {
@@ -79,9 +85,6 @@ if ($idActual == $_GET['id']) {
             echo '</footer>';
             echo '</article>';
         }
-        echo '</section>';
-        echo '<div><button>Ver más</button></div>';
-        echo '</section>';
     } else {
         echo "No se encontraron trabajos para el usuario con ID: $id";
     }

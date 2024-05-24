@@ -63,7 +63,7 @@ if (isset($_SESSION['nombre_usuario'])) {
                     <input type="file" class="form-control-register" id="foto" name="foto">
                 </div>
                 <div class="form-actions-register">
-                    <button type="button" class="btn cancelar">Cancelar</button>
+                    <a href="index.php" accesskey='i'><button type="button" class="btn cancelar">Cancelar</button></a>
                     <button type="submit" class="btn registrar">Registrar</button>
                 </div>
             </form>

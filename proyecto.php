@@ -1,6 +1,7 @@
 <?php 
 include 'scripts/conexion.php';
 include 'scripts/controlSesion.php';
+include 'scripts/seleccionarIdioma.php';
 
 // Recoger el ID del proyecto de la URL
 $id_proyecto = isset($_GET['id']) ? intval($_GET['id']) : 0;

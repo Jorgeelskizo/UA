@@ -105,7 +105,6 @@ include 'scripts/controlSesion.php';
 
 
 
-    <?php include 'imports/footer.php'; ?>
 
     <script src="scripts/modal.js"></script>
 

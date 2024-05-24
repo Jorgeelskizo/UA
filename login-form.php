@@ -8,6 +8,10 @@ if (isset($_SESSION['nombre_usuario'])) {
 }
 ?>
 
+<?php if (!empty($_SESSION['error'])): ?>
+<script>alert('<?php echo $_SESSION['error']; ?>');</script>
+<?php unset($_SESSION['error']); endif; ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -27,10 +31,10 @@ if (isset($_SESSION['nombre_usuario'])) {
     <div class="login-title-login">Iniciar Sesión</div>
     <form method="post" action="scripts/login.php" enctype="multipart/form-data">
       <div class="form-group-login">
-        <input type="text" class="form-control-login" placeholder="Nombre de usuario" name="nombre_completo">
+        <input type="text" class="form-control-login" placeholder="Nombre de usuario" name="nombre_completo" required>
       </div>
       <div class="form-group-login">
-        <input type="password" class="form-control-login" placeholder="Contraseña" name="contrasena">
+        <input type="password" class="form-control-login" placeholder="Contraseña" name="contrasena" required> 
       </div>
       <div class="session-utilities-login">
         <div class="checkbox-login">
@@ -38,7 +42,7 @@ if (isset($_SESSION['nombre_usuario'])) {
             Recordar sesión <input type="checkbox" name="recordar"> 
           </label>
         </div>
-        <a href="register.php" class="link-login">Recuperar contraseña</a>
+        <a href="register.php" class="link-login">Registrarme</a>
       </div>
       <div class="form-action">
         <button type="submit" class="btn-login">Iniciar Sesión</button>

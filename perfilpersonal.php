@@ -1,5 +1,6 @@
 <?php
 include 'scripts/auth.php';
+include 'scripts/seleccionarIdioma.php';
 
 $nombre = $_SESSION['nombre_usuario'];
 ?>
@@ -71,10 +72,6 @@ WHERE u.nombre_completo = ?";
             echo '</article>';
         }
 
-
-        echo '</section>';
-        echo '<div><button>Ver más</button></div>';
-        echo '</section>';
     } else {
         echo "0 resultados";
     }
