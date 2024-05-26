@@ -112,13 +112,15 @@ $stmt->close();
                     echo "<p>No hay comentarios todavía.</p>";
                 }
               ?>
-            <form action="scripts/submit-comment.php" method="POST">
-                <label for="comment-input" class="visually-hidden">Añade un comentario</label>
-                <input type="text" id="comment-input" name="titulo" placeholder="Titulo">
-                <input type="text" id="comment-input" name="comentario" placeholder="Escribe un comentario">
-                <input type="hidden" name="id_trabajo" value="<?php echo $id_proyecto; ?>">
-                <input type="submit" value="Enviar">
-            </form>
+            <form action="scripts/submit-comment.php" method="POST" class="comentarios-formulario">
+              <p>Deja un comentario</p>
+              <!-- <label for="comment-title" class="visually-hidden">Título del comentario</label> -->
+              <input type="text" id="comment-inout" name="titulo" placeholder="Título del comentario" class="input-comment">
+              <!-- <label for="comment-input" class="visually-hidden">Escribe un comentario</label> -->
+              <input type="text" id="comment-input" name="comentario" placeholder="Escribe un comentario" class="input-comment">
+              <input type="hidden" name="id_trabajo" value="<?php echo $id_proyecto; ?>">
+              <input type="submit" value="Enviar" class="download-button">
+          </form>
         </div>
       </div>
     </div>
