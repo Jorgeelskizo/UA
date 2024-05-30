@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" || isset($_GET['search']) || isset($_GE
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universitat d'Alacant</title>
     <link rel="stylesheet" href="estilos/unificado.css">
+    <link rel="stylesheet" href="imports/fontello/css/fontello.css">
     <?php include 'scripts/controlEstilo.php'; ?>
     <?php include 'scripts/controlTamano.php'; ?>
 </head>

@@ -559,6 +559,34 @@ body {
 
   /* -------------------------------------------Index---------------------------------------------------------------------- */
 
+  @media(max-width: 800px){
+    .cerrar-sesion {
+      position: absolute;
+      top: 0; /* Ajusta esto según sea necesario para que quede justo debajo de la cabecera */
+      right: 0; /* Alineado a la derecha */
+      padding: 0.5em 1em;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1em; /* Añade un margen superior si es necesario para que no toque la cabecera */
+      margin-right: 29em; /* Añade un margen derecho si es necesario para alinear correctamente */
+    }
+  }
+
+
+  .btn-login-atras {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-color: #bb0e0e;
+    cursor: pointer;
+  }
+
+
+  
   body {
     font-family: Arial, sans-serif;
   }

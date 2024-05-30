@@ -65,12 +65,14 @@ function cargarMas() {
         echo '<section class="gallery-container-index">';
         echo '<section class="project-gallery-index">';
 
+        $int = 1;
+
         // Procesando cada fila del resultado
         while ($row = $resultado->fetch_assoc()) {
             echo '<article>';
 
             // Enlace alrededor de la imagen que dirige a una URL específica
-            echo '<a href="proyecto.php?id=' . $row['id_trabajo'] . '">';
+            echo '<a accesskey='. $int .' href="proyecto.php?id=' . $row['id_trabajo'] . '">';
             // Asegúrate de cerrar las comillas correctamente después de src=
             echo '<img src="' . $row['nombre_archivo'] . '" alt="Descripción de la imagen">';
             echo '</a>';
@@ -82,6 +84,8 @@ function cargarMas() {
             echo '<p>' . date('d-m-Y', strtotime($row['fecha_publicacion'])) . '</p>';  // Formateando la fecha
             echo '</footer>';
             echo '</article>';
+
+            $int = $int + 1;
         }
 
 

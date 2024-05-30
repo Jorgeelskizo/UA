@@ -25,6 +25,7 @@ if ($idActual == $_GET['id']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de Usuario - Universitat d'Alacant</title>
     <link rel="stylesheet" href="estilos/unificado.css">
+    <link rel="stylesheet" href="imports/fontello/css/fontello.css">
     <?php include 'scripts/controlEstilo.php'; ?>
     <?php include 'scripts/controlTamano.php'; ?>
 </head>
@@ -68,11 +69,13 @@ if ($idActual == $_GET['id']) {
         echo '<section class="gallery-container-index">';
         echo '<section class="project-gallery-index">';
 
+        $int = 1;
+
         while ($row = $resultado->fetch_assoc()) {
             echo '<article>';
 
             // Enlace alrededor de la imagen que dirige a una URL específica
-            echo '<a href="proyecto.php?id=' . $row['id_trabajo'] . '">';
+            echo '<a accesskey='. $int .' href="proyecto.php?id=' . $row['id_trabajo'] . '">';
             // Asegúrate de cerrar las comillas correctamente después de src=
             echo '<img src="' . $row['nombre_archivo'] . '" alt="Descripción de la imagen">';
             echo '</a>';
@@ -84,6 +87,8 @@ if ($idActual == $_GET['id']) {
             echo '<p>' . date('d-m-Y', strtotime($row['fecha_publicacion'])) . '</p>';  // Formateando la fecha
             echo '</footer>';
             echo '</article>';
+
+            $int = $int +1;
         }
     } else {
         echo "No se encontraron trabajos para el usuario con ID: $id";

@@ -12,6 +12,7 @@ include 'scripts/controlSesion.php';
     <link rel="stylesheet" href="estilos/styleheader.css">
     <link rel="stylesheet" href="estilos/unificado.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="imports/fontello/css/fontello.css">
     <?php include 'scripts/controlEstilo.php'; ?>
     <?php include 'scripts/controlTamano.php'; ?>
 
