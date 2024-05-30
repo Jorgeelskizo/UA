@@ -43,43 +43,42 @@ if ($trabajo = $result->fetch_assoc()) {
   include 'Imports/header.php';
   ?>
 
-  <h1 id="titulo" class="titulo-edit">Edita tu trabajo </h1>
+  <h1 id="titulo" class="titulo-edit"><?php echo $palabras['editPory'] ?> </h1>
   <div class="project-container-edit">
 
     <div class="left-column-edit">
-      <h2 id="titulo-img">Imagen del trabajo</h2>
+      <h2 id="titulo-img"><?php echo $palabras['Imgdelproy'] ?></h2>
       <div class="project-image-edit">
         <img id="currentProjectImage" src="<?php echo htmlspecialchars($trabajo['portada']); ?>"
           alt="Imagen del trabajo">
         <input type="file" id="file-upload" class="file-upload-edit" style="display: none;" onchange="handleNewImageSelection();" />
-        <button class="change-image-btn-edit" onclick="document.getElementById('file-upload').click();">Cambiar
-          Imagen</button>
+        <button class="change-image-btn-edit" onclick="document.getElementById('file-upload').click();"><?php echo $palabras['cambimg'] ?></button>
       </div>
 
       <div class="project-info-edit">
         <div class="input-group-edit">
-          <h2>Título del trabajo</h2>
+          <h2><?php echo $palabras['titleproy'] ?></h2>
           <input id="input_titulo" class="input_titulo-edit" type="text" value="<?php echo htmlspecialchars($trabajo['titulo']); ?>">
         </div>
 
         <div class="input-group-edit">
-          <h2>Descripción del trabajo</h2>
+          <h2><?php echo $palabras['descproy'] ?></h2>
           <textarea name="descripcion" id="descripcion" class="descripcion-edit" cols="30"
             rows="10"><?php echo htmlspecialchars($trabajo['descripcion']); ?></textarea>
         </div>
 
         <div class="input-group-edit">
-          <h2>Horas de desarrollo</h2>
-          <input id="input_horas" class="input_horas-edit" type="number" value="<?php echo $trabajo['horas']; ?>" min="1" step="1"> horas
+          <h2><?php echo $palabras['horas'] ?></h2>
+          <input id="input_horas" class="input_horas-edit" type="number" value="<?php echo $trabajo['horas']; ?>" min="1" step="1"> <?php echo $palabras['horas'] ?>
         </div>
 
         <div class="input-group-edit">
-          <h2>Tipo de trabajo</h2>
+          <h2><?php echo $palabras['tipo'] ?></h2>
           <select name="tipo_proyecto" id="tipo_proyecto" class="select-config">
-            <option value="TFG" <?php echo $trabajo['tipo'] == 'TFG' ? 'selected' : ''; ?>>TFG</option>
-            <option value="TFM" <?php echo $trabajo['tipo'] == 'TFM' ? 'selected' : ''; ?>>TFM</option>
-            <option value="Práctica" <?php echo $trabajo['tipo'] == 'Práctica' ? 'selected' : ''; ?>>Práctica</option>
-            <option value="Proyecto" <?php echo $trabajo['tipo'] == 'Proyecto' ? 'selected' : ''; ?>>Proyecto</option>
+            <option value="TFG" <?php echo $trabajo['tipo'] == 'TFG' ? 'selected' : ''; ?>><?php echo $palabras['tfg'] ?></option>
+            <option value="TFM" <?php echo $trabajo['tipo'] == 'TFM' ? 'selected' : ''; ?>><?php echo $palabras['tfm'] ?></option>
+            <option value="Práctica" <?php echo $trabajo['tipo'] == 'Práctica' ? 'selected' : ''; ?>><?php echo $palabras['practic'] ?></option>
+            <option value="Proyecto" <?php echo $trabajo['tipo'] == 'Proyecto' ? 'selected' : ''; ?>><?php echo $palabras['project'] ?></option>
           </select>
         </div>
       </div>
@@ -87,8 +86,7 @@ if ($trabajo = $result->fetch_assoc()) {
 
     <div class="right-column-edit">
       <article class="resources-section-edit">
-        <h2>Recursos Multimedia Asociados <button class="upload-button-edit" onclick="openUploadFileModal()">Subir
-            Archivo</button></h2>
+        <h2><?php echo $palabras['Recmulti'] ?> <button class="upload-button-edit" onclick="openUploadFileModal()"><?php echo $palabras['subirarch'] ?></button></h2>
         <hr>
         <section class="documents-edit">
           <div id="documentList"> <!-- Contenedor para los documentos añadidos -->
@@ -101,7 +99,7 @@ if ($trabajo = $result->fetch_assoc()) {
   </div>
 
   <div id="subir_proyecto" class="subir_proyecto-edit">
-    <button class="upload-button-edit" onclick="validateAndUploadProject()">Guardar Cambios</button>
+    <button class="upload-button-edit" onclick="validateAndUploadProject()"><?php echo $palabras['guardar'] ?></button>
 
   </div>
 

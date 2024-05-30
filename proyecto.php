@@ -68,27 +68,27 @@ $stmt->close();
         <?php echo "<h2>" . $titulo. "</h2>"; ?>
         <div class="interior">
         <?php if (isset($_SESSION["id"]) && $_SESSION["id"] == $row["id_usu"]): ?>
-          <button type="submit" class="editar-proyecto" onclick="location.href='editar_trabajo.php?id=<?php echo $id_trabajo; ?>'">Editar Documento</button>
+          <button type="submit" class="editar-proyecto" onclick="location.href='editar_trabajo.php?id=<?php echo $id_trabajo; ?>'"> <?php echo $palabras['editPory'] ?> </button>
         <?php endif; ?>
         <?php if (isset($_SESSION["id"]) && $_SESSION["id"] == $row["id_usu"]): ?>
           <form id="delete-project-form" action="scripts/delete-project.php" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proyecto?');">
             <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
-            <button type="submit" class="eliminar-proyecto">Eliminar Proyecto</button>
+            <button type="submit" class="eliminar-proyecto"><?php echo $palabras['elimProy'] ?></button>
           </form>
         <?php endif; ?>
         </div>
       </div>
 
         <div class="project-meta">
-            <p class="author">Hecho por <span class="author-name"><a href="perfilajeno.php?id=<?php echo $row['id_usu']; ?>"><?php echo $row["nombre_completo"]; ?></a></span></p>
-            <p class="time-ago"><?php echo $horas ." horas"; ?></p>
-            <p class="rating">Valoración <?php echo number_format($media_valoracion, 1); ?> /5.0</p>
+        <p class="author"><?php echo $palabras['hechopor'] ?> <span class="author-name"><a href="perfilajeno.php?id=<?php echo $row['id_usu']; ?>"><?php echo $row["nombre_completo"]; ?></a></span></p>
+        <p class="time-ago"><?php echo $horas ?>  <?php echo $palabras['horas'] ?></p>
+            <p class="rating"><?php echo $palabras['valoracion'] ?> <?php echo number_format($media_valoracion, 1); ?> /5.0</p>
         </div>
 
-        <h3>Descripción del proyecto</h3>
+        <h3><?php echo $palabras['Descpro'] ?></h3>
         <?php echo "<p>" . $descripcion. "</p>"; ?>
         
-        <h3>Últimos comentarios</h3>
+        <h3><?php echo $palabras['comentarios'] ?></h3>
         <hr>
         <div class="comment-section">
         <?php 
@@ -114,17 +114,16 @@ $stmt->close();
               <?php 
                   }
                 } else {
-                    echo "<p>No hay comentarios todavía.</p>";
+                  echo '<p>'. $palabras['nocom'] . '</p>';
                 }
               ?>
             <form action="scripts/submit-comment.php" method="POST" class="comentarios-formulario">
-              <p>Deja un comentario</p>
+            <p><?php echo $palabras['Dejacom'] ?></p>
               <!-- <label for="comment-title" class="visually-hidden">Título del comentario</label> -->
-              <input type="text" id="comment-inout" name="titulo" placeholder="Título del comentario" class="input-comment">
-              <!-- <label for="comment-input" class="visually-hidden">Escribe un comentario</label> -->
-              <input type="text" id="comment-input" name="comentario" placeholder="Escribe un comentario" class="input-comment">
+              <input type="text" id="comment-inout" name="titulo" placeholder="<?php echo $palabras['titlecom'] ?>" class="input-comment">
+              <input type="text" id="comment-input" name="comentario" placeholder="<?php echo $palabras['descom'] ?>" class="input-comment">
               <input type="hidden" name="id_trabajo" value="<?php echo $id_proyecto; ?>">
-              <input type="submit" value="Enviar" class="download-button">
+              <input type="submit" value="<?php echo $palabras['env'] ?>" class="download-button">
           </form>
         </div>
       </div>
@@ -132,10 +131,11 @@ $stmt->close();
 
     <div class="right-column">
         <article class="resources-section">
-          <h2>Recursos Multimedia Asociados</h2>
+
+        <h2><?php echo $palabras['Recmulti'] ?></h2>
           <hr>
           <section class="documents">
-          <h3>Documentos</h3>
+          <h3><?php echo $palabras['Documentos'] ?></h3>
           <?php
           $pdf_sql = "SELECT nombre, titulo, descripcion, ruta 
                       FROM pdf 
@@ -152,7 +152,7 @@ $stmt->close();
               <p class="document-title"><?php echo $pdf_row['titulo']; ?></p>
               <p class="document-description"><?php echo $pdf_row['descripcion']; ?></p>
             </div>
-            <a href="<?php echo $pdf_row['ruta']; ?>" class="download-button" download>Descargar</a>
+            <a href="<?php echo $pdf_row['ruta']; ?>" class="download-button" download><?php echo $palabras['Descargardocu'] ?></a>
           </div>
           <hr>
           <?php 
@@ -161,12 +161,12 @@ $stmt->close();
           
           <?php
           } else {
-              echo "<p>No hay documentos disponibles.</p>";
+            echo "<p>". $palabras['NoDoc'] . "</p>";
           }
           ?>
-          <a href="#" class="view-all">Ver todos los documentos</a>
+           <a href="#" class="view-all"><?php echo $palabras['VerTodosDocum'] ?></a>
           
-          <h3 id="h3-imagenes">Imágenes</h3>
+           <h3 id="h3-imagenes"><?php echo $palabras['Improy'] ?></h3>
 
           <?php
           $img_sql = "SELECT nombre, texto_alternativo, nombre_archivo 
@@ -185,8 +185,8 @@ $stmt->close();
                 <p class="document-description"><?php echo htmlspecialchars($img_row['texto_alternativo']); ?></p>
             </div>
             
-            <a href="#" class="view-button download-button" data-image-url="<?php echo htmlspecialchars($img_row['nombre_archivo']); ?>">Ver</a>
-            <a href="<?php echo htmlspecialchars($img_row['nombre_archivo']); ?>" class="download-button" download>Descargar</a>
+            <a href="#" class="view-button download-button" data-image-url="<?php echo htmlspecialchars($img_row['nombre_archivo']); ?>"><?php echo $palabras['verdocu'] ?></a>
+            <a href="<?php echo htmlspecialchars($img_row['nombre_archivo']); ?>" class="download-button" download><?php echo $palabras['Descargardocu'] ?></a>
           </div>
           <hr>
           <?php 
@@ -195,10 +195,10 @@ $stmt->close();
           
           <?php
           } else {
-              echo "<p>No hay imágenes disponibles.</p>";
+            echo "<p>". $palabras['NoImg'] . "</p>";
           }
           ?>
-          <a href="#" class="view-all-photos">Ver todas las imágenes</a>
+          <a href="#" class="view-all-photos"><?php echo $palabras['VerTodosimg'] ?></a>
         </section>
           
           <!-- <section class="other">
@@ -217,7 +217,7 @@ $stmt->close();
 
       <div class="project-actions">
       <div class="rate-project">
-        <span class="rate-title">Valorar proyecto</span>
+      <span class="rate-title"><?php echo $palabras['valPory'] ?></span>
         <div class="valorar">
             <form id="rate-form" action="scripts/submit-rating.php" method="POST">
                 <div class="star-rating">
@@ -228,12 +228,12 @@ $stmt->close();
                     <input type="radio" id="star1" name="estrellas" value="1" /><label for="star1" title="1 star">★</label>
                 </div>
                 <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
-                <input type="submit" name="enviar" id="sb" value="Enviar">
+                <input type="submit" name="enviar" id="sb" value="<?php echo $palabras['env'] ?>">
             </form>
         </div>
     </div>
         <div class="share-project">
-          <span class="share-title">Compartir Proyecto</span>
+        <span class="share-title"><?php echo $palabras['comProy'] ?></span>
           <div class="social-icons">
             <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
