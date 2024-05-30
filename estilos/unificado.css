@@ -894,6 +894,13 @@ body {
   
   }
 
+  .libarranav-nav a{
+    text-decoration: none;
+    color: #333;
+    font-size: 1.05em;
+    font-weight:550;
+  }
+
   @media (min-width:400px){
     .libarranav-nav > a{
         /* hace que se resalte todo cuando pasas con el raton por encima */

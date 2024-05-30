@@ -141,7 +141,7 @@ $stmt->close();
                       FROM pdf 
                       WHERE id_proyecto = $id_proyecto
                       ORDER BY id_pdf ASC 
-                      LIMIT 2";
+                      LIMIT 3";
           $pdf_result = $conn->query($pdf_sql);
           if ($pdf_result->num_rows > 0) {
               while ($pdf_row = $pdf_result->fetch_assoc()) {
@@ -173,7 +173,7 @@ $stmt->close();
                       FROM archivos 
                       WHERE id_trabajo = $id_proyecto
                       ORDER BY id_archivo ASC 
-                      LIMIT 2";
+                      LIMIT 3";
           $img_result = $conn->query($img_sql);
           if ($img_result->num_rows > 0) {
               while ($img_row = $img_result->fetch_assoc()) {
