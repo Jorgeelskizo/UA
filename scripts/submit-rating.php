@@ -48,6 +48,30 @@ if ($stmt->num_rows > 0) {
     }
 }
 
+// Obtener la media de las valoraciones
+$rating_sql = "SELECT AVG(valoracion) as media_valoracion FROM valoraciones WHERE id_trabajo = ?";
+$stmt = $conn->prepare($rating_sql);
+$stmt->bind_param('i', $id_trabajo);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$media_valoracion = 0;
+if ($rating_row = $result->fetch_assoc()) {
+    $media_valoracion = $rating_row['media_valoracion'];
+}
+$stmt->close();
+
+// Actualizar la tabla de archivos con la media de valoración
+$update_sql = "UPDATE trabajos SET valoracion = ? WHERE id_trabajo = ?";
+$stmt = $conn->prepare($update_sql);
+$stmt->bind_param('di', $media_valoracion, $id_trabajo);
+$stmt->execute();
+
+
+
+
+
+
 $stmt->close();
 $conn->close();
 

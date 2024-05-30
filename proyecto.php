@@ -17,6 +17,9 @@ if ($rating_row = $result->fetch_assoc()) {
     $media_valoracion = $rating_row['media_valoracion'];
 }
 $stmt->close();
+
+
+
 ?>
 
 
