@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include 'conexion.php';
 include 'controlSesion.php';
 
@@ -33,7 +33,9 @@ if (isset($_FILES['profile-photo']) && $_FILES['profile-photo']['error'] == 0) {
     // Permitir ciertos formatos de archivo
     $allowed_types = ['jpg', 'jpeg', 'png'];
     if (!in_array($imageFileType, $allowed_types)) {
-        die("Lo siento, solo se permiten archivos JPG, JPEG y PNG.");
+        // Mostrar mensaje de error y detener la ejecución del script
+        echo "<script>alert('Lo siento, solo se permiten archivos JPG, JPEG y PNG.'); window.location.href='../editarPerfil.php';</script>";
+        exit();
     }
 
     if (move_uploaded_file($_FILES["profile-photo"]["tmp_name"], "../" . $target_file)) {
@@ -41,21 +43,20 @@ if (isset($_FILES['profile-photo']) && $_FILES['profile-photo']['error'] == 0) {
         $stmt->bind_param('si', $target_file, $id_usuario);
 
         if ($stmt->execute()) {
-            echo "La foto de perfil ha sido actualizada.";
+            echo "<script>alert('La foto de perfil ha sido actualizada.'); window.location.href='../editarPerfil.php';</script>";
             $_SESSION['foto'] = $target_file;
         } else {
-            echo "Error al actualizar la foto de perfil: " . $stmt->error;
+            echo "<script>alert('Error al actualizar la foto de perfil: " . $stmt->error . "'); window.location.href='../editarPerfil.php';</script>";
         }
 
         $stmt->close();
     } else {
-        echo "Lo siento, hubo un error al subir tu archivo.";
+        echo "<script>alert('Lo siento, hubo un error al subir tu archivo.'); window.location.href='../editarPerfil.php';</script>";
     }
 } else {
-    echo "No se ha seleccionado ningún archivo o hubo un error en la subida.";
+    echo "<script>alert('No se ha seleccionado ningún archivo o hubo un error en la subida.'); window.location.href='../editarPerfil.php';</script>";
 }
 
 $conn->close();
-header("Location: ../editarPerfil.php");
 exit();
 ?>

@@ -62,10 +62,10 @@ $stmt->close();
       <div class="titulo-y-editar">    
         <?php echo "<h2>" . $titulo. "</h2>"; ?>
         <div class="interior">
-        <?php if ($_SESSION["id"] == $row["id_usu"]): ?>
+        <?php if (isset($_SESSION["id"]) && $_SESSION["id"] == $row["id_usu"]): ?>
           <button type="submit" class="editar-proyecto" onclick="location.href='editar_trabajo.php?id=<?php echo $id_trabajo; ?>'">Editar Documento</button>
         <?php endif; ?>
-        <?php if ($_SESSION["id"] == $row["id_usu"]): ?>
+        <?php if (isset($_SESSION["id"]) && $_SESSION["id"] == $row["id_usu"]): ?>
           <form id="delete-project-form" action="scripts/delete-project.php" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proyecto?');">
             <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
             <button type="submit" class="eliminar-proyecto">Eliminar Proyecto</button>
@@ -211,23 +211,22 @@ $stmt->close();
       </article>
 
       <div class="project-actions">
-        <div class="rate-project">
-          <span class="rate-title">Valorar proyecto</span>
-          <div class="valorar">
-            <button class="rate-button">★</button>
+      <div class="rate-project">
+        <span class="rate-title">Valorar proyecto</span>
+        <div class="valorar">
             <form id="rate-form" action="scripts/submit-rating.php" method="POST">
-              <select name="estrellas" id="estrellas">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <input type="submit" name="enviar" id="sb">
-              <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="estrellas" value="5" /><label for="star5" title="5 stars">★</label>
+                    <input type="radio" id="star4" name="estrellas" value="4" /><label for="star4" title="4 stars">★</label>
+                    <input type="radio" id="star3" name="estrellas" value="3" /><label for="star3" title="3 stars">★</label>
+                    <input type="radio" id="star2" name="estrellas" value="2" /><label for="star2" title="2 stars">★</label>
+                    <input type="radio" id="star1" name="estrellas" value="1" /><label for="star1" title="1 star">★</label>
+                </div>
+                <input type="hidden" name="id_trabajo" value="<?php echo $id_trabajo; ?>">
+                <input type="submit" name="enviar" id="sb" value="Enviar">
             </form>
-          </div>
         </div>
+    </div>
         <div class="share-project">
           <span class="share-title">Compartir Proyecto</span>
           <div class="social-icons">
@@ -270,7 +269,7 @@ $stmt->close();
 
 <!-- Modal para ver una imagen en grande -->
 <div id="imageModal" class="modal">
-  <div class="modal-content modal-image-content">
+  <div class="modal-image modal-image-content">
     <span class="close" data-modal-id="imageModal">&times;</span>
     <img id="modal-image" src="" alt="Imagen en grande">
   </div>
