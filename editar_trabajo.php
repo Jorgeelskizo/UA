@@ -78,7 +78,7 @@ if ($trabajo = $result->fetch_assoc()) {
             <option value="TFG" <?php echo $trabajo['tipo'] == 'TFG' ? 'selected' : ''; ?>><?php echo $palabras['tfg'] ?></option>
             <option value="TFM" <?php echo $trabajo['tipo'] == 'TFM' ? 'selected' : ''; ?>><?php echo $palabras['tfm'] ?></option>
             <option value="Práctica" <?php echo $trabajo['tipo'] == 'Práctica' ? 'selected' : ''; ?>><?php echo $palabras['practic'] ?></option>
-            <option value="Proyecto" <?php echo $trabajo['tipo'] == 'Proyecto' ? 'selected' : ''; ?>><?php echo $palabras['project'] ?></option>
+            <option value="Proyecto" <?php echo $trabajo['tipo'] == 'Proyecto' ? 'selected' : ''; ?>><?php echo $palabras['proyect'] ?></option>
           </select>
         </div>
       </div>

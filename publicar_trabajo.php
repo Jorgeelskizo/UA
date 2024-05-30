@@ -74,7 +74,7 @@ include 'scripts/controlSesion.php';
                         <option value="TFG"><?php echo $palabras['tfg'] ?></option>
                         <option value="TFM"><?php echo $palabras['tfm'] ?></option>
                         <option value="Práctica"><?php echo $palabras['practic'] ?></option>
-                        <option value="Proyecto"><?php echo $palabras['project'] ?></option>
+                        <option value="Proyecto"><?php echo $palabras['proyect'] ?></option>
                     </select>
                 </div>
             </div>
