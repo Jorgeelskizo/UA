@@ -27,7 +27,7 @@ if ($trabajo = $result->fetch_assoc()) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Universidad de Alicante - Proyecto Fin de Grado Ingenieria Multimedia</title>
+  <title>Editar Proyecto</title>
   <link rel="stylesheet" href="estilos/unificado.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="imports/fontello/css/fontello.css">
@@ -91,11 +91,9 @@ if ($trabajo = $result->fetch_assoc()) {
             Archivo</button></h2>
         <hr>
         <section class="documents-edit">
-          <h3>Documentos</h3>
           <div id="documentList"> <!-- Contenedor para los documentos añadidos -->
             <!-- Aquí se añadirán los documentos dinámicamente -->
           </div>
-          <a href="#" class="view-all-edit">Ver todos</a>
         </section>
 
       </article>
@@ -110,11 +108,7 @@ if ($trabajo = $result->fetch_assoc()) {
 
   <script src="script.js"></script>
 
-
-
-
-
-  <<!-- Modal para subir archivos con nuevos ID y clases -->
+  <!-- Modal para subir archivos con nuevos ID y clases -->
     <div id="uploadFileModal" class="upload-modal" style="display: none;">
       <div class="upload-modal-content">
         <span class="upload-close" onclick="closeUploadFileModal()">&times;</span>
@@ -155,5 +149,36 @@ if ($trabajo = $result->fetch_assoc()) {
       </div>
     </div>
 </body>
+
+<!-- Modal para documentos -->
+<div id="documentModal" class="modal">
+  <div class="modal-content">
+    <span class="close" data-modal-id="documentModal">&times;</span>
+    <h2>Documentos Asociados</h2>
+    <hr>
+    <div id="document-list">
+      <!-- Aquí se cargarán los documentos con AJAX -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal para imágenes -->
+<div id="documentModalImage" class="modal">
+  <div class="modal-content">
+    <span class="close" data-modal-id="documentModalImage">&times;</span>
+    <h2>Imágenes Asociadas</h2>
+    <hr>
+    <div id="photos-list">
+      <!-- Aquí se cargarán las imágenes con AJAX -->
+    </div>
+  </div>
+</div>
+
+<div id="imageModal" class="modal">
+  <div class="modal-image modal-image-content">
+    <span class="close" data-modal-id="imageModal">&times;</span>
+    <img id="modal-image" src="" alt="Imagen en grande">
+  </div>
+</div>
 
 </html>
