@@ -59,7 +59,7 @@ button {
     color: #ffffff;
     /* Texto del botón */
     border: none;
-    padding: 10px 20px;
+    padding: 0.5em 1em;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
