@@ -17,6 +17,9 @@ if ($rating_row = $result->fetch_assoc()) {
     $media_valoracion = $rating_row['media_valoracion'];
 }
 $stmt->close();
+
+
+
 ?>
 
 
@@ -25,7 +28,7 @@ $stmt->close();
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Universidad de Alicante - Proyecto Fin de Grado Ingenieria Multimedia</title>
+<title>Detalles de proyecto</title>
 <link rel="stylesheet" href="estilos/unificado.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <?php include 'scripts/controlEstilo.php'; ?>
@@ -138,7 +141,7 @@ $stmt->close();
                       FROM pdf 
                       WHERE id_proyecto = $id_proyecto
                       ORDER BY id_pdf ASC 
-                      LIMIT 2";
+                      LIMIT 3";
           $pdf_result = $conn->query($pdf_sql);
           if ($pdf_result->num_rows > 0) {
               while ($pdf_row = $pdf_result->fetch_assoc()) {
@@ -170,7 +173,7 @@ $stmt->close();
                       FROM archivos 
                       WHERE id_trabajo = $id_proyecto
                       ORDER BY id_archivo ASC 
-                      LIMIT 2";
+                      LIMIT 3";
           $img_result = $conn->query($img_sql);
           if ($img_result->num_rows > 0) {
               while ($img_row = $img_result->fetch_assoc()) {
@@ -240,8 +243,6 @@ $stmt->close();
       </div>
     </div>
 </div>
-
-<?php include 'imports/footer.php'; ?>
 
 <script src="script.js"></script>
 
