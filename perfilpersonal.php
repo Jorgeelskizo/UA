@@ -15,6 +15,7 @@ $nombre = $_SESSION['nombre_usuario'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de Usuario - Universitat d'Alacant</title>
     <link rel="stylesheet" href="estilos/unificado.css">
+    <link rel="stylesheet" href="imports/fontello/css/fontello.css">
     <?php include 'scripts/controlEstilo.php'; ?>
     <?php include 'scripts/controlTamano.php'; ?>
 </head>
@@ -54,11 +55,13 @@ WHERE u.nombre_completo = ?";
         echo '<section class="gallery-container-index">';
         echo '<section class="project-gallery-index">';
 
+        $int = 1;
+
         // Procesando cada fila del resultado
         while ($row = $result->fetch_assoc()) {
             echo '<article>';
             // Asegúrate de cerrar las comillas correctamente después de src=
-            echo '<a href="proyecto.php?id=' . $row['id_trabajo'] . '">';
+            echo '<a accesskey='. $int .'  href="proyecto.php?id=' . $row['id_trabajo'] . '">';
             // Asegúrate de cerrar las comillas correctamente después de src=
             echo '<img src="' . $row['nombre_archivo'] . '" alt="Descripción de la imagen">';
             echo '</a>';
@@ -70,6 +73,8 @@ WHERE u.nombre_completo = ?";
             echo '<p>' . date('d-m-Y', strtotime($row['fecha_publicacion'])) . '</p>';  // Formateando la fecha
             echo '</footer>';
             echo '</article>';
+
+            $int = $int +1;
         }
 
     } else {

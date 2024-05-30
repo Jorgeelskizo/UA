@@ -30,6 +30,7 @@ if ($trabajo = $result->fetch_assoc()) {
   <title>Universidad de Alicante - Proyecto Fin de Grado Ingenieria Multimedia</title>
   <link rel="stylesheet" href="estilos/unificado.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="imports/fontello/css/fontello.css">
   <?php include 'scripts/controlEstilo.php'; ?>
   <?php include 'scripts/controlTamano.php'; ?>
   <script src="scripts/editar_trabajo.js"></script>
@@ -42,11 +43,6 @@ if ($trabajo = $result->fetch_assoc()) {
   include 'Imports/header.php';
   ?>
 
-  <div class="header-image-index"></div>
-
-  <?php
-  include 'Imports/barranav.php';
-  ?>
   <h1 id="titulo" class="titulo-edit">Edita tu trabajo </h1>
   <div class="project-container-edit">
 
@@ -110,9 +106,6 @@ if ($trabajo = $result->fetch_assoc()) {
     <button class="upload-button-edit" onclick="validateAndUploadProject()">Guardar Cambios</button>
 
   </div>
-
-
-  <?php include 'imports/footer.php'; ?>
 
 
   <script src="script.js"></script>

@@ -47,11 +47,14 @@ if (isset($_SESSION['nombre_usuario'])) {
       <div class="form-action">
         <button type="submit" class="btn-login">Iniciar Sesión</button>
       </div>
-      <div class="social-login-login">
+    </form>
+    <div class="form-action">
+        <a href="index.php" accesskey='i'><button type="submit" class="btn-login-atras">Volver</button></a>
+    </div>
+    <div class="social-login-login">
         <a href="#" class="social-icon"><img src="img/google.png" alt="Google"></a>
         <a href="#" class="social-icon"><img src="img/fb.png" alt="Facebook"></a>
       </div>
-    </form>
   </div>
 </div>
 
