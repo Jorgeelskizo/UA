@@ -7,6 +7,23 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
+    const closeDocumentButton = document.querySelector('.close[data-modal-id="documentModal"]');
+    if (closeDocumentButton) {
+        closeDocumentButton.addEventListener('click', closeDocumentModal);
+    }
+
+    // Añadir escuchador de eventos al botón de cierre del modal de imágenes
+    const closeImageButton = document.querySelector('.close[data-modal-id="documentModalImage"]');
+    if (closeImageButton) {
+        closeImageButton.addEventListener('click', closeDocumentModalImage);
+    }
+
+    // Añadir escuchador de eventos al botón de cierre del modal de imágenes
+    const closeImage = document.querySelector('.close[data-modal-id="imageModal"]');
+    if (closeImage) {
+        closeImage.addEventListener('click', closeImageModal);
+    }
+
     fetch(`scripts/editar_trabajoGETPDF.php?id=${idTrabajo}`)
         .then(response => {
             if (!response.ok) {
@@ -51,7 +68,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function displayPDF(docs) {
     const docContainer = document.getElementById('documentList');
-    docs.forEach(doc => {
+
+    if (docs.length > 0) {
+        const header = document.createElement('h3');
+        header.id = 'h3-imagenes';
+        header.textContent = 'Documentos PDF';
+        docContainer.appendChild(header);
+    }
+
+    docs.slice(0, 3).forEach(doc => {
+        
+
         const div = document.createElement('div');
         div.className = 'document-item';
         div.id = `media-item-pdf-${doc.id_pdf}`;
@@ -66,31 +93,70 @@ function displayPDF(docs) {
         fileInfo.className = 'document-info';
         fileInfo.innerHTML = `<p class="document-title">${doc.titulo}</p><p class="document-description">${doc.descripcion || 'Sin descripción'}</p>`;
 
-        const downloadButton = document.createElement('button');
-        downloadButton.className = 'download-button';
-        downloadButton.textContent = 'Descargar';
-        downloadButton.onclick = function () {
-            window.location.href = doc.ruta;
-        };
+        const downloadLink = document.createElement('a');
+        downloadLink.href = doc.ruta;
+        downloadLink.download = '';  
+        downloadLink.className = 'download-button';
+        downloadLink.textContent = 'Descargar';
 
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete-button';
         deleteButton.textContent = 'Eliminar';
         deleteButton.onclick = function() {
-            deleteMedia(doc.id_pdf, 'pdf'); // Función que maneja la eliminación
+            deleteMedia(doc.id_pdf, 'pdf');
         };
+
         div.appendChild(docIcon);
         div.appendChild(fileInfo);
-        div.appendChild(downloadButton);
+        div.appendChild(downloadLink);
         div.appendChild(deleteButton);
 
         docContainer.appendChild(div);
+
+        const initialHr = document.createElement('hr');
+        docContainer.appendChild(initialHr);
     });
+
+    // Añadir enlace para ver todos los documentos
+    const viewAllLink = document.createElement('a');
+    viewAllLink.href = "#";
+    viewAllLink.className = 'view-all';
+    viewAllLink.textContent = 'Ver todos los documentos';
+    viewAllLink.onclick = function() {
+        document.getElementById('documentModal').style.display = 'block';
+        loadDocuments(); // Llama a la función para cargar los documentos
+    };
+    docContainer.appendChild(viewAllLink);
+}
+
+function loadDocuments() {
+    var xhr = new XMLHttpRequest();
+    // Recolectando el id_trabajo de la URL del navegador
+    const id_trabajo = new URLSearchParams(window.location.search).get('id');
+    
+    // Asegúrate de que la URL es correcta y que el id_trabajo está siendo usado correctamente en la URL
+    xhr.open("GET", `scripts/get_documents.php?id_trabajo=${id_trabajo}`, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById("document-list").innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
 }
 
 function displayIMG(docs) {
     const docContainer = document.getElementById('documentList');
-    docs.forEach(doc => {
+
+    if (docs.length > 0) {
+        const header = document.createElement('h2');
+        header.textContent = 'Imagenes';
+        docContainer.appendChild(header);
+    }
+    
+
+    docs.slice(0, 3).forEach(doc => {
+        
+
         const div = document.createElement('div');
         div.className = 'document-item';
         // Asegúrate que estás usando el identificador correcto aquí
@@ -106,12 +172,19 @@ function displayIMG(docs) {
         fileInfo.className = 'document-info';
         fileInfo.innerHTML = `<p class="document-title">${doc.nombre}</p><p class="document-description">${doc.texto_alternativo}</p>`;
 
-        const downloadButton = document.createElement('button');
-        downloadButton.className = 'download-button';
-        downloadButton.textContent = 'Descargar';
-        downloadButton.onclick = function () {
-            window.location.href = doc.ruta;
+        const viewButton = document.createElement('button');
+        viewButton.className = 'view-button download-button';
+        viewButton.textContent = 'Ver';
+        // Añadir evento que abre el modal y muestra la imagen
+        viewButton.onclick = function() {
+            openImageModal(doc.nombre_archivo);
         };
+
+        const downloadLink = document.createElement('a');
+        downloadLink.href = doc.nombre_archivo;
+        downloadLink.download = '';  
+        downloadLink.className = 'download-button';
+        downloadLink.textContent = 'Descargar';
 
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete-button';
@@ -123,13 +196,60 @@ function displayIMG(docs) {
 
         div.appendChild(docIcon);
         div.appendChild(fileInfo);
-        div.appendChild(downloadButton);
+        div.appendChild(viewButton);
+        div.appendChild(downloadLink);
         div.appendChild(deleteButton);
 
         docContainer.appendChild(div);
     });
+
+    // Añadir enlace para ver todas las imágenes
+    const viewAllLink = document.createElement('a');
+    viewAllLink.href = "#";
+    viewAllLink.className = 'view-all';
+    viewAllLink.textContent = 'Ver todas las fotos';
+    viewAllLink.onclick = function() {
+        document.getElementById('documentModalImage').style.display = 'block';
+        loadIMG(); // Llama a la función para cargar las imágenes
+    };
+    docContainer.appendChild(viewAllLink);
+
+    const initialHr = document.createElement('hr');
+    docContainer.appendChild(initialHr);
 }
 
+function loadIMG() {
+    var xhr = new XMLHttpRequest();
+    const id_trabajo = new URLSearchParams(window.location.search).get('id');
+    
+    xhr.open("GET", `scripts/get_fotos.php?id_trabajo=${id_trabajo}`, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById("photos-list").innerHTML = xhr.responseText;
+            addEventListenersToViewButtons();
+        }
+    };
+    xhr.send();
+}
+
+function addEventListenersToViewButtons() {
+    const photosList = document.getElementById("photos-list");
+    photosList.addEventListener('click', function(event) {
+        const target = event.target;
+        if (target.classList.contains('view-button')) {
+            const imageUrl = target.getAttribute('data-image-url');
+            if (imageUrl) {
+                openImageModal(imageUrl);
+            }
+        }
+    });
+}
+
+function openImageModal(imageSrc) {
+    const modalImage = document.getElementById('modal-image');
+    modalImage.src = imageSrc;
+    document.getElementById('imageModal').style.display = 'block';
+}
 
 
 function deleteMedia(id, type) {
@@ -334,6 +454,18 @@ function resetUploadFileInput() {
 function closeUploadFileModal() {
     document.getElementById('uploadFileModal').style.display = 'none';
     resetUploadForm(); // Asegura que los campos están listos para la próxima vez
+}
+
+function closeDocumentModal() {
+    document.getElementById('documentModal').style.display = 'none';
+}
+
+function closeDocumentModalImage() {
+    document.getElementById('documentModalImage').style.display = 'none';
+}
+
+function closeImageModal() {
+    document.getElementById('imageModal').style.display = 'none';
 }
 
 function handleNewImageSelection() {
