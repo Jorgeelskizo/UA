@@ -61,7 +61,7 @@ $stmt->close();
 
 <div class="left-column">
     <div class="project-image">
-        <img src="<?php echo $portada; ?>" alt="Project Thumbnail" class="fixed-size">
+        <img src="<?php echo $portada; ?>" alt="Imagen destacada del proyecto" class="fixed-size">
     </div>
     <div class="project-info">
       <div class="titulo-y-editar">    
@@ -147,7 +147,7 @@ $stmt->close();
               while ($pdf_row = $pdf_result->fetch_assoc()) {
           ?>
           <div class="document-item">
-            <span class="document-icon"><img src="img/pdf.png"></span> 
+            <span class="document-icon"><img src="img/pdf.png" alt="Icono de pdf"></span> 
             <div class="document-info">
               <p class="document-title"><?php echo $pdf_row['titulo']; ?></p>
               <p class="document-description"><?php echo $pdf_row['descripcion']; ?></p>
@@ -179,7 +179,7 @@ $stmt->close();
               while ($img_row = $img_result->fetch_assoc()) {
           ?>
           <div class="document-item">
-            <span class="document-icon"><img src="img/image.png"></span> 
+            <span class="document-icon"><img src="img/image.png" alt="Icono de img"></span> 
             <div class="document-info">
                 <p class="document-title"><?php echo htmlspecialchars($img_row['nombre']); ?></p>
                 <p class="document-description"><?php echo htmlspecialchars($img_row['texto_alternativo']); ?></p>
