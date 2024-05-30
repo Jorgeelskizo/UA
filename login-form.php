@@ -27,7 +27,7 @@ if (isset($_SESSION['nombre_usuario'])) {
 
 <div class="login-container-login">
   <div class="login-box-login">
-    <img src="path-to-your-logo.png" alt="Universidad de Alicante" class="university-logo-login">
+    <img src="img/ua-cuadrado.png" alt="Universidad de Alicante" class="university-logo-login">
     <div class="login-title-login">Iniciar Sesión</div>
     <form method="post" action="scripts/login.php" enctype="multipart/form-data">
       <div class="form-group-login">
@@ -48,8 +48,8 @@ if (isset($_SESSION['nombre_usuario'])) {
         <button type="submit" class="btn-login">Iniciar Sesión</button>
       </div>
       <div class="social-login-login">
-        <a href="#" class="social-icon"><img src="path-to-google-icon.png" alt="Google"></a>
-        <a href="#" class="social-icon"><img src="path-to-facebook-icon.png" alt="Facebook"></a>
+        <a href="#" class="social-icon"><img src="img/google.png" alt="Google"></a>
+        <a href="#" class="social-icon"><img src="img/fb.png" alt="Facebook"></a>
       </div>
     </form>
   </div>
