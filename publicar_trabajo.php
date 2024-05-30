@@ -32,14 +32,14 @@ include 'scripts/controlSesion.php';
     <?php
     include 'Imports/barranav.php';
     ?>
-    <h1 id="titulo">Publica tu trabajo</h1>
+    <h1 id="titulo"><?php echo $palabras['publicar'] ?></h1>
     <div class="project-container">
 
         <div class="left-column">
-            <h2 id="titulo">Imagen de portada</h2>
+            <h2 id="titulo"><?php echo $palabras['Imgdelproy'] ?></h2>
             <div class="project-image">
                 <label for="file-upload" class="custom-file-upload">
-                    <p><i class="fa fa-cloud-upload-alt"></i>Subir Imagen </p>
+                    <p><i class="fa fa-cloud-upload-alt"></i><?php echo $palabras['subirarch'] ?></p>
                     <input id="file-upload" class="file-upload" type="file" accept=".jpg, .jpeg, .png" style="display:none;"
                         onchange="previewImage();" />
                     <div id="image-preview-container" class="image-preview-container"
@@ -54,27 +54,27 @@ include 'scripts/controlSesion.php';
 
             <div class="project-info">
                 <div class="input-group">
-                    <h2>Título del trabajo</h2>
+                    <h2><?php echo $palabras['titleproy'] ?></h2>
                     <input id="input_titulo" class="input_titulo" type="text">
                 </div>
 
                 <div class="input-group">
-                    <h2>Descripción del trabajo</h2>
+                    <h2><?php echo $palabras['Descpro'] ?></h2>
                     <textarea name="descripcion" id="descripcion" class="descripcion" cols="30" rows="10"></textarea>
                 </div>
 
                 <div class="input-group">
-                    <h2>Horas de desarrollo</h2>
+                    <h2><?php echo $palabras['horas'] ?></h2>
                     <input id="input_horas" class="input_horas" type="number" placeholder="E.g., 120" min="1" step="1"> horas
                 </div>
 
                 <div class="input-group">
-                    <h2>Tipo de trabajo</h2>
+                    <h2><?php echo $palabras['tipo'] ?></h2>
                     <select name="tipo_proyecto" id="tipo_proyecto" class="tipo_proyecto">
-                        <option value="TFG">TFG</option>
-                        <option value="TFM">TFM</option>
-                        <option value="Práctica">Práctica</option>
-                        <option value="Proyecto">Proyecto</option>
+                        <option value="TFG"><?php echo $palabras['tfg'] ?></option>
+                        <option value="TFM"><?php echo $palabras['tfm'] ?></option>
+                        <option value="Práctica"><?php echo $palabras['practic'] ?></option>
+                        <option value="Proyecto"><?php echo $palabras['project'] ?></option>
                     </select>
                 </div>
             </div>
@@ -82,15 +82,14 @@ include 'scripts/controlSesion.php';
 
         <div class="right-column">
             <article class="resources-section">
-                <h2>Recursos Multimedia Asociados <button class="upload-button" onclick="openUploadFileModal()">Subir
-                        Archivo</button></h2>
+                <h2><?php echo $palabras['Recmulti'] ?> <button class="upload-button" onclick="openUploadFileModal()"><?php echo $palabras['subirarch'] ?></button></h2>
                 <hr>
                 <section class="documents">
-                    <h3>Documentos</h3>
+                    <h3><?php echo $palabras['Documentos'] ?></h3>
                     <div id="documentList" class="documentList"> <!-- Contenedor para los documentos añadidos -->
                         <!-- Aquí se añadirán los documentos dinámicamente -->
                     </div>
-                    <a href="#" class="view-all">Ver todos</a>
+                    <a href="#" class="view-all"><?php echo $palabras['vermas'] ?></a>
                 </section>
 
             </article>
@@ -100,8 +99,7 @@ include 'scripts/controlSesion.php';
     </div>
 
     <div id="subir_proyecto">
-        <button id="upload-project-button" class="upload-button" onclick="validateAndUploadProject()">Subir
-            trabajo</button>
+        <button id="upload-project-button" class="upload-button" onclick="validateAndUploadProject()"><?php echo $palabras['subirarch'] ?></button>
     </div>
 
 
